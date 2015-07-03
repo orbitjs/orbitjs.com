@@ -1,0 +1,14 @@
+# Site settings
+title: Orbit.js
+tagline: A standalone library for data access and synchronization
+description: The website for Orbit.js
+baseurl: "/orbitjs.com" # the subpath of your site, e.g. /blog/
+url: "https://orbitjs.github.com" # the base hostname & protocol for your site
+github_username: orbitjs
+
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+
+redcarpet:
+  extensions: ['tables', 'no_intra_emphasis', 'autolink', 'with_toc_data']
