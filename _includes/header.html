@@ -1,5 +1,11 @@
 <header>
   <nav>
-    Navigation goes here.
+    <ul>
+      {% for item in site.data.navigation %}
+        <li {% if page.url contains item.url %}class="active"{% endif %}>
+          <a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
   </nav>
 </header>
