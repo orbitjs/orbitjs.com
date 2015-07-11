@@ -1,0 +1,35 @@
+{
+  "name": "orbitjs.com",
+  "version": "0.0.1",
+  "description": "The website for Orbit.js",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orbitjs/orbitjs.com.git"
+  },
+  "keywords": [
+    "orbitjs",
+    "orbit.js",
+    "orbit",
+    "data",
+    "www",
+    "website",
+    "documentation",
+    "docs"
+  ],
+  "author": "Jmeas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orbitjs/orbitjs.com/issues"
+  },
+  "homepage": "https://github.com/orbitjs/orbitjs.com",
+  "devDependencies": {
+    "handlebars": "^3.0.3",
+    "lodash": "^3.10.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.4.1"
+  }
+}

@@ -1,7 +1,9 @@
 <ul>
   {% for class in site.data.orbitjs_api.classes %}
     <li>
-      {{ class[0] }}
+      <a href="{{ site.baseurl }}/api/data/{{ class[0] }}.html">
+        {{ class[0] }}
+      </a>
     </li>
   {% endfor %}
 </ul>

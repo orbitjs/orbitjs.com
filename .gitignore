@@ -1,2 +1,3 @@
 _site
-api/classes
+api/data
+node_modules
