@@ -2,9 +2,90 @@ html {
   min-width: 1000px;
 }
 
-body,
+body {
+  width: 100%;
+}
+
 footer,
-header {
+header,
+main,
+.container {
   width: 960px;
   margin: 0 auto;
+}
+
+footer {
+  height: 60px;
+  line-height: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: #3A7CD7;
+}
+
+main {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+}
+
+header {
+  display: flex;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 23px;
+  margin: 0 40px 0 0;
+  padding: 0;
+}
+
+header h1 a {
+  color: #000;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul > li {
+  margin: 0 10px;
+}
+
+header nav ul > li:first-child {
+  margin-left: 0;
+}
+
+header nav ul > li:last-child {
+  margin-right: 0;
+}
+
+header nav a {
+  color: #666;
+}
+
+header li.active a {
+  color: #000;
+  font-weight: bold;
+}
+
+/* API & Guides nav */
+.left-nav {
+  width: 300px;
+}
+
+.left-nav li {
+  padding: 2px 0;
 }
