@@ -1,0 +1,9 @@
+<ul class='left-nav'>
+  {% for item in site.data.guides %}
+    <li>
+      <a href="{{ site.baseurl }}/guides{{ item.url }}">
+        {{ item.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
