@@ -1,13 +1,13 @@
 <ul class='left-nav'>
   {% for ns in site.data.api_data %}
     <li>
-      <a href="{{ site.baseurl }}/api/data/{{ ns[0] }}.html">
+      <a href="{{ site.baseurl }}/api/data/{{ ns[0] }}/">
         {{ ns[0] }}
       </a>
       <ul>
         {% for class in ns[1].classes %}
           <li>
-            <a href='{{ site.baseurl }}/api/data/{{ class.name }}.html'>
+            <a href='{{ site.baseurl }}/api/data/{{ class.name }}/'>
               {{ class.name }}
             </a>
           </li>
