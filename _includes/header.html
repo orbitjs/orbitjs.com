@@ -6,8 +6,9 @@
   </h1>
   <nav>
     <ul>
+      {% assign url = page.url|remove:'index.html' %}
       {% for item in site.data.navigation %}
-        <li {% if page.url contains item.url %}class="active"{% endif %}>
+        <li {% if url == item.url %}class="active"{% endif %}>
           <a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
         </li>
       {% endfor %}
