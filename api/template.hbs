@@ -1,13 +1,9 @@
 ---
-layout: default
+layout: api
 permalink: /api/data/{{ name }}/
 redirect_from: /api/data/{{ name }}.html
 ---
 
-{% include api-nav.html %}
-<div class="content">
-  <h1>{{ name }}</h1>
-  <p>
-    {{ description }}
-  </p>
-</div>
+# {{ name }}
+
+{{{ description }}}
