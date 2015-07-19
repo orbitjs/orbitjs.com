@@ -70,3 +70,6 @@ footer {
 .left-nav li {
   padding: 2px 0;
 }
+.left-nav li li {
+  margin-left: 15px;
+}
