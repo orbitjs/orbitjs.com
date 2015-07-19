@@ -27,6 +27,11 @@
   },
   "homepage": "https://github.com/orbitjs/orbitjs.com",
   "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.0.5",
     "handlebars": "^3.0.3",
     "lodash": "^3.10.0",
     "mkdirp": "^0.5.1",

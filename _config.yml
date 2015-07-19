@@ -10,5 +10,7 @@ github_username: orbitjs
 markdown: redcarpet
 highlighter: pygments
 
+exclude: ['node_modules', 'css/stylus']
+
 redcarpet:
   extensions: ['tables', 'no_intra_emphasis', 'autolink', 'with_toc_data']
