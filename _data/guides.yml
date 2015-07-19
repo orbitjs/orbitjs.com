@@ -1,0 +1,13 @@
+- title: Introduction
+  url: /
+
+- title: Getting Started
+  url: /getting-started/
+  posts:
+    - title: Installation
+      url: /getting-started/installation/
+    - title: Configuration
+      url: /getting-started/configuration/
+
+- title: Transformer
+  url: /transformer/
