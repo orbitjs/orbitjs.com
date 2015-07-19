@@ -21,6 +21,9 @@ main {
 .container {
   flex: 1;
 }
+.container h1:first-child {
+  margin-top: 0;
+}
 a {
   text-decoration: none;
   color: #3a7cd7;
