@@ -1,9 +1,18 @@
 <ul class='left-nav'>
-  {% for class in site.data.orbitjs_api.classes %}
+  {% for ns in site.data.api_data %}
     <li>
-      <a href="{{ site.baseurl }}/api/data/{{ class[0] }}.html">
-        {{ class[0] }}
+      <a href="{{ site.baseurl }}/api/data/{{ ns[0] }}.html">
+        {{ ns[0] }}
       </a>
+      <ul>
+        {% for class in ns[1].classes %}
+          <li>
+            <a href='{{ site.baseurl }}/api/data/{{ class.name }}.html'>
+              {{ class.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </li>
   {% endfor %}
 </ul>
