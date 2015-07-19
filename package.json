@@ -32,6 +32,7 @@
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.0.5",
+    "gulp-yuidoc": "^0.1.2",
     "handlebars": "^3.0.3",
     "lodash": "^3.10.0",
     "mkdirp": "^0.5.1",
