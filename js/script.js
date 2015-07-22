@@ -16,5 +16,3 @@
     $link.addClass('active');
   });
 })();
-
-
