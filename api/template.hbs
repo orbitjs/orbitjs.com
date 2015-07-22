@@ -51,13 +51,29 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   {{/if}}
 </ul>
 
-<div class='tab-item index-tab'>
+<ul class='access-toggles'>
+  <li>
+    <input type='checkbox' name='inherited' checked='checked' value='inherited'>
+    <label for='inherited'>Inherited</label>
+  </li>
+  <li>
+    <input type='checkbox' name='public' checked='checked' value='public'>
+    <label for='public'>Public</label>
+  </li>
+  <li>
+    <input type='checkbox' name='private' value='private'>
+    <label for='private'>Private</label>
+  </li>
+</ul>
+
+{{! Index tab }}
+<div class='tab-item index-tab show-inherited show-public'>
 
   {{#if methods.length}}
   <h2>Methods</h2>
   <ul class='attr-list'>
     {{#each methods}}
-    <li>
+    <li class='access-{{access}}'>
       <a href='#methods_{{name}}'>
         {{name}}
       </a>
@@ -70,7 +86,7 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   <h2>Properties</h2>
   <ul class='attr-list'>
     {{#each properties}}
-    <li>
+    <li class='access-{{access}}'>
       <a href='#properties_{{name}}'>
         {{name}}
       </a>
@@ -83,7 +99,7 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   <h2>Events</h2>
   <ul class='attr-list'>
     {{#each events}}
-    <li>
+    <li class='access-{{access}}'>
       <a href='#events_{{name}}'>
         {{name}}
       </a>
@@ -93,9 +109,10 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   {{/if}}
 </div>
 
-<div class='tab-item methods-tab hide'>
+{{! Methods tab }}
+<div class='tab-item methods-tab hide show-inherited show-public'>
 {{#each methods}}
-<div id='methods_{{name}}'>
+<div id='methods_{{name}}' class='access-{{access}}'>
   {{ name }}
   (
   {{#each params}}
@@ -120,10 +137,12 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
 {{/each}}
 </div>
 
-<div class='tab-item properties-tab hide'>
+{{! Properties tab }}
+<div class='tab-item properties-tab hide show-inherited show-public'>
   Properties go here!
 </div>
 
+{{! Events tab }}
 <div class='tab-item events-tab hide'>
   Events go here
 </div>

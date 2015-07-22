@@ -2,6 +2,17 @@
   var $tabItems = $('.tab-item');
   var $tabLinks = $('.pill-nav a');
   var $indexLinks = $('.attr-list a');
+  var $accessToggles = $('.access-toggles input[type=checkbox]');
+
+  var $indexLinkContainers = $('.attr-list li');
+  $accessToggles.on('change', function(e) {
+    var $this = $(e.delegateTarget);
+    var checked = $this.prop('checked');
+    var value = $this.val();
+    var className = 'show-' + value;
+    $indexLinkContainers.toggleClass(className, checked);
+    $tabItems.toggleClass(className, checked);
+  });
 
   function checkHashLocation() {
     var hash = window.location.hash;

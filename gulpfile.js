@@ -62,6 +62,7 @@ gulp.task('generate-api-pages', function(cb) {
     .map(function(ci) {
       ci.relativePath = relativeFilePath(ci.file);
       ci.file = fixUrl(ci.file);
+      ci.access = ci.access || 'public';
       return ci;
     })
     .groupBy('class')
