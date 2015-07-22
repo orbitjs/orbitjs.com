@@ -57,7 +57,11 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   <h2>Methods</h2>
   <ul class='attr-list'>
     {{#each methods}}
-     <li>{{name}}</li>
+    <li>
+      <a href='#methods_{{name}}'>
+        {{name}}
+      </a>
+    </li>
     {{/each}}
   </ul>
   {{/if}}
@@ -66,7 +70,11 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   <h2>Properties</h2>
   <ul class='attr-list'>
     {{#each properties}}
-     <li>{{name}}</li>
+    <li>
+      <a href='#properties_{{name}}'>
+        {{name}}
+      </a>
+    </li>
     {{/each}}
   </ul>
   {{/if}}
@@ -75,7 +83,11 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   <h2>Events</h2>
   <ul class='attr-list'>
     {{#each events}}
-    <li>{{name}}</li>
+    <li>
+      <a href='#events_{{name}}'>
+        {{name}}
+      </a>
+    </li>
     {{/each}}
   </ul>
   {{/if}}
@@ -83,7 +95,7 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
 
 <div class='tab-item methods-tab hide'>
 {{#each methods}}
-<div>
+<div id='#methods_{{name}}'>
   {{ name }}
   (
   {{#each params}}
