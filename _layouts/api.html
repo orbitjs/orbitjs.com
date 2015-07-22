@@ -5,10 +5,12 @@
   {% include header.html %}
   <main>
     {% include api-nav.html %}
-    <div class="container">
+    <div class='container'>
       {{ content }}
     </div>
   </main>
   {% include footer.html %}
+  <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+  <script src='{{ '/js/script.js' | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}'></script>
 </body>
 </html>
