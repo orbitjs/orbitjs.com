@@ -59,6 +59,11 @@ gulp.task('generate-api-pages', function(cb) {
 
   var classItems = _.chain(orbitApi.classitems)
     .filter('itemtype')
+    .map(function(ci) {
+      ci.relativePath = relativeFilePath(ci.file);
+      ci.file = fixUrl(ci.file);
+      return ci;
+    })
     .groupBy('class')
     .value();
 

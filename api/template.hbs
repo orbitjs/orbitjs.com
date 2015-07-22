@@ -82,7 +82,30 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
 </div>
 
 <div class='tab-item methods-tab hide'>
-  Methods go here!
+{{#each methods}}
+<div>
+  {{ name }}
+  (
+  {{#each params}}
+    {{ name }}{{#unless @last}},{{/unless}}
+  {{/each}}
+  )
+</div>
+<div>
+  Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{relativePath}}:{{line}}</a>
+</div>
+{{description}}
+<h3>Parameters</h3>
+{{#each params}}
+  {{name}} {{type}}
+  {{#if description}}
+  <br>
+  {{description}}
+  {{/if}}
+  {{#unless @last}}<br>{{/unless}}
+{{/each}}
+{{#unless @last}}<hr>{{/unless}}
+{{/each}}
 </div>
 
 <div class='tab-item properties-tab hide'>
