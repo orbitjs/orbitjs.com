@@ -3,7 +3,7 @@
   var $tabLinks = $('.pill-nav a');
   var $indexLinks = $('.attr-list a');
 
-  function switchToTab(tabName) {
+  function switchToTab(tabName, methodName) {
     var tabClassName = '.' + tabName + '-tab';
     var $targetTab = $tabItems.filter(tabClassName);
     var $activeLink = $tabLinks.filter('[href="#' + tabName + '"]');
@@ -24,7 +24,7 @@
     var $link = $(e.delegateTarget);
     var linkData = $link.attr('href').slice(1).split('_');
     var tabName = linkData[0];
-    var method = linkData[1];
-    switchToTab(tabName);
+    var methodName = linkData[1];
+    switchToTab(tabName, methodName);
   });
 })();
