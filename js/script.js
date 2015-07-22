@@ -3,6 +3,15 @@
   var $tabLinks = $('.pill-nav a');
   var $indexLinks = $('.attr-list a');
 
+  function checkHashLocation() {
+    var hash = window.location.hash;
+    if (!hash) { return; }
+    var tab = hash.slice(1).split('_')[0];
+    switchToTab(tab);
+  }
+
+  checkHashLocation();
+
   function switchToTab(tabName, methodName) {
     var tabClassName = '.' + tabName + '-tab';
     var $targetTab = $tabItems.filter(tabClassName);
