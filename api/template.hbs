@@ -6,10 +6,88 @@ redirect_from: /api/data/{{ name }}.html
 
 # {{ name }}
 
-Method count: {{ methods.length }}
-
-Properties count: {{ properties.length }}
-
-Event count: {{ events.length }}
-
 {{{ description }}}
+
+{{! If there are no documented attrs, then we display a little message so that nobody thinks that things are broken. }}
+{{#unless apiCount }}
+<div class='notification'>
+  There are no documented properties, methods, or events for this Object.
+</div>
+{{/unless}}
+
+{{! If there are methods, then we render out the menu that toggles the attrs }}
+{{#if apiCount}}
+<ul class='pill-nav'>
+  <li class='index-menu-item'>
+    <a href='#index' class='active'>
+      Index
+    </a>
+  </li>
+
+  {{#if methods.length}}
+  <li class='methods-menu-item'>
+    <a href='#methods'>
+      Methods
+    </a>
+  </li>
+  {{/if}}
+
+  {{#if properties.length}}
+  <li class='properties-menu-item'>
+    <a href='#properties'>
+      Properties
+    </a>
+  </li>
+  {{/if}}
+
+  {{#if events.length}}
+  <li class='events-menu-item'>
+    <a href='#events'>
+      Events
+    </a>
+  </li>
+  {{/if}}
+</ul>
+
+<div class='index-tab'>
+
+  {{#if methods.length}}
+  <h2>Methods</h2>
+  <ul class='attr-list'>
+    {{#each methods}}
+     <li>{{name}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+  {{#if properties.length}}
+  <h2>Properties</h2>
+  <ul class='attr-list'>
+    {{#each properties}}
+     <li>{{name}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
+  
+  {{#if events.length}}
+  <h2>Events</h2>
+  <ul class='attr-list'>
+    {{#each events}}
+    <li>{{name}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
+</div>
+
+<div class='methods-tab hide'>
+  Methods go here!
+</div>
+
+<div class='properties-tab hide'>
+  Properties go here!
+</div>
+
+<div class='events-tab hide'>
+  Events go here
+</div>
+{{/if}}

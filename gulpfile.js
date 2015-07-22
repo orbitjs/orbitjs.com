@@ -50,6 +50,7 @@ gulp.task('generate-api-pages', function(cb) {
     c.methods = _.filter(cItems, {itemtype: 'method'});
     c.properties = _.filter(cItems, {itemtype: 'property'});
     c.events = _.filter(cItems, {itemtype: 'event'});
+    c.apiCount = c.methods.length + c.properties.length + c.events.length;
     return c;
   });
 
@@ -149,7 +150,7 @@ gulp.task('transform-api-docs', ['fetch-api-docs'], function() {
 });
 
 // Build the site
-gulp.task('build', ['clean-css', 'stylus']);
+gulp.task('build', ['clean-css', 'stylus', 'generate-api-pages']);
 
 // Get the API docs in order
 gulp.task('docs', ['clean-api-docs', 'clean-generated-api', 'transform-api-docs']);

@@ -28,6 +28,16 @@ a {
   text-decoration: none;
   color: #3a7cd7;
 }
+.notification {
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px 15px;
+  color: #333;
+}
+.hide {
+  display: none;
+}
 header {
   display: flex;
   height: 60px;
@@ -74,4 +84,30 @@ footer {
 }
 .left-nav li li {
   margin-left: 15px;
+}
+.pill-nav {
+  display: flex;
+  border-radius: 3px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.pill-nav li a {
+  border: 1px solid #333;
+  padding: 8px 24px;
+  color: #333;
+  font-size: 14px;
+}
+.pill-nav li a.active,
+.pill-nav li a:hover {
+  color: #fff;
+  background: #333;
+}
+.pill-nav li:first-child a {
+  border-radius: 5px 0 0 5px;
+}
+.pill-nav li:last-child a {
+  border-radius: 0 5px 5px 0;
+}
+.pill-nav li + li a {
+  border-left: 0;
 }

@@ -1,0 +1,28 @@
+.pill-nav
+  display flex
+  border-radius 3px
+  margin 0 auto
+  justify-content center
+  
+  li
+    
+    a
+      border 1px solid #333
+      padding 8px 24px
+      color #333
+      font-size 14px
+      
+      &.active,
+      &:hover
+        color #fff
+        background #333
+      
+    &:first-child a
+        border-radius 5px 0 0 5px
+
+    &:last-child a
+        border-radius 0 5px 5px 0
+    
+    + li a
+      border-left 0
+      
