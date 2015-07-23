@@ -114,6 +114,7 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
 {{! Methods tab }}
 <div class='tab-item methods-tab hide show-inherited show-public'>
 {{#each methods}}
+
 <div id='methods_{{name}}' class='access-{{access}}'>
   <div>
     {{ name }}
@@ -140,16 +141,29 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
   {{/each}}
   {{#unless @last}}<hr>{{/unless}}
 </div>
+
 {{/each}}
 </div>
 
 {{! Properties tab }}
 <div class='tab-item properties-tab hide show-inherited show-public'>
-  Properties go here!
+{{#each properties}}
+
+  <div>
+    {{ name }} {{ type }}
+  </div>
+  <div>
+    Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{relativePath}}:{{line}}</a>
+  </div>
+  <div>
+    {{{description}}}
+  </div>
+
+{{/each}}
 </div>
 
 {{! Events tab }}
 <div class='tab-item events-tab hide'>
-  Events go here
+  ...
 </div>
 {{/if}}
