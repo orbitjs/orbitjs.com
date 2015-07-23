@@ -2,6 +2,12 @@
 
 The website for [Orbit.js](https://github.com/orbitjs/orbit.js).
 
+### Dependencies
+
+- [Node v0.12](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [Jekyll](http://jekyllrb.com/)
+
 ### Installation
 
 Clone this repository into a sibling directory of the `orbit.js` repo. Your paths
@@ -40,3 +46,11 @@ This must be done in the following situations:
 
 Run `jekyll serve` from the command line. The site should now be live at
 [http://127.0.0.1:4000/orbitjs.com/](http://127.0.0.1:4000/orbitjs.com/).
+
+### Setting up Watch
+
+If you wish to use Watch while developing, open a new terminal and run `gulp work`. The Stylus
+will now rebuild automatically as you make changes.
+
+Due to the way Jekyll updates files in the `_site` directory, I was unable to configure it to automatically
+refresh the page. If you've had experience setting this up, do submit a PR!

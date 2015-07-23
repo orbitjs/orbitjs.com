@@ -134,7 +134,7 @@ gulp.task('stylus', function() {
   return gulp.src('./css/stylus/index.styl')
     .pipe($.stylus())
     .pipe($.rename('style.css'))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./css'));
 });
 
 // Generate the API docs from the source library. For this
@@ -197,11 +197,18 @@ gulp.task('transform-api-docs', ['fetch-api-docs'], function() {
     .pipe(gulp.dest('./_data'));
 });
 
+gulp.task('watch', function(done) {
+  gulp.watch('css/stylus/*.styl', ['clean-css', 'stylus']);
+  done();
+});
+
 // Build the site
 gulp.task('build', ['clean-css', 'stylus', 'generate-api-pages']);
 
 // Get the API docs in order
 gulp.task('docs', ['clean-api-docs', 'clean-generated-api', 'transform-api-docs']);
+
+gulp.task('work', ['build', 'watch']);
 
 // An alias of build
 gulp.task('default', ['build']);
