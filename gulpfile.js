@@ -7,14 +7,16 @@ const Handlebars = require('handlebars');
 const loadPlugins = require('gulp-load-plugins');
 const execSync = require('child_process').execSync;
 const marked = require('marked');
+const highlight = require('highlight.js');
 
+// Configure Marked to highlight our code blocks
 marked.setOptions({
   highlight: function (code) {
-    return require('highlight.js').highlightAuto(code, ['javascript']).value;
+    return highlight.highlightAuto(code, ['javascript']).value;
   }
 });
 
-// Load the Gulp plugins under $
+// Load the Gulp plugins under the variable `$`
 const $ = loadPlugins({
   rename: {
     'gulp-json-transform': 'transformJson'
@@ -29,32 +31,37 @@ sha = sha.replace(/\s$/, '');
 const githubUrl = 'http://github.com/orbitjs/orbit.js/blob/' + sha + '/';
 const repoName = 'orbit.js';
 
+// Takes an absolute path of a library file on this computer, and
+// returns the path relative to the root of the orbitjs repository.
 function relativeFilePath(url) {
   var lastIndex = url.lastIndexOf(repoName);
   return url.slice(lastIndex + repoName.length + 1);
 }
 
-function fixUrl(url) {
+// Updates a URL for a library file to point to where it's located on Github
+function createGithubUrl(url) {
   return githubUrl + relativeFilePath(url);
 }
 
-function convertMarkdown(markdown) {
-  return marked(markdown);
-}
-
+// Takes an object that might have markdown fields and converts those
+// fields to HTML. This is necessary because Jekyll's built-in markdown parser
+// will ignore Markdown that is nested within HTML elements.
 function transformMarkdownFields(obj) {
+
+  // These are property keys that are Markdown strings
   var markdownKeys = ['description'];
+  // and these are property keys that are arrays of Markdown strings
   var markdownArrays = ['example'];
 
   _.each(markdownKeys, function(key) {
     if (!obj[key]) { return; }
-    obj[key] = convertMarkdown(obj[key]);
+    obj[key] = marked(obj[key]);
   });
 
   _.each(markdownArrays, function(key) {
     if (!obj[key]) { return; }
     _.each(obj[key], function(item, index) {
-      obj[key][index] = convertMarkdown(item);
+      obj[key][index] = marked(item);
     });
   });
 }
@@ -85,11 +92,14 @@ gulp.task('generate-api-pages', function(cb) {
   mkdirp.sync('./api/data');
   var orbitApi = require('./_data/orbitjs_api.json');
 
+  // "classitems" is what YUIDoc calls methods, properties, and other
+  // things associated with a class. We transform their properties to
+  // be suitable for our Handlebars template.
   var classItems = _.chain(orbitApi.classitems)
     .filter('itemtype')
     .map(function(ci) {
       ci.relativePath = relativeFilePath(ci.file);
-      ci.file = fixUrl(ci.file);
+      ci.file = createGithubUrl(ci.file);
       ci.access = ci.access || 'public';
       transformMarkdownFields(ci);
 
@@ -102,10 +112,11 @@ gulp.task('generate-api-pages', function(cb) {
     .groupBy('class')
     .value();
 
+  // "classes" includes both Classes and Namespaces.
   var classes = _.map(orbitApi.classes, function(c) {
     var cItems = classItems[c.name];
     c.relativePath = relativeFilePath(c.file);
-    c.file = fixUrl(c.file);
+    c.file = createGithubUrl(c.file);
     c.methods = _.filter(cItems, {itemtype: 'method'});
     c.properties = _.filter(cItems, {itemtype: 'property'});
     c.events = _.filter(cItems, {itemtype: 'event'});
@@ -160,7 +171,7 @@ gulp.task('transform-api-docs', ['fetch-api-docs'], function() {
     .pipe($.transformJson(function(data) {
       // Update all URLs to be relative to Github.com, and not your local directory
       var classes = _.map(data.classes, function(c) {
-        c.file = fixUrl(c.file);
+        c.file = createGithubUrl(c.file);
         return c;
       });
 
@@ -197,6 +208,7 @@ gulp.task('transform-api-docs', ['fetch-api-docs'], function() {
     .pipe(gulp.dest('./_data'));
 });
 
+// Automatically build the Stylus as changes are made
 gulp.task('watch', function(done) {
   gulp.watch('css/stylus/*.styl', ['clean-css', 'stylus']);
   done();
@@ -208,6 +220,7 @@ gulp.task('build', ['clean-css', 'stylus', 'generate-api-pages']);
 // Get the API docs in order
 gulp.task('docs', ['clean-api-docs', 'clean-generated-api', 'transform-api-docs']);
 
+// Work on the site with Watch!
 gulp.task('work', ['build', 'watch']);
 
 // An alias of build
