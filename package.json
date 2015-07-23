@@ -36,7 +36,9 @@
     "gulp-stylus": "^2.0.5",
     "gulp-yuidoc": "^0.1.2",
     "handlebars": "^3.0.3",
+    "highlight.js": "^8.6.0",
     "lodash": "^3.10.0",
+    "marked": "^0.3.3",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.4.1"
   }

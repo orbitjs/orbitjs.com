@@ -40,204 +40,79 @@ pre {
   border-radius: 2px;
   padding: 15px 15px;
 }
-.highlight .hll {
-  background-color: #d6d6d6;
+.hljs-comment {
+  color: #8e908c;
 }
-.highlight {
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .hljs-tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
+  color: #c82829;
+}
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+  color: #f5871f;
+}
+.ruby .hljs-class .hljs-title,
+.css .hljs-rule .hljs-attribute {
+  color: #eab700;
+}
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.hljs-name,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
+  color: #718c00;
+}
+.hljs-title,
+.css .hljs-hexcolor {
+  color: #3e999f;
+}
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-function .hljs-title,
+.ruby .hljs-title .hljs-keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
+  color: #4271ae;
+}
+.hljs-keyword,
+.javascript .hljs-function {
+  color: #8959a8;
+}
+.hljs {
+  display: block;
+  overflow-x: auto;
   background: #fff;
   color: #4d4d4c;
+  padding: 0.5em;
+  -webkit-text-size-adjust: none;
 }
-.highlight .c {
-  color: #8e908c;
-}
-.highlight .err {
-  color: #c82829;
-}
-.highlight .k {
-  color: #8959a8;
-}
-.highlight .l {
-  color: #f5871f;
-}
-.highlight .n {
-  color: #4d4d4c;
-}
-.highlight .o {
-  color: #3e999f;
-}
-.highlight .p {
-  color: #4d4d4c;
-}
-.highlight .cm {
-  color: #8e908c;
-}
-.highlight .cp {
-  color: #8e908c;
-}
-.highlight .c1 {
-  color: #8e908c;
-}
-.highlight .cs {
-  color: #8e908c;
-}
-.highlight .gd {
-  color: #c82829;
-}
-.highlight .ge {
-  font-style: italic;
-}
-.highlight .gh {
-  color: #4d4d4c;
-  font-weight: bold;
-}
-.highlight .gi {
-  color: #718c00;
-}
-.highlight .gp {
-  color: #8e908c;
-  font-weight: bold;
-}
-.highlight .gs {
-  font-weight: bold;
-}
-.highlight .gu {
-  color: #3e999f;
-  font-weight: bold;
-}
-.highlight .kc {
-  color: #8959a8;
-}
-.highlight .kd {
-  color: #8959a8;
-}
-.highlight .kn {
-  color: #3e999f;
-}
-.highlight .kp {
-  color: #8959a8;
-}
-.highlight .kr {
-  color: #8959a8;
-}
-.highlight .kt {
-  color: #eab700;
-}
-.highlight .ld {
-  color: #718c00;
-}
-.highlight .m {
-  color: #f5871f;
-}
-.highlight .s {
-  color: #718c00;
-}
-.highlight .na {
-  color: #4271ae;
-}
-.highlight .nb {
-  color: #4d4d4c;
-}
-.highlight .nc {
-  color: #eab700;
-}
-.highlight .no {
-  color: #c82829;
-}
-.highlight .nd {
-  color: #3e999f;
-}
-.highlight .ni {
-  color: #4d4d4c;
-}
-.highlight .ne {
-  color: #c82829;
-}
-.highlight .nf {
-  color: #4271ae;
-}
-.highlight .nl {
-  color: #4d4d4c;
-}
-.highlight .nn {
-  color: #eab700;
-}
-.highlight .nx {
-  color: #4271ae;
-}
-.highlight .py {
-  color: #4d4d4c;
-}
-.highlight .nt {
-  color: #3e999f;
-}
-.highlight .nv {
-  color: #c82829;
-}
-.highlight .ow {
-  color: #3e999f;
-}
-.highlight .w {
-  color: #4d4d4c;
-}
-.highlight .mf {
-  color: #f5871f;
-}
-.highlight .mh {
-  color: #f5871f;
-}
-.highlight .mi {
-  color: #f5871f;
-}
-.highlight .mo {
-  color: #f5871f;
-}
-.highlight .sb {
-  color: #718c00;
-}
-.highlight .sc {
-  color: #4d4d4c;
-}
-.highlight .sd {
-  color: #8e908c;
-}
-.highlight .s2 {
-  color: #718c00;
-}
-.highlight .se {
-  color: #f5871f;
-}
-.highlight .sh {
-  color: #718c00;
-}
-.highlight .si {
-  color: #f5871f;
-}
-.highlight .sx {
-  color: #718c00;
-}
-.highlight .sr {
-  color: #718c00;
-}
-.highlight .s1 {
-  color: #718c00;
-}
-.highlight .ss {
-  color: #718c00;
-}
-.highlight .bp {
-  color: #4d4d4c;
-}
-.highlight .vc {
-  color: #c82829;
-}
-.highlight .vg {
-  color: #c82829;
-}
-.highlight .vi {
-  color: #c82829;
-}
-.highlight .il {
-  color: #f5871f;
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
 }
 .hide {
   display: none;

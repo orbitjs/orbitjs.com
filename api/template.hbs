@@ -8,7 +8,9 @@ redirect_from: /api/data/{{ name }}.html
 
 Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{line}}</a>
 
-{{{ description }}}
+<div>
+  {{{ description }}}
+</div>
 
 {{! If there are no documented attrs, then we display a little message so that nobody thinks that things are broken. }}
 {{#unless apiCount }}
@@ -123,13 +125,15 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
 <div>
   Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{relativePath}}:{{line}}</a>
 </div>
-{{description}}
+<p>
+  {{{description}}}
+</p>
 <h3>Parameters</h3>
 {{#each params}}
   {{name}} {{type}}
   {{#if description}}
   <br>
-  {{description}}
+  {{{description}}}
   {{/if}}
   {{#unless @last}}<br>{{/unless}}
 {{/each}}

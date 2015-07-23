@@ -6,6 +6,13 @@ const mkdirp = require('mkdirp');
 const Handlebars = require('handlebars');
 const loadPlugins = require('gulp-load-plugins');
 const execSync = require('child_process').execSync;
+const marked = require('marked');
+
+marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code, ['javascript']).value;
+  }
+});
 
 // Load the Gulp plugins under $
 const $ = loadPlugins({
@@ -29,6 +36,27 @@ function relativeFilePath(url) {
 
 function fixUrl(url) {
   return githubUrl + relativeFilePath(url);
+}
+
+function convertMarkdown(markdown) {
+  return marked(markdown);
+}
+
+function transformMarkdownFields(obj) {
+  var markdownKeys = ['description'];
+  var markdownArrays = ['example'];
+
+  _.each(markdownKeys, function(key) {
+    if (!obj[key]) { return; }
+    obj[key] = convertMarkdown(obj[key]);
+  });
+
+  _.each(markdownArrays, function(key) {
+    if (!obj[key]) { return; }
+    _.each(obj[key], function(item, index) {
+      obj[key][index] = convertMarkdown(item);
+    });
+  });
 }
 
 // Remove the built CSS file
@@ -63,6 +91,12 @@ gulp.task('generate-api-pages', function(cb) {
       ci.relativePath = relativeFilePath(ci.file);
       ci.file = fixUrl(ci.file);
       ci.access = ci.access || 'public';
+      transformMarkdownFields(ci);
+
+      _.each(ci.params, function(param) {
+        transformMarkdownFields(param);
+      });
+
       return ci;
     })
     .groupBy('class')
@@ -76,6 +110,7 @@ gulp.task('generate-api-pages', function(cb) {
     c.properties = _.filter(cItems, {itemtype: 'property'});
     c.events = _.filter(cItems, {itemtype: 'event'});
     c.apiCount = c.methods.length + c.properties.length + c.events.length;
+    transformMarkdownFields(c);
     return c;
   });
 
