@@ -166,11 +166,12 @@ footer {
 }
 .pill-nav {
   display: flex;
-  border-radius: 3px;
-  margin: 0 auto;
   justify-content: center;
+  border-radius: 3px;
+  margin-bottom: 20px;
 }
 .pill-nav li a {
+  display: block;
   border: 1px solid #333;
   padding: 8px 24px;
   color: #333;
@@ -203,4 +204,15 @@ footer {
 }
 .show-public .access-public {
   display: block;
+}
+.api-description {
+  margin-bottom: 30px;
+}
+.access-toggles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.access-toggles li {
+  margin: 0 10px;
 }
