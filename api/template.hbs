@@ -115,29 +115,31 @@ Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{ relativePath }}:{{li
 <div class='tab-item methods-tab hide show-inherited show-public'>
 {{#each methods}}
 <div id='methods_{{name}}' class='access-{{access}}'>
-  {{ name }}
-  (
+  <div>
+    {{ name }}
+    (
+    {{#each params}}
+      {{ name }}{{#unless @last}},{{/unless}}
+    {{/each}}
+    )
+  </div>
+  <div>
+    Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{relativePath}}:{{line}}</a>
+  </div>
+  <p>
+    {{{description}}}
+  </p>
+  <h3>Parameters</h3>
   {{#each params}}
-    {{ name }}{{#unless @last}},{{/unless}}
+    {{name}} {{type}}
+    {{#if description}}
+    <br>
+    {{{description}}}
+    {{/if}}
+    {{#unless @last}}<br>{{/unless}}
   {{/each}}
-  )
+  {{#unless @last}}<hr>{{/unless}}
 </div>
-<div>
-  Defined in: <a href='{{file}}#L{{line}}' target='_blank'>{{relativePath}}:{{line}}</a>
-</div>
-<p>
-  {{{description}}}
-</p>
-<h3>Parameters</h3>
-{{#each params}}
-  {{name}} {{type}}
-  {{#if description}}
-  <br>
-  {{{description}}}
-  {{/if}}
-  {{#unless @last}}<br>{{/unless}}
-{{/each}}
-{{#unless @last}}<hr>{{/unless}}
 {{/each}}
 </div>
 
