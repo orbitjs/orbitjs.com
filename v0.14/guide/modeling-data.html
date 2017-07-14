@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Modeling data - Orbit.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Orbit.js ">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Modeling data - Orbit.js">
+        <meta property="og:description" content="Orbit.js ">
+        <meta property="og:image" content="https://http://orbitjs.com/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Modeling data - Orbit.js">
+        <meta name="twitter:description" content="Orbit.js ">
+        <meta name="twitter:image" content="https://http://orbitjs.com/images/logo.png">
+
+        <!-- ****** faviconit.com favicons ****** -->
+      	<link rel="shortcut icon" href="/favicon.ico">
+      	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+      	<link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+      	<link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+      	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+      	<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+      	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+      	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+      	<link rel="apple-touch-icon" href="/favicon-57.png">
+      	<link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+      	<link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
+      	<link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
+      	<link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
+      	<link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
+      	<link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
+      	<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
+      	<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+      	<meta name="msapplication-TileColor" content="#FFFFFF">
+      	<meta name="msapplication-TileImage" content="/favicon-144.png">
+      	<meta name="msapplication-config" content="/browserconfig.xml">
+      	<!-- ****** faviconit.com favicons ****** -->
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script>window.PAGE_TYPE = "guide"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <span>Orbit.js</span>
+  </a>
+  <ul id="nav">
+    <li><a href="/v0.14/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/v0.14/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+        <div id="donate" style="margin-bottom: 20px">
+            <img src="/images/paypal.png">
+            <a href="/sponsor">Sponsor Orbit.js</a>
+        </div>
+        <h2>
+            <select class="version-select">
+                
+                <option value="0.14" selected >0.14</option>
+                
+            </select>
+        </h2>
+        <ul class="menu-root">
+            
+            
+            
+                
+                <li>
+                    <a href="/v0.14/guide/index.html" class="sidebar-link">Introduction</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/packages.html" class="sidebar-link">Packages</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/modeling-data.html" class="sidebar-link current">Modeling data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/coordination.html" class="sidebar-link">Coordination</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/license.html" class="sidebar-link">License</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar modeling-data-guide">
+  
+    <h1>Modeling data</h1>
+  
+  <p>Data records must have a normalized structure that’s consistent
+with Orbit’s expectations as well as the constraints of a particular
+application.</p>
+<h2 id="Records"><a href="#Records" class="headerlink" title="Records"></a>Records</h2><p>Records are represented as lightweight, serializable POJOs (i.e. “Plain old
+JavaScript objects”).</p>
+<p>The structure used for records conforms to the <a href="http://jsonapi.org/" target="_blank" rel="external">JSONAPI</a>
+specification. Records can have fields that define their identity, attributes,
+and relationships with other records.</p>
+<p>Here’s an example record that represents a planet:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'earth'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Earth'</span>,</div><div class="line">    <span class="attr">classification</span>: <span class="string">'terrestrial'</span>,</div><div class="line">    <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">relationships</span>: &#123;</div><div class="line">    <span class="attr">solarSystem</span>: &#123;</div><div class="line">      <span class="attr">data</span>: &#123; <span class="attr">type</span>: <span class="string">'solarSystem'</span>, <span class="attr">id</span>: <span class="string">'theSolarSystem'</span> &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">moons</span>: &#123;</div><div class="line">      <span class="attr">data</span>: [</div><div class="line">        &#123; <span class="attr">type</span>: <span class="string">'moon'</span>, <span class="attr">id</span>: <span class="string">'theMoon'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Identity"><a href="#Identity" class="headerlink" title="Identity"></a>Identity</h3><p>Each record’s identity is established by a union of the following fields:</p>
+<ul>
+<li><code>type</code> - a string that identifies a set of records with a shared definition</li>
+<li><code>id</code> - a string that uniquely identifies a record of a given <code>type</code></li>
+</ul>
+<p>Both fields must be defined in order for a record to be identified uniquely.</p>
+<p>Applications can take one of the following approaches to managing identity:</p>
+<ol>
+<li><p>Auto-generate IDs, typically as v4 UUIDs, and then use the same IDs locally
+and remotely.</p>
+</li>
+<li><p>Auto-generate IDs locally and map those IDs to canonical IDs (or “keys”)
+generated remotely.</p>
+</li>
+<li><p>Remotely generate IDs and don’t reference records until those IDs have been
+assigned.</p>
+</li>
+</ol>
+<p>The first two approaches are “optimistic” and allow for offline usage, while
+the third is “pessimistic” and requires persistent connectivity.</p>
+<blockquote>
+<p>Note: It’s possible to mix these approaches for different types of records
+  (i.e. models) within a given application.</p>
+</blockquote>
+<h3 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h3><p>When using locally-generated IDs, Orbit uses “keys” to support mapping between
+local and remote IDs.</p>
+<p>Remote IDs should be kept in a <code>keys</code> object at the root of a record.</p>
+<p>For example, the following record has a <code>remoteId</code> key that is assigned by a
+server:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'34677136-c0b7-4015-b9e5-57f6fdd16bd2'</span>,</div><div class="line">  <span class="attr">keys</span>: &#123;</div><div class="line">    <span class="attr">remoteId</span>: <span class="string">'123456'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The <code>remoteId</code> key of <code>123456</code> can be mapped to the locally generated <code>id</code> using
+a <code>KeyMap</code>, which can be shared by any sources that need access to the mapping.
+When communicating with the server, <code>remoteId</code> might be serialized as <code>id</code> -
+such a translation should occur within the source that communicates directly
+with the remote server (e.g. Orbit’s standard <code>JSONAPISource</code>).</p>
+<h3 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h3><p>Any properties that define a record’s data, with the exception of relationships
+to other records, should be defined as “attributes”.</p>
+<p>All attributes should be contained in an <code>attributes</code> object at the root of a
+record.</p>
+<h3 id="Relationships"><a href="#Relationships" class="headerlink" title="Relationships"></a>Relationships</h3><p>Relationships between records should be defined in a <code>relationships</code> object at
+the root of a record.</p>
+<p>Relationship linkage is specified in a <code>data</code> object for each relationship.</p>
+<p>For to-one relationships, linkage should be expressed as a record identity
+object in the form <code>{ type, id }</code>. The absense of a relationship can be
+expressed as <code>null</code>.</p>
+<p>For to-many relationships, linkage should be expressed as an array of record
+identities.</p>
+<h2 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h2><p>A <code>Schema</code> defines the models allowed in a source, including their keys,
+attributes, and relationships. Typically, a single schema is shared among all
+the sources in an application.</p>
+<p>Schemas are defined with their initial settings as follows:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">'@orbit/data'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">  <span class="attr">models</span>: &#123;</div><div class="line">    <span class="attr">planet</span>: &#123;</div><div class="line">      <span class="attr">attributes</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;,</div><div class="line">        <span class="attr">classification</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">relationships</span>: &#123;</div><div class="line">        <span class="attr">moons</span>: &#123; <span class="attr">type</span>: <span class="string">'hasMany'</span>, <span class="attr">model</span>: <span class="string">'moon'</span>, <span class="attr">inverse</span>: <span class="string">'planet'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">moon</span>: &#123;</div><div class="line">      <span class="attr">attributes</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">relationships</span>: &#123;</div><div class="line">        <span class="attr">planet</span>: &#123; <span class="attr">type</span>: <span class="string">'hasOne'</span>, <span class="attr">model</span>: <span class="string">'planet'</span>, <span class="attr">inverse</span>: <span class="string">'moons'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Models should be keyed by their singular name, and should be defined as an
+object that contains <code>attributes</code>, <code>relationships</code>, and/or <code>keys</code>.</p>
+<h3 id="Model-attributes"><a href="#Model-attributes" class="headerlink" title="Model attributes"></a>Model attributes</h3><p>Attributes may be defined by their <code>type</code>, such as <code>&quot;string&quot;</code> or <code>&quot;date&quot;</code>,
+which can be used to define their purpose and contents. An attribute’s type may
+also be used to determine how it should be serialized.</p>
+<h3 id="Model-relationships"><a href="#Model-relationships" class="headerlink" title="Model relationships"></a>Model relationships</h3><p>Two types of relationships between models are allowed:</p>
+<ul>
+<li><code>hasOne</code> - for to-one relationships</li>
+<li><code>hasMany</code> - for to-many relationships</li>
+</ul>
+<p>Relationships must define the related <code>model</code> and may optionally define their
+<code>inverse</code>, which should correspond to the name of a relationship on the related
+model. Inverse relationships should be defined when relationships must be kept
+synchronized, so that adding or removing a relationship on the primary model
+results in a corresponding change on the inverse model.</p>
+<p>Here’s an example of a schema definition that includes relationships with
+inverses:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">'@orbit/data'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">  <span class="attr">models</span>: &#123;</div><div class="line">    <span class="attr">planet</span>: &#123;</div><div class="line">      <span class="attr">relationships</span>: &#123;</div><div class="line">        <span class="attr">moons</span>: &#123; <span class="attr">type</span>: <span class="string">'hasMany'</span>, <span class="attr">model</span>: <span class="string">'moon'</span>, <span class="attr">inverse</span>: <span class="string">'planet'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">moon</span>: &#123;</div><div class="line">      <span class="attr">relationships</span>: &#123;</div><div class="line">        <span class="attr">planet</span>: &#123; <span class="attr">type</span>: <span class="string">'hasOne'</span>, <span class="attr">model</span>: <span class="string">'planet'</span>, <span class="attr">inverse</span>: <span class="string">'moons'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Model-keys"><a href="#Model-keys" class="headerlink" title="Model keys"></a>Model keys</h3><p>When working with remote servers that do not support client-generated IDs, it’s
+necessary to correlate locally generated IDs with remotely generated IDs, or
+“keys”. Like <code>id</code>, keys uniquely identify a record of a particular model type.</p>
+<p>Keys currently accept no <em>standard</em> options, so they should be declared with an
+empty options hash as follows:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">  <span class="attr">models</span>: &#123;</div><div class="line">    <span class="attr">moon</span>: &#123;</div><div class="line">      <span class="attr">keys</span>: &#123; <span class="attr">remoteId</span>: &#123;&#125; &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">planet</span>: &#123;</div><div class="line">      <span class="attr">keys</span>: &#123; <span class="attr">remoteId</span>: &#123;&#125; &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: Keys can only be of type <code>&quot;string&quot;</code>, which is unnecessary to declare.</p>
+<p>Note: A key such as <code>remoteId</code> might be serialized as simply <code>id</code> when
+communicating with a server. However, it’s important to distinguish it from the
+client-generated <code>id</code> used within Orbit, so it requires a unique name.</p>
+</blockquote>
+<h3 id="Record-initialization"><a href="#Record-initialization" class="headerlink" title="Record initialization"></a>Record initialization</h3><p>Schemas support the ability to initialize records via an
+<code>initializeRecord()</code> method that takes a record (<code>Record</code>) argument.
+Currently, <code>initializeRecord</code> just assigns an <code>id</code> to a record if the field
+is undefined. It may be extended to allow per-model defaults to be set as well.</p>
+<p>Here’s an example that creates a schema and initializes a record:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">'@orbit/schema'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">  <span class="attr">models</span>: &#123;</div><div class="line">    <span class="attr">planet</span>: &#123;</div><div class="line">      <span class="attr">attributes</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">let</span> earth = &#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Earth'</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">schema.initializeRecord(earth);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(earth.id); <span class="comment">// "4facf3cc-7270-4b5e-aedd-94d777d31c31"</span></div></pre></td></tr></table></figure>
+<p>The default implementation of <code>initializeRecord</code> internally calls the schema’s
+<code>generateId()</code> method to generate an <code>id</code>. By default, this invokes
+<code>Orbit.uuid()</code> to generate a v4 UUID (where <code>Orbit</code> is the default export from
+<code>@orbit/core</code>).</p>
+<p>It’s possible to override <code>generateId</code> for a given schema to use a different
+local ID scheme. Here’s a naive example:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> counter = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">  generateId(type) &#123; <span class="keyword">return</span> counter++; &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+  
+    <div class="guide-links">
+      
+        <span>← <a href="/v0.14/guide/task-processing.html">Task processing</a></span>
+      
+      
+        <span style="float:right"><a href="/v0.14/guide/data-sources.html">Data sources</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+    Want to correct or improve this documentation?
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.14/guide/modeling-data.md" target="_blank">
+      Edit this page on Github!
+    </a>
+  </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/common.js"></script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

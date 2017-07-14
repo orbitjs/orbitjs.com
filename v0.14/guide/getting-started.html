@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Getting started - Orbit.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Orbit.js ">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Getting started - Orbit.js">
+        <meta property="og:description" content="Orbit.js ">
+        <meta property="og:image" content="https://http://orbitjs.com/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Getting started - Orbit.js">
+        <meta name="twitter:description" content="Orbit.js ">
+        <meta name="twitter:image" content="https://http://orbitjs.com/images/logo.png">
+
+        <!-- ****** faviconit.com favicons ****** -->
+      	<link rel="shortcut icon" href="/favicon.ico">
+      	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+      	<link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+      	<link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+      	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+      	<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+      	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+      	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+      	<link rel="apple-touch-icon" href="/favicon-57.png">
+      	<link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+      	<link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
+      	<link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
+      	<link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
+      	<link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
+      	<link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
+      	<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
+      	<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+      	<meta name="msapplication-TileColor" content="#FFFFFF">
+      	<meta name="msapplication-TileImage" content="/favicon-144.png">
+      	<meta name="msapplication-config" content="/browserconfig.xml">
+      	<!-- ****** faviconit.com favicons ****** -->
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script>window.PAGE_TYPE = "guide"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <span>Orbit.js</span>
+  </a>
+  <ul id="nav">
+    <li><a href="/v0.14/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/v0.14/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+        <div id="donate" style="margin-bottom: 20px">
+            <img src="/images/paypal.png">
+            <a href="/sponsor">Sponsor Orbit.js</a>
+        </div>
+        <h2>
+            <select class="version-select">
+                
+                <option value="0.14" selected >0.14</option>
+                
+            </select>
+        </h2>
+        <ul class="menu-root">
+            
+            
+            
+                
+                <li>
+                    <a href="/v0.14/guide/index.html" class="sidebar-link">Introduction</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/packages.html" class="sidebar-link">Packages</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/getting-started.html" class="sidebar-link current">Getting started</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/coordination.html" class="sidebar-link">Coordination</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.14/guide/license.html" class="sidebar-link">License</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar getting-started-guide">
+  
+    <h1>Getting started</h1>
+  
+  <p>This brief tutorial walks through using Orbit to manage data in a client-side
+application. Sticking with the “orbit” theme, this application will track some
+objects orbiting in our own solar system.</p>
+<h2 id="Defining-a-schema"><a href="#Defining-a-schema" class="headerlink" title="Defining a schema"></a>Defining a schema</h2><p>Schemas are used to define the models and relationships for an application.</p>
+<p>Let’s start by defining a schema for our solar system’s data:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">'@orbit/data'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> schemaDefinition = &#123;</div><div class="line">  <span class="attr">models</span>: &#123;</div><div class="line">    <span class="attr">planet</span>: &#123;</div><div class="line">      <span class="attr">attributes</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;,</div><div class="line">        <span class="attr">classification</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">relationships</span>: &#123;</div><div class="line">        <span class="attr">moons</span>: &#123; <span class="attr">type</span>: <span class="string">'hasMany'</span>, <span class="attr">model</span>: <span class="string">'moon'</span>, <span class="attr">inverse</span>: <span class="string">'planet'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">moon</span>: &#123;</div><div class="line">      <span class="attr">attributes</span>: &#123;</div><div class="line">        <span class="attr">name</span>: &#123; <span class="attr">type</span>: <span class="string">'string'</span> &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">relationships</span>: &#123;</div><div class="line">        <span class="attr">planet</span>: &#123; <span class="attr">type</span>: <span class="string">'hasOne'</span>, <span class="attr">model</span>: <span class="string">'planet'</span>, <span class="attr">inverse</span>: <span class="string">'moons'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(schemaDefinition);</div></pre></td></tr></table></figure>
+<p>This schema defines two models, <code>planet</code> and <code>moon</code>, as well as the attributes
+and relationships that are possible for each. A moon can have one planet, while
+a planet can have many moons. By setting an <code>inverse</code> for each relationship,
+we’re telling Orbit that changes to one side of the relationship should be
+reflected in the other.</p>
+<h2 id="Defining-a-source"><a href="#Defining-a-source" class="headerlink" title="Defining a source"></a>Defining a source</h2><p>Sources provide interfaces to access data. To ensure that they have the same
+understanding of data, every source in an application should share the same
+schema.</p>
+<p>Let’s create an in-memory store as our first data source:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'@orbit/store'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Store(&#123; schema &#125;);</div></pre></td></tr></table></figure>
+<h2 id="Loading-and-querying-data"><a href="#Loading-and-querying-data" class="headerlink" title="Loading and querying data"></a>Loading and querying data</h2><p>We can now load some data into our store and then query its contents:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> earth = &#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'earth'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Earth'</span>,</div><div class="line">    <span class="attr">classification</span>: <span class="string">'terrestrial'</span>,</div><div class="line">    <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> venus = &#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'venus'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Venus'</span>,</div><div class="line">    <span class="attr">classification</span>: <span class="string">'terrestrial'</span>,</div><div class="line">    <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> theMoon = &#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'moon'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'theMoon'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'The Moon'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">relationships</span>: &#123;</div><div class="line">    <span class="attr">planet</span>: &#123; <span class="attr">data</span>: &#123; <span class="attr">type</span>: <span class="string">'planet'</span>, <span class="attr">id</span>: <span class="string">'earth'</span> &#125; &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">store.update(<span class="function"><span class="params">t</span> =&gt;</span> [</div><div class="line">  t.addRecord(venus)</div><div class="line">  t.addRecord(earth),</div><div class="line">  t.addRecord(theMoon)</div><div class="line">])</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>)))</div><div class="line">  .then(<span class="function"><span class="params">planets</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(planets);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>The following output should be logged:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">[</div><div class="line">  &#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"planet"</span>,</div><div class="line">    <span class="attr">id</span>: <span class="string">"earth"</span>,</div><div class="line">    <span class="attr">attributes</span>: &#123;</div><div class="line">      <span class="attr">name</span>: <span class="string">"Earth"</span>,</div><div class="line">      <span class="attr">classification</span>: <span class="string">"terrestrial"</span>,</div><div class="line">      <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">relationships</span>: &#123;</div><div class="line">      <span class="attr">moons</span>: &#123;</div><div class="line">        <span class="attr">data</span>: [</div><div class="line">          &#123; <span class="attr">type</span>: <span class="string">'moon'</span>, <span class="attr">id</span>: <span class="string">'theMoon'</span> &#125;</div><div class="line">        ]</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"planet"</span>,</div><div class="line">    <span class="attr">id</span>: <span class="string">"venus"</span>,</div><div class="line">    <span class="attr">attributes</span>: &#123;</div><div class="line">      <span class="attr">name</span>: <span class="string">"Venus"</span>,</div><div class="line">      <span class="attr">classification</span>: <span class="string">"terrestrial"</span>,</div><div class="line">      <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>There’s a lot going on here, so let’s break it down.</p>
+<p>First of all, each record is represented by a POJO that aligns with its
+corresponding model definition in the schema. These representations conform with
+the <a href="http://jsonapi.org/" target="_blank" rel="external">JSONAPI</a> specification. Every record has an identity
+established by a <code>type</code> and <code>id</code> pair. Relationship linkage is specified in a
+<code>data</code> object via identities.</p>
+<p>In order to add records to the store, we call <code>store.update()</code> and pass an array
+of operations. Passing a function to <code>update</code> provides us with a transform
+builder (<code>t</code>), which we use to create an array of <code>addRecord</code> operations.</p>
+<p>Note that we added the relationship between the moon and the planet on just the
+moon record. However, when we query the planet, we can see that the inverse
+relationship has also been added. This is because every operation that’s applied
+to the store’s cache passes through a schema consistency check.</p>
+<p>Let’s look at how the store is queried:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</div></pre></td></tr></table></figure>
+<p>Because we pass a function to <code>query</code>, Orbit provides us with a query builder
+(<code>q</code>) which we can use to compose a query expression. We’re creating a simple
+<code>findRecords</code> query that’s sorted by <code>name</code>. Internally, query expressions are
+represented in an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" target="_blank" rel="external">AST</a> form
+that allows for nearly limitless expressivity (the only limit being that all
+sources involved in processing a query need to understand the expressions
+involved).</p>
+<p>Here’s an example of a more complex query that filters, sorts, and paginates:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>)</div><div class="line">                  .filter(&#123; <span class="attr">attribute</span>: <span class="string">'classification'</span>, <span class="attr">value</span>: <span class="string">'terrestrial'</span> &#125;)</div><div class="line">                  .sort(&#123; <span class="attr">attribute</span>: <span class="string">'name'</span>, <span class="attr">order</span>: <span class="string">'descending'</span> &#125;)</div><div class="line">                  .page(&#123; <span class="attr">offset</span>: <span class="number">0</span>, <span class="attr">limit</span>: <span class="number">10</span> &#125;))</div></pre></td></tr></table></figure>
+<h3 id="Asynchronous-vs-synchronous-queries"><a href="#Asynchronous-vs-synchronous-queries" class="headerlink" title="Asynchronous vs. synchronous queries"></a>Asynchronous vs. synchronous queries</h3><p>Note that <code>store.query</code> is asynchronous and thus returns results wrapped in a
+promise. This may seem strange at first because the store’s data is “in memory”.
+In fact, if you want to just “peek” into the contents of the store’s memory,
+you can issue the same queries synchronously against the store’s <code>Cache</code>.
+For example:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Results will be returned synchronously by querying the cache</span></div><div class="line"><span class="keyword">let</span> planets = store.cache.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</div></pre></td></tr></table></figure>
+<p>By querying the cache instead of the store, you’re not allowing other sources to
+participate in the fulfillment of the query. Continue reading to understand how
+requests to sources can be “coordinated”.</p>
+<hr>
+
+<p>Want to experiment with some of the concepts presented so far?
+See <a href="https://www.webpackbin.com/bins/-KlhieRJgT5kLmCf8RAQ" target="_blank" rel="external">Part 1 of this example in WebpackBin</a>.</p>
+<h2 id="Defining-a-backup-source"><a href="#Defining-a-backup-source" class="headerlink" title="Defining a backup source"></a>Defining a backup source</h2><p>Our in-memory data store is quite isolated at the moment. If a scientist is
+using our application to track their discoveries, a browser refresh might lose a
+whole planet or moon! 😱</p>
+<p>Let’s create an browser storage source to keep data around locally:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> IndexedDBSource <span class="keyword">from</span> <span class="string">'@orbit/indexeddb'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> backup = <span class="keyword">new</span> IndexedDBSource(&#123;</div><div class="line">  schema,</div><div class="line">  <span class="attr">name</span>: <span class="string">'backup'</span>,</div><div class="line">  <span class="attr">namespace</span>: <span class="string">'solarsystem'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Sync’ing-changes-between-sources"><a href="#Sync’ing-changes-between-sources" class="headerlink" title="Sync’ing changes between sources"></a>Sync’ing changes between sources</h2><p>Every time a source is transformed, it emits a <code>transform</code> event. It’s simple
+to observe these events directly:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.log(transform);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>It’s possible to pipe changes that occur in one source into another via the
+<code>sync</code> method:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</div><div class="line">  backup.sync(transform);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Like all mutation and query methods on sources, the <code>sync</code> call returns a
+promise. If we want to guarantee that transforms can’t be applied to our
+store without also being backed up, we should return the promise in the event
+handler:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> backup.sync(transform);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Or more simply:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; backup.sync(transform));</div></pre></td></tr></table></figure>
+<p>With this single line of code we’ve guaranteed that every change to the
+in-memory store will be sync’d with the backup IndexedDB source. Furthermore,
+we’ve configured this synchronization to be “blocking”, so that changes to the
+store can’t be made at all unless they are also backed up.</p>
+<h2 id="Introducing-a-coordinator"><a href="#Introducing-a-coordinator" class="headerlink" title="Introducing a coordinator"></a>Introducing a coordinator</h2><p>Orbit provides another layer of abstraction on top of direct event
+observation and handling: a <code>Coordinator</code>. A coordinator manages a set of
+sources to which it applies a set of coordination strategies.</p>
+<p>A coordinator could be configured to handle the above scenario as follows:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Coordinator, &#123; SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator(&#123;</div><div class="line">  <span class="attr">sources</span>: [store, backup]</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> backupStoreSync = <span class="keyword">new</span> SyncStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">target</span>: <span class="string">'backup'</span>,</div><div class="line">  <span class="attr">blocking</span>: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">coordinator.addStrategy(backupStoreSync);</div><div class="line"></div><div class="line">coordinator.activate(); <span class="comment">// returns a promise that resolves when all strategies</span></div><div class="line">                        <span class="comment">// have been activated</span></div></pre></td></tr></table></figure>
+<p>Although this might seem like an unnecessary amount of complexity compared with
+the simple event handler, there are a number of benefits to using a coordinator:</p>
+<ul>
+<li><p>You can easily add preconfigured strategies, such as an event logging
+strategy and a log truncation strategy (to keep the size of in-memory logs
+to a minimum). You can also create your own strategies and share them across
+applications.</p>
+</li>
+<li><p>Strategies can be activated <em>and deactivated</em> all together by simply calling
+<code>coordinator.activate()</code> / <code>coordinator.deactivate()</code>. Deactivating
+event handlers directly requires careful tracking of handler functions, which
+can be tedious. However, it’s important to do this to avoid leaking memory.</p>
+</li>
+<li><p>Coordinators can share a log-level across all strategies. Sometimes you want
+to see debug info and sometimes only errors.</p>
+</li>
+</ul>
+<h2 id="Restoring-from-backup"><a href="#Restoring-from-backup" class="headerlink" title="Restoring from backup"></a>Restoring from backup</h2><p>Although we’re now backing up our store to browser storage, we have not yet
+set up a process to restore that backed up data.</p>
+<p>If we want our app to restores all of its data from browser storage when it
+first boots, we could perform the following:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">backup.pull(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords())</div><div class="line">  .then(<span class="function"><span class="params">transform</span> =&gt;</span> store.sync(transform))</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> coordinator.activate());</div></pre></td></tr></table></figure>
+<p>This code first pulls all the records from backup and then syncs them
+with the main store <em>before</em> activating the coordinator. In this way, the
+coordination strategy that backs up the store won’t be enabled until after
+the restore is complete.</p>
+<p>We now have an application which has data fully contained in the browser. Any
+data that’s entered can be accessed while offline and will even persist across
+browser refreshes.</p>
+<hr>
+
+<p>Want to experiment more?
+See <a href="https://www.webpackbin.com/bins/-Kn9vdvtf4rUeJBUJAXb" target="_blank" rel="external">Part 2 of this example in WebpackBin</a>.</p>
+<h2 id="Communicating-with-a-server"><a href="#Communicating-with-a-server" class="headerlink" title="Communicating with a server"></a>Communicating with a server</h2><p>Most apps can’t exist in the vacuum of a browser - data tends to be far more
+useful when it’s shared with a server.</p>
+<p>Let’s say that we have a web server that conforms with the
+<a href="http://jsonapi.org/" target="_blank" rel="external">JSON:API</a> specification. We can use Orbit’s
+<code>JSONAPISource</code> to allow our app to communicate with that server.</p>
+<p>We’ll start by creating a new <code>remote</code> source:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> JSONAPISource <span class="keyword">from</span> <span class="string">'@orbit/jsonapi'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> remote = <span class="keyword">new</span> JSONAPISource(&#123;</div><div class="line">  schema,</div><div class="line">  <span class="attr">name</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">host</span>: <span class="string">'http://api.example.com'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Next let’s add the source to the coordinator:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.addSource(remote);</div></pre></td></tr></table></figure>
+<p>And then we can add strategies to ensure that queries and updates made against
+the store are processed by the remote server:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RequestStrategy, SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Query the remote server whenever the store is queried</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">on</span>: <span class="string">'beforeQuery'</span>,</div><div class="line"></div><div class="line">  <span class="attr">target</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">action</span>: <span class="string">'pull'</span>,</div><div class="line"></div><div class="line">  <span class="attr">blocking</span>: <span class="literal">false</span></div><div class="line">&#125;));</div><div class="line"></div><div class="line"><span class="comment">// Update the remote server whenever the store is updated</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">on</span>: <span class="string">'beforeUpdate'</span>,</div><div class="line"></div><div class="line">  <span class="attr">target</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">action</span>: <span class="string">'push'</span>,</div><div class="line"></div><div class="line">  <span class="attr">blocking</span>: <span class="literal">false</span></div><div class="line">&#125;));</div><div class="line"></div><div class="line"><span class="comment">// Sync all changes received from the remote server to the store</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> SyncStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">target</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">blocking</span>: <span class="literal">false</span></div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<p>These strategies are all non-blocking, which means that the store will be
+updated / queried optimistically without waiting for responses from the server.
+Once the server responses are received, they will then be sync’d back with the
+store.</p>
+<p>This set of coordination strategies is certainly not yet production ready. We
+will need exception handling in our strategies to tell Orbit how to handle
+network errors (e.g. retry after X secs) as well as other types of exceptions.</p>
+<p>Optimistic server requests paired with an in-browser backup can work well for
+some kinds of applications. For other applications, it’s more appropriate to use
+blocking strategies that tie the success of store requests to a successful
+round trip to the server. Still other applications might choose to mix
+strategies, so that only certain updates are blocking (e.g. a store purchase).</p>
+<p>Orbit allows for filtering, exception handling, and more in strategies to
+enable any of these options. We’ll dive deeper into these topics in the rest of
+this guide, the API docs, and sample applications.</p>
+<h2 id="Managing-state-with-buckets"><a href="#Managing-state-with-buckets" class="headerlink" title="Managing state with buckets"></a>Managing state with buckets</h2><p>At any given time, our Orbit application may have different kinds of state
+in-flight and unpersisted. This state may include tasks that are queued for
+processing, logs of transforms that have been applied, or other source-specific
+state that we’d like to reify if our application was closed unexpectedly.</p>
+<p>In order to persist this state, we can create a “bucket” that can be shared
+among our sources:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> LocalStorageBucket <span class="keyword">from</span> <span class="string">'@orbit/local-storage-bucket'</span>;</div><div class="line"><span class="keyword">import</span> IndexedDBBucket, &#123; supportsIndexedDB &#125; <span class="keyword">from</span> <span class="string">'@orbit/indexeddb-bucket'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> BucketClass = supportsIndexedDB ? IndexedDBBucket : LocalStorageBucket;</div><div class="line"><span class="keyword">const</span> bucket = <span class="keyword">new</span> BucketClass(&#123; <span class="attr">namespace</span>: <span class="string">'my-app'</span> &#125;);</div></pre></td></tr></table></figure>
+<p>Note that the above code favors using an IndexedDB-based bucket and only falls
+back to using a LocalStorage-based bucket if necessary.</p>
+<p>This <code>bucket</code> can be passed as a setting to any and all of our sources.
+For instance:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> backup = <span class="keyword">new</span> IndexedDBSource(&#123;</div><div class="line">  bucket,</div><div class="line">  schema,</div><div class="line">  <span class="attr">name</span>: <span class="string">'backup'</span>,</div><div class="line">  <span class="attr">namespace</span>: <span class="string">'solarsystem'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Store(&#123; bucket, schema &#125;);</div></pre></td></tr></table></figure>
+<p>Each source will use the bucket to initialize its queues, logs, and other state.
+And as their state changes, sources will use buckets to persist those changes.</p>
+<p>Of course, buckets can also be used for ad-hoc state persistence of any kind
+by other parts of your application. The possibilities are extensive!</p>
+<hr>
+
+<p>That concludes a brief run-through of some of the key aspects of Orbit. Please
+continue reading the guides to gain a deeper understanding of how Orbit works
+and how to make the most of it.</p>
+
+  
+    <div class="guide-links">
+      
+        <span>← <a href="/v0.14/guide/packages.html">Packages</a></span>
+      
+      
+        <span style="float:right"><a href="/v0.14/guide/task-processing.html">Task processing</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+    Want to correct or improve this documentation?
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.14/guide/getting-started.md" target="_blank">
+      Edit this page on Github!
+    </a>
+  </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/common.js"></script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>
