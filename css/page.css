@@ -60,11 +60,6 @@ body {
 body.docs {
   padding-top: 61px;
 }
-@media screen and (max-width: 900px) {
-  body.docs {
-    padding-top: 0;
-  }
-}
 a {
   text-decoration: none;
   color: #555;
@@ -279,19 +274,37 @@ a.button.white {
 }
 .medium-pic {
   width: 250px;
-  height: 187px;
   border: 1px solid #ccc;
 }
 .left-pic {
   float: left;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 .right-pic {
   float: right;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
+  margin-top: -2.5rem;
 }
 .clearfix {
   clear: both;
+}
+@media screen and (max-width: 900px) {
+  body.docs {
+    padding-top: 0;
+  }
+  .medium-pic {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .medium-pic {
+    width: 100%;
+  }
+  .right-pic,
+  .left-pic {
+    float: none;
+    margin: 1rem 0;
+  }
 }
 #header {
   background-color: #fff;
@@ -348,11 +361,10 @@ body.docs #nav {
 }
 #logo {
   display: inline-block;
-  font-size: 1.8em;
-  line-height: 44px;
-  color: #333;
-  font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 500;
+}
+#logo img {
+  margin-top: 5px;
+  height: 40px;
 }
 #mobile-bar {
   position: fixed;

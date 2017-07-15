@@ -273,16 +273,17 @@ a.button.white {
   background-image: linear-gradient(to bottom, #eee 0, #ddd 100%);
 }
 .medium-pic {
-  height: 187px;
+  width: 250px;
   border: 1px solid #ccc;
 }
 .left-pic {
   float: left;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 .right-pic {
   float: right;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
+  margin-top: -2.5rem;
 }
 .clearfix {
   clear: both;
@@ -292,7 +293,17 @@ a.button.white {
     padding-top: 0;
   }
   .medium-pic {
-    height: 130px;
+    width: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .medium-pic {
+    width: 100%;
+  }
+  .right-pic,
+  .left-pic {
+    float: none;
+    margin: 1rem 0;
   }
 }
 #header {
