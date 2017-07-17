@@ -364,7 +364,7 @@ body.docs #nav {
 }
 #logo img {
   margin-top: 5px;
-  height: 40px;
+  height: 36px;
 }
 #mobile-bar {
   position: fixed;
@@ -645,6 +645,7 @@ body {
 #footer {
   padding: 20px 0;
   text-align: center;
+  background: #ccc;
 }
 #footer a {
   font-weight: 700;

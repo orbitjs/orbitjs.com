@@ -364,7 +364,7 @@ body.docs #nav {
 }
 #logo img {
   margin-top: 5px;
-  height: 40px;
+  height: 36px;
 }
 #mobile-bar {
   position: fixed;
@@ -695,9 +695,10 @@ ul.demo li {
 .content blockquote {
   margin: 2em 0;
   padding-left: 20px;
-  border-left: 4px solid #333;
+  border-left: 3px solid #aaa;
 }
 .content blockquote p {
+  color: #777;
   font-weight: 600;
   margin-left: 0;
 }

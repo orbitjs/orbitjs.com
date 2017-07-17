@@ -182,7 +182,77 @@
   
     <h1>Data flows</h1>
   
-  <p>Coming soon!</p>
+  <p>Orbit enables the coordination of many independent sources of data, each of
+which may internally handle queries and updates differently. It’s easy to
+imagine tying oneself in knots with such potential complexity. However, by
+following Orbit’s conventions and a few guidelines, you can compose data to
+flow predictably and reliably through your application.</p>
+<h2 id="“Request-up-sync-down”"><a href="#“Request-up-sync-down”" class="headerlink" title="“Request up, sync down”"></a>“Request up, sync down”</h2><p>Orbit divides the movement of data into two different “flows”:</p>
+<ul>
+<li><p><strong>Request flow</strong> - Requests to query or update data originate from an
+application and flow upstream to a source that can fulfill the request.</p>
+</li>
+<li><p><strong>Sync flow</strong> - Mutations then flow back downstream and are synchronized
+with all the sources that are concerned.</p>
+</li>
+</ul>
+<p>Every source interface has events and methods that correspond with one of these
+flows:</p>
+<ul>
+<li><p>The <code>Updatable</code>, <code>Queryable</code>, <code>Pushable</code>, and <code>Pullable</code> interfaces all
+participate in the request flow.</p>
+</li>
+<li><p>The <code>Syncable</code> interface participates in the sync flow.</p>
+</li>
+</ul>
+<blockquote>
+<p>“Request up, sync down” is a variant of the “data down, actions up” mnemonic
+popularized in the Ember.js community. In fact, most frontend frameworks adopt
+a similar pattern to handling actions and returning data. Orbit fits well
+with these patterns: an action triggered by a user can spawn an Orbit
+“request”, which can lead to responses that “sync” data back down, typically
+ending in an update to a view. In this way, “request up, sync down” can be
+seen as a continuation of the “data down, actions up” pattern.</p>
+</blockquote>
+<h2 id="Coordinating-sources"><a href="#Coordinating-sources" class="headerlink" title="Coordinating sources"></a>Coordinating sources</h2><p>Request and sync flows can be coordinated across sources by configuring an event
+listener for one source that triggers actions on another.</p>
+<p>Let’s take a look at what events can trigger other actions:</p>
+<ul>
+<li><p>Update events (<code>beforeUpdate</code>, <code>update</code>, <code>beforePush</code>, <code>push</code>) can trigger
+<code>push</code></p>
+</li>
+<li><p>Query events (<code>beforeQuery</code>, <code>query</code>, <code>beforePull</code>, <code>pull</code>) can trigger <code>pull</code></p>
+</li>
+<li><p>Change events (<code>transform</code>, <code>beforeSync</code>, <code>sync</code>) - can trigger <code>sync</code></p>
+</li>
+</ul>
+<h3 id="Blocking-vs-non-blocking"><a href="#Blocking-vs-non-blocking" class="headerlink" title="Blocking vs. non-blocking"></a>Blocking vs. non-blocking</h3><p>We can coordinate sources through simple event listeners, such as:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'beforeUpdate'</span>, transform =&gt; &#123;</div><div class="line">  remote.push(transform);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>The above listener is “non-blocking” because it doesn’t return anything to
+the emitter. The call to <code>remote.push()</code> is async and may take a while to
+complete, so it will proceed in parallel with the store being updated.</p>
+<p>As an alternative, we can use a “blocking” strategy in our event listener by
+simply returning a promise:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'beforeUpdate'</span>, transform =&gt; remote.push(transform));</div></pre></td></tr></table></figure>
+<p>This will prevent the <code>store</code> from updating before the transform has been pushed
+up to the <code>remote</code> source. An error in <code>remote.push</code> will cause <code>store.update</code>
+to error as well.</p>
+<h3 id="Coordination-guidelines"><a href="#Coordination-guidelines" class="headerlink" title="Coordination guidelines"></a>Coordination guidelines</h3><p>Here are some guidelines for working with data flows:</p>
+<ul>
+<li><p>Consider the full arc of each request - how it will flow up to be fulfilled,
+and how results and/or errors will be synchronized on the way back down.</p>
+</li>
+<li><p>Avoid spawning requests from the synchronization flow. A change event
+(<code>beforeSync</code>, <code>sync</code>, or <code>transform</code>) should only ever trigger a <code>sync</code>
+action.</p>
+</li>
+<li><p>For pessimistic requests in which you must guarantee success before
+proceeding, use blocking connections for all the request and
+sync flows that may be involved.</p>
+</li>
+</ul>
+<p>Last but not least, it’s recommended that you use a <code>Coordinator</code> instead of
+manually configuring event listeners. Read on to understand why …</p>
 
   
     <div class="guide-links">

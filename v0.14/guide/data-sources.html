@@ -237,6 +237,37 @@ query expression and returns the results as an array of transforms.</p>
 method.</p>
 </li>
 </ul>
+<h3 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h3><p>All of the interfaces above emit events that share a common pattern. For an
+interface with a given method <code>x</code>, the following events will be emitted:
+<code>beforeX</code>, <code>x</code>, and <code>xFail</code>. For example, updatable sources have an <code>update</code>
+method and can emit <code>beforeUpdate</code>, <code>update</code>, and <code>updateFail</code> events.</p>
+<p>In addition, any mutations caused by calling <code>x</code> will also be emitted with the
+general <code>transform</code> event.</p>
+<p>Processing occurs as follows (feel free to substitute <code>update</code>, <code>query</code>, etc.
+for <code>x</code>):</p>
+<ol>
+<li><p><code>x</code> is called on a source.</p>
+</li>
+<li><p>The <code>beforeX</code> event is emitted by the source. Any promises that are returned
+from listeners will be settled serially. Any errors encountered will prevent
+further processing and cause the source to emit the <code>xFail</code> event.</p>
+</li>
+<li><p><code>x</code> is processed internally by the source. Any errors encountered will
+prevent further processing and cause the source to emit the <code>xFail</code> event.</p>
+</li>
+<li><p>The <code>transform</code> event is emitted if <code>x</code> resulted in any mutations. Any
+promises that are returned from listeners will be settled serially. Errors
+will NOT prevent further processing.</p>
+</li>
+<li><p>The <code>x</code> event is emitted. Any promises that are returned
+from listeners will be settled serially. Errors will NOT prevent further
+processing.</p>
+</li>
+</ol>
+<p>There’s a clear turning point after <code>x</code> has been processed internally by the
+source. While listeners can block processing of <code>x</code> in the <code>beforeX</code> event by
+returning a promise that fails, after <code>x</code> has been processed such failures will
+be ignored by the emitter.</p>
 <h3 id="Data-flows"><a href="#Data-flows" class="headerlink" title="Data flows"></a>Data flows</h3><p>The <code>Updatable</code>, <code>Queryable</code>, <code>Pushable</code>, and <code>Pullable</code> interfaces all
 participate in the “request flow”, in which requests are made upstream and data
 flows back down.</p>
