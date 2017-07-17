@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Data stores - Orbit.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Orbit.js ">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Data stores - Orbit.js">
+        <meta property="og:description" content="Orbit.js ">
+        <meta property="og:image" content="https://http://orbitjs.com/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Data stores - Orbit.js">
+        <meta name="twitter:description" content="Orbit.js ">
+        <meta name="twitter:image" content="https://http://orbitjs.com/images/logo.png">
+
+        <!-- ****** faviconit.com favicons ****** -->
+      	<link rel="shortcut icon" href="/favicon.ico">
+      	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+      	<link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+      	<link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+      	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+      	<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+      	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+      	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+      	<link rel="apple-touch-icon" href="/favicon-57.png">
+      	<link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+      	<link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
+      	<link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
+      	<link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
+      	<link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
+      	<link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
+      	<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
+      	<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+      	<meta name="msapplication-TileColor" content="#FFFFFF">
+      	<meta name="msapplication-TileImage" content="/favicon-144.png">
+      	<meta name="msapplication-config" content="/browserconfig.xml">
+      	<!-- ****** faviconit.com favicons ****** -->
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script>window.PAGE_TYPE = "guide"</script>
+
+        <!-- ga -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-1632329-6', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <body class="docs">        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/orbitjs.png" alt="Orbit.js">
+  </a>
+  <ul id="nav">
+    <li><a href="/v0.15/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/v0.15/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+        <h2>
+            Guide
+            <select class="version-select">
+                
+                <option value="0.15" selected >v0.15</option>
+                
+            </select>
+        </h2>
+        <div id="donate" style="margin-bottom: 20px">
+            <img src="/images/paypal.png">
+            <a href="/sponsor">Sponsor Orbit.js</a>
+        </div>
+        <ul class="menu-root">
+            
+            
+            
+                
+                <li>
+                    <a href="/v0.15/guide/index.html" class="sidebar-link">Introduction</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/packages.html" class="sidebar-link">Packages</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link current">Data stores</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/license.html" class="sidebar-link">License</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar data-stores-guide">
+  
+    <h1>Data stores</h1>
+  
+  <p>Data stores, which come from the <code>@orbit/store</code> package, have been discussed at
+length throughout this guide already. Stores implement the <code>Updatable</code>,
+<code>Queryable</code>, and <code>Syncable</code> interfaces, and are the primary interface through
+which developers will interact with an Orbit application.</p>
+<p>Instead of re-explaining <a href="./querying-data.html">querying</a> and
+<a href="./updating-data.html">updating</a> stores, this section explores some unique
+capabilities of stores and their inner workings.</p>
+<h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><p>Every store keeps its data in memory in a <code>Cache</code>, which is accessible via the
+<code>store.cache</code> member.</p>
+<h3 id="Immutable-data"><a href="#Immutable-data" class="headerlink" title="Immutable data"></a>Immutable data</h3><p>Caches use immutable data maps from <code>@orbit/immutable</code> to store their actual
+data. This makes it incredibly efficient to clone caches, and thus stores,
+which has benefits we’ll discuss shortly.</p>
+<p>The use of immutable data structures does not extend into the records
+themselves, which are stored as simple POJOs. Therefore, it’s not necessary to
+use immutable access methods when working with records. There is some
+performance tradeoff involved here, because individual records must be cloned
+on mutation.</p>
+<h3 id="Operation-processors"><a href="#Operation-processors" class="headerlink" title="Operation processors"></a>Operation processors</h3><p>Every change to a cache is observed by several “operation processors”, whose job
+it is to ensure that the cache maintains its integrity and continues to conform
+to its associated schema.</p>
+<p>A single transform applied to a store may result in many changes being made by
+operation processors. For instance, when a record is removed, it must be
+removed from all of its associated relationships. When a relationship with an
+inverse is removed, that inverse relationship must also be removed.</p>
+<h3 id="Patches"><a href="#Patches" class="headerlink" title="Patches"></a>Patches</h3><p>Typically you should not be applying changes directly to a cache. It’s far
+preferable to apply changes to the associated store through its <code>update</code> event.</p>
+<p>However, caches can be modified via a <code>patch</code> method, that takes an <code>Operation</code>
+or array of <code>Operation</code>s.</p>
+<p>The <code>PatchResult</code> that’s returned has the following signature:</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">type</span> PatchResultData = Record | RecordIdentity | <span class="literal">null</span>;</div><div class="line"></div><div class="line"><span class="keyword">interface</span> PatchResult &#123;</div><div class="line">  inverse: RecordOperation[],</div><div class="line">  data: PatchResultData[]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>All changes to a cache will be emitted as <code>patch</code> events. These events include
+the <code>Operation</code> that was applied as well as any data returned.</p>
+<p>Its important to recognize that <code>patch</code> events will be emitted for <em>EVERY</em>
+change, including those mad by operation processors. Therefore, if you need
+a high fidelity log of changes to a store, observe its cache’s <code>patch</code> events.</p>
+<h3 id="Querying-cache-data"><a href="#Querying-cache-data" class="headerlink" title="Querying cache data"></a>Querying cache data</h3><p>As has been <a href="./querying-data.html">discussed</a>, the contents of a cache can be
+queried directly and synchronously, using the same query expressions that can be
+applied to other sources.</p>
+<p>While <code>store.query</code> is asynchronous and thus returns results wrapped in a
+promise, <code>store.cache.query</code> is synchronous and returns results directly. For
+example:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Results will be returned synchronously by querying the cache</span></div><div class="line"><span class="keyword">let</span> planets = store.cache.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</div></pre></td></tr></table></figure>
+<blockquote>
+<p>By querying the cache instead of the store, you’re not allowing other
+sources to participate in the fulfillment of the query. If you want to
+coordinate queries across multiple sources, it’s critical to make requests
+directly on the store.</p>
+</blockquote>
+<h2 id="Forking-stores"><a href="#Forking-stores" class="headerlink" title="Forking stores"></a>Forking stores</h2><p>Because caches store their data in immutable structures, cloning them is
+incredibly “cheap”. It’s possible to “fork” a store quickly, modify its data in
+isolation from its parent, and optionally “merge” those changes back.</p>
+<p>Let’s look at an example of store forking and merging:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// start by adding two planets and a moon to the store</span></div><div class="line">store.update(<span class="function"><span class="params">t</span> =&gt;</span> [</div><div class="line">  t.addRecord(earth),</div><div class="line">  t.addRecord(venus),</div><div class="line">  t.addRecord(theMoon)</div><div class="line">])</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>)))</div><div class="line">  .then(<span class="function"><span class="params">planets</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'original planets'</span>);</div><div class="line">    <span class="built_in">console</span>.log(planets);</div><div class="line"></div><div class="line">    <span class="comment">// fork the store</span></div><div class="line">    forkedStore = store.fork();</div><div class="line"></div><div class="line">    <span class="comment">// add a planet and moons to the fork</span></div><div class="line">    <span class="keyword">return</span> forkedStore.update(<span class="function"><span class="params">t</span> =&gt;</span> [</div><div class="line">      t.addRecord(jupiter),</div><div class="line">      t.addRecord(io),</div><div class="line">      t.addRecord(europa)</div><div class="line">    ]);</div><div class="line">  &#125;)</div><div class="line">  <span class="comment">// query the planets in the forked store</span></div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> forkedStore.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>)))</div><div class="line">  .then(<span class="function"><span class="params">planets</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'planets in fork'</span>);</div><div class="line">    <span class="built_in">console</span>.log(planets);</div><div class="line">  &#125;)</div><div class="line">  <span class="comment">// merge the forked store back into the original store</span></div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> store.merge(forkedStore)</div><div class="line">  <span class="comment">// query the planets in the original store</span></div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>))))</div><div class="line">  .then(<span class="function"><span class="params">planets</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'merged planets'</span>);</div><div class="line">    <span class="built_in">console</span>.log(planets);</div><div class="line">  &#125;)</div><div class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.error(e);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>It’s important to note a few things about store forking and merging:</p>
+<ul>
+<li><p>Once a store has been forked, the original and forked stores’ data can
+diverge independently.</p>
+</li>
+<li><p>A store fork can simply be abandoned without cost.</p>
+</li>
+<li><p>Merging a fork will gather the transforms applied since the fork point,
+coalesce the operations in those transforms into a single new transform,
+and then update the original store.</p>
+</li>
+</ul>
+<hr>
+
+<p>Want to experiment with store forking and merging?
+See <a href="https://www.webpackbin.com/bins/-KpHJ3tj_Lh-EUZDRdMz" target="_blank" rel="external">this example in WebpackBin</a>.</p>
+
+  
+    <div class="guide-links">
+      
+        <span>← <a href="/v0.15/guide/coordination.html">Coordination strategies</a></span>
+      
+      
+    </div>
+  
+  <div class="footer">
+    Want to correct or improve this documentation?
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.15/guide/data-stores.md" target="_blank">
+      Edit this page on Github!
+    </a>
+  </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/common.js"></script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

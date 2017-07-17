@@ -165,7 +165,12 @@
             
                 
                 <li>
-                    <a href="/v0.15/guide/coordination.html" class="sidebar-link">Coordination</a>
+                    <a href="/v0.15/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link">Data stores</a>
                 </li>
             
                 
@@ -191,7 +196,7 @@ JavaScript objects”).</p>
 specification. Records can have fields that define their identity, attributes,
 and relationships with other records.</p>
 <p>Here’s an example record that represents a planet:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'earth'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Earth'</span>,</div><div class="line">    <span class="attr">classification</span>: <span class="string">'terrestrial'</span>,</div><div class="line">    <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">relationships</span>: &#123;</div><div class="line">    <span class="attr">solarSystem</span>: &#123;</div><div class="line">      <span class="attr">data</span>: &#123; <span class="attr">type</span>: <span class="string">'solarSystem'</span>, <span class="attr">id</span>: <span class="string">'theSolarSystem'</span> &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">moons</span>: &#123;</div><div class="line">      <span class="attr">data</span>: [</div><div class="line">        &#123; <span class="attr">type</span>: <span class="string">'moon'</span>, <span class="attr">id</span>: <span class="string">'theMoon'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'planet'</span>,</div><div class="line">  <span class="attr">id</span>: <span class="string">'earth'</span>,</div><div class="line">  <span class="attr">attributes</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Earth'</span>,</div><div class="line">    <span class="attr">classification</span>: <span class="string">'terrestrial'</span>,</div><div class="line">    <span class="attr">atmosphere</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">relationships</span>: &#123;</div><div class="line">    <span class="attr">solarSystem</span>: &#123;</div><div class="line">      <span class="attr">data</span>: &#123; <span class="attr">type</span>: <span class="string">'solarSystem'</span>, <span class="attr">id</span>: <span class="string">'theSolarSystem'</span> &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">moons</span>: &#123;</div><div class="line">      <span class="attr">data</span>: [</div><div class="line">        &#123; <span class="attr">type</span>: <span class="string">'moon'</span>, <span class="attr">id</span>: <span class="string">'theMoon'</span> &#125;</div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Identity"><a href="#Identity" class="headerlink" title="Identity"></a>Identity</h3><p>Each record’s identity is established by a union of the following fields:</p>
 <ul>
 <li><code>type</code> - a string that identifies a set of records with a shared definition</li>

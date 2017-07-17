@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Coordination - Orbit.js</title>
+        <title>Coordination strategies - Orbit.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Orbit.js ">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Coordination - Orbit.js">
+        <meta property="og:title" content="Coordination strategies - Orbit.js">
         <meta property="og:description" content="Orbit.js ">
         <meta property="og:image" content="https://http://orbitjs.com/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Coordination - Orbit.js">
+        <meta name="twitter:title" content="Coordination strategies - Orbit.js">
         <meta name="twitter:description" content="Orbit.js ">
         <meta name="twitter:image" content="https://http://orbitjs.com/images/logo.png">
 
@@ -165,7 +165,12 @@
             
                 
                 <li>
-                    <a href="/v0.15/guide/coordination.html" class="sidebar-link current">Coordination</a>
+                    <a href="/v0.15/guide/coordination.html" class="sidebar-link current">Coordination strategies</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link">Data stores</a>
                 </li>
             
                 
@@ -180,14 +185,113 @@
 
 <div class="content guide with-sidebar coordination-guide">
   
-    <h1>Coordination</h1>
+    <h1>Coordination strategies</h1>
   
-  
+  <p>Orbit provides another layer of abstraction on top of direct event observation
+and handling: a <code>Coordinator</code>. A coordinator manages a set of sources to which
+it applies a set of coordination strategies.</p>
+<h2 id="Why-use-a-coordinator"><a href="#Why-use-a-coordinator" class="headerlink" title="Why use a coordinator?"></a>Why use a coordinator?</h2><p>Since configuring event handlers is so straightforward, what’s the point of
+using a coordinator? There are several benefits:</p>
+<ul>
+<li><p>You can easily add preconfigured strategies, such as an event logging
+strategy and a log truncation strategy (to keep the size of in-memory logs
+to a minimum). You can also create your own strategies and share them across
+applications.</p>
+</li>
+<li><p>Strategies can be activated <em>and deactivated</em> all together by simply calling
+<code>coordinator.activate()</code> / <code>coordinator.deactivate()</code>. Deactivating
+event handlers directly requires careful tracking of handler functions, which
+can be tedious. However, it’s important to do this to avoid leaking memory.</p>
+</li>
+<li><p>Coordinators can share a log-level across all strategies. Sometimes you want
+to see debug info and sometimes only errors.</p>
+</li>
+</ul>
+<h2 id="Creating-a-coordinator"><a href="#Creating-a-coordinator" class="headerlink" title="Creating a coordinator"></a>Creating a coordinator</h2><p>A coordinator is typically shared across an application and manages all of the
+coordination strategies between sources.</p>
+<p>A coordinator can be created with sources and strategies:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Coordinator <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator(&#123;</div><div class="line">  <span class="attr">sources</span>: [store, backup],</div><div class="line">  <span class="attr">strategies</span>: [backupStoreSync]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Or sources and strategies can be added / removed any time the coordinator is
+inactive:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Coordinator <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator();</div><div class="line"></div><div class="line">coordinator.addSource(store);</div><div class="line">coordinator.addSource(backup);</div><div class="line">coordinator.addStrategy(backupStoreSync);</div></pre></td></tr></table></figure>
+<h2 id="Activating-a-coordinator"><a href="#Activating-a-coordinator" class="headerlink" title="Activating a coordinator"></a>Activating a coordinator</h2><p>A coordinator won’t actually do anything until it’s been “activated”, which is
+an async process that activates all of the coordinator’s strategies:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.activate()</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Coordinator is active'</span>);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>Note that you can assign a log-level when activating a coordinator, and it
+will be applied to all of the coordinator’s strategies:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; LogLevel &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line">coordinator.activate(LogLevel.Info)</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Coordinator will be chatty'</span>);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>Possible log levels include <code>None</code>, <code>Errors</code>, <code>Warnings</code>, and <code>Info</code>.</p>
+<h2 id="Deactivating-a-coordinator"><a href="#Deactivating-a-coordinator" class="headerlink" title="Deactivating a coordinator"></a>Deactivating a coordinator</h2><p>If you want to temporarily disable a coordinator or change its settings, you
+can deactivate it:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.deactivate()</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Coordinator is inactive'</span>);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>At this point you can add/remove strategies and/or sources.</p>
+<h2 id="Coordination-strategies"><a href="#Coordination-strategies" class="headerlink" title="Coordination strategies"></a>Coordination strategies</h2><p>Every <code>Strategy</code> has certain properties, including a name, the names of sources
+to which it applies, a log level, and a log prefix.</p>
+<p><code>@orbit/coordinator</code> ships with several standard strategies, which are
+discussed below. It’s also straightforward to create your own custom
+strategies.</p>
+<h3 id="Request-strategies"><a href="#Request-strategies" class="headerlink" title="Request strategies"></a>Request strategies</h3><p>Request strategies participate in the <a href="./data-flows.html">request flow</a>. Every
+request strategy should be defined with:</p>
+<ul>
+<li><code>source</code> - the name of the observed source</li>
+<li><code>on</code> - the name of the event to observe</li>
+<li><code>target</code> - the name of the target source</li>
+<li><code>action</code> - the name of the action on <code>target</code> that should be invoked</li>
+<li><code>blocking</code> - a boolean indicating whether to block the completion of the
+observed event until the action on the target has been processed</li>
+</ul>
+<p>Here are some example strategies that query / update a remote server
+pessimistically whenever a store is queried / updated:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RequestStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Query the remote server whenever the store is queried</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">on</span>: <span class="string">'beforeQuery'</span>,</div><div class="line"></div><div class="line">  <span class="attr">target</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">action</span>: <span class="string">'pull'</span>,</div><div class="line"></div><div class="line">  <span class="attr">blocking</span>: <span class="literal">true</span></div><div class="line">&#125;));</div><div class="line"></div><div class="line"><span class="comment">// Update the remote server whenever the store is updated</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">on</span>: <span class="string">'beforeUpdate'</span>,</div><div class="line"></div><div class="line">  <span class="attr">target</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">action</span>: <span class="string">'push'</span>,</div><div class="line"></div><div class="line">  <span class="attr">blocking</span>: <span class="literal">true</span></div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<p>It’s possible to apply a filter function to a strategy so that it only applies
+to certain data. For instance, the following filter limits which queries should
+be handled by a remote server:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RequestStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Only forward requests for planets on to the remote server</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">on</span>: <span class="string">'beforeQuery'</span>,</div><div class="line"></div><div class="line">  <span class="attr">target</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">action</span>: <span class="string">'pull'</span>,</div><div class="line"></div><div class="line">  <span class="attr">blocking</span>: <span class="literal">true</span>,</div><div class="line"></div><div class="line">  filter(query) &#123;</div><div class="line">    <span class="keyword">return</span> query.expression.op === <span class="string">'findRecords'</span> &amp;&amp;</div><div class="line">           query.expression.type === <span class="string">'planet'</span></div><div class="line">  &#125;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="Sync-strategies"><a href="#Sync-strategies" class="headerlink" title="Sync strategies"></a>Sync strategies</h3><p>Sync strategies participate in the <a href="./data-flows.html">sync flow</a>. Every
+sync strategy should be defined with:</p>
+<ul>
+<li><code>source</code> - the name of the observed source</li>
+<li><code>target</code> - the name of the target source</li>
+<li><code>blocking</code> - a boolean indicating whether to block the completion of the
+observed event until the action on the target has been processed</li>
+</ul>
+<p>Sync strategies only observe the <code>transform</code> event and apply the <code>sync</code> method
+on the <code>target</code>.</p>
+<p>The following strategy synchronizes any changes to the <code>remote</code> source with a
+<code>store</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Sync all changes received from the remote server to the store</span></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> SyncStrategy(&#123;</div><div class="line">  <span class="attr">source</span>: <span class="string">'remote'</span>,</div><div class="line">  <span class="attr">target</span>: <span class="string">'store'</span>,</div><div class="line">  <span class="attr">blocking</span>: <span class="literal">true</span></div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<p>As described above for request strategies, sync strategies can also accept a
+<code>filter</code> function to limit the applicability of a strategy. This can be useful
+to, say, only backup certain types of data to browser storage.</p>
+<h3 id="Event-logging-strategies"><a href="#Event-logging-strategies" class="headerlink" title="Event logging strategies"></a>Event logging strategies</h3><p>An event logging strategy can be applied to observe events on sources. By
+default, all events will be logged on all sources registered to a coordinator:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; EventLoggingStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy());</div></pre></td></tr></table></figure>
+<p>You may wish to only observe events on certain interfaces, which can be
+specified as follows:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy(&#123;</div><div class="line">  <span class="attr">interfaces</span>: [<span class="string">'updatable'</span>, <span class="string">'pushable'</span>, <span class="string">'syncable'</span>]</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<p>Valid interfaces include <code>updatable</code>, <code>queryable</code>, <code>pushable</code>, <code>pullable</code>, and
+<code>syncable</code> (note the lower case).</p>
+<p>Furthermore, you may wish to only observe certain sources, which can be
+specified by name:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy(&#123;</div><div class="line">  <span class="attr">sources</span>: [<span class="string">'remote'</span>, <span class="string">'store'</span>]</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<p>The event logging strategy will respect the log level that is specified when
+the coordinator is activated.</p>
+<h3 id="Log-truncation-strategies"><a href="#Log-truncation-strategies" class="headerlink" title="Log truncation strategies"></a>Log truncation strategies</h3><p>As changes are applied to sources, their transform logs grow in size. A
+log truncation strategy will keep the size in check by observing the sources
+associated with the strategy and truncating their logs when a common
+transform has been applied to them all.</p>
+<p>To add a log truncation strategy that applies to all sources:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; LogTruncationStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> LogTruncationStrategy());</div></pre></td></tr></table></figure>
+<p>To limit the strategy to apply to only specific sources:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.addStrategy(<span class="keyword">new</span> LogTruncationStrategy(&#123;</div><div class="line">  <span class="attr">sources</span>: [<span class="string">'backup'</span>, <span class="string">'store'</span>]</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+
   
     <div class="guide-links">
       
         <span>← <a href="/v0.15/guide/data-flows.html">Data flows</a></span>
       
+      
+        <span style="float:right"><a href="/v0.15/guide/data-stores.html">Data stores</a> →</span>
       
     </div>
   
