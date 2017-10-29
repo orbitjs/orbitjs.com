@@ -11,14 +11,8 @@
 .highlight figcaption a {
   float: right;
 }
-.javascript .code pre .line .title .keyword,
-.typescript .code pre .line .title .keyword,
-.javascript .code pre .line .class,
-.typescript .code pre .line .class,
-.javascript .code pre .line .class .keyword,
-.typescript .code pre .line .class .keyword,
-.javascript .code pre .line .class .title,
-.typescript .code pre .line .class .title {
+.javascript .code pre .line .keyword,
+.typescript .code pre .line .keyword {
   color: #795da3;
 }
 .javascript .code pre .line .symbol,
