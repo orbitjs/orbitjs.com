@@ -263,8 +263,9 @@ on the <code>target</code>.</p>
 <p>As described above for request strategies, sync strategies can also accept a
 <code>filter</code> function to limit the applicability of a strategy. This can be useful
 to, say, only backup certain types of data to browser storage.</p>
-<h3 id="Event-logging-strategies"><a href="#Event-logging-strategies" class="headerlink" title="Event logging strategies"></a>Event logging strategies</h3><p>An event logging strategy can be applied to observe events on sources. By
-default, all events will be logged on all sources registered to a coordinator:</p>
+<h3 id="Event-logging-strategies"><a href="#Event-logging-strategies" class="headerlink" title="Event logging strategies"></a>Event logging strategies</h3><p>An event logging strategy can be applied to log events on all sources to the
+console. By default, all events will be logged on all sources registered to a
+coordinator:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; EventLoggingStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy());</div></pre></td></tr></table></figure>
 <p>You may wish to only observe events on certain interfaces, which can be
 specified as follows:</p>
@@ -276,10 +277,12 @@ specified by name:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy(&#123;</div><div class="line">  <span class="attr">sources</span>: [<span class="string">'remote'</span>, <span class="string">'store'</span>]</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
 <p>The event logging strategy will respect the log level that is specified when
 the coordinator is activated.</p>
-<h3 id="Log-truncation-strategies"><a href="#Log-truncation-strategies" class="headerlink" title="Log truncation strategies"></a>Log truncation strategies</h3><p>As changes are applied to sources, their transform logs grow in size. A
-log truncation strategy will keep the size in check by observing the sources
-associated with the strategy and truncating their logs when a common
-transform has been applied to them all.</p>
+<h3 id="Log-truncation-strategies"><a href="#Log-truncation-strategies" class="headerlink" title="Log truncation strategies"></a>Log truncation strategies</h3><p>Sources have another kind of log as well: a transform log, which tracks
+transforms that are applied. As changes are applied to sources, their transform
+logs grow in size. A log truncation strategy will keep the size of transform
+logs in check. It observes the sources associated with the strategy and
+truncates their transform logs when a common transform has been applied to them
+all.</p>
 <p>To add a log truncation strategy that applies to all sources:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; LogTruncationStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</div><div class="line"></div><div class="line">coordinator.addStrategy(<span class="keyword">new</span> LogTruncationStrategy());</div></pre></td></tr></table></figure>
 <p>To limit the strategy to apply to only specific sources:</p>
