@@ -90,6 +90,12 @@ em {
 p {
   word-spacing: 0.05em;
 }
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
 a.button {
   padding: 0.75em 2em;
   border-radius: 0.4em;
@@ -298,6 +304,55 @@ a.button.white {
   .left-pic {
     float: none;
     margin: 1rem 0;
+  }
+}
+.media-size-marker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  color: #fff;
+  border-top-right-radius: 3px;
+  font-weight: bold;
+}
+@media (min-width: 576px) {
+  .media-size-marker {
+    background: #15a2b8;
+  }
+  .media-size-marker .number::before {
+    content: "SM";
+  }
+}
+@media (min-width: 768px) {
+  .media-size-marker {
+    background: #dc3545;
+  }
+  .media-size-marker .number::before {
+    content: "MD";
+  }
+}
+@media (min-width: 992px) {
+  .media-size-marker {
+    background: #26a745;
+  }
+  .media-size-marker .number::before {
+    content: "LG";
+  }
+}
+@media (min-width: 1200px) {
+  .media-size-marker {
+    background: #037bff;
+  }
+  .media-size-marker .number::before {
+    content: "XL";
+  }
+}
+@media (min-width: 1400px) {
+  .media-size-marker {
+    background: #ffc10a;
+  }
+  .media-size-marker .number::before {
+    content: "XXL";
   }
 }
 #header {
