@@ -679,9 +679,16 @@ a.learn-more i.fas {
   }
 }
 .tour__masthead__code-example pre {
-  padding: 20px 30px;
-  border-radius: 4px;
   background: #f9f8f6;
+  border-radius: 4px;
+  overflow: scroll;
+  border: 5px solid #f9f8f6;
+  padding: 10px;
+}
+@media (min-width: 576px) {
+  .tour__masthead__code-example pre {
+    padding: 15px 20px;
+  }
 }
 .tour__masthead__code-example pre .comment {
   color: #999;
