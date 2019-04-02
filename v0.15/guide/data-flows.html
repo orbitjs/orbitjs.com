@@ -213,7 +213,7 @@ participate in the request flow.</p>
 </ul>
 <blockquote>
 <p>“Request up, sync down” is a variant of the “data down, actions up” mnemonic
-popularized in the <a href="https://emberjs.com/" target="_blank" rel="external">Ember.js</a> community. In fact, most
+popularized in the <a href="https://emberjs.com/" target="_blank" rel="noopener">Ember.js</a> community. In fact, most
 frontend frameworks adopt a similar pattern for handling actions and returning
 data. Orbit fits well with these patterns: an action triggered by a user can
 spawn an Orbit “request”, which can lead to responses that “sync” data back
@@ -233,13 +233,13 @@ listener for one source that triggers actions on another.</p>
 </li>
 </ul>
 <h3 id="Blocking-vs-non-blocking"><a href="#Blocking-vs-non-blocking" class="headerlink" title="Blocking vs. non-blocking"></a>Blocking vs. non-blocking</h3><p>We can coordinate sources through simple event listeners, such as:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'beforeUpdate'</span>, transform =&gt; &#123;</div><div class="line">  remote.push(transform);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.on(<span class="string">'beforeUpdate'</span>, transform =&gt; &#123;</span><br><span class="line">  remote.push(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>The above listener is “non-blocking” because it doesn’t return anything to
 the emitter. The call to <code>remote.push()</code> is async and may take a while to
 complete, so it will proceed in parallel with the store being updated.</p>
 <p>As an alternative, we can use a “blocking” strategy in our event listener by
 simply returning a promise:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">store.on(<span class="string">'beforeUpdate'</span>, transform =&gt; remote.push(transform));</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.on(<span class="string">'beforeUpdate'</span>, transform =&gt; remote.push(transform));</span><br></pre></td></tr></table></figure>
 <p>This will prevent the <code>store</code> from updating before the transform has been pushed
 up to the <code>remote</code> source. An error in <code>remote.push</code> will cause <code>store.update</code>
 to error as well.</p>

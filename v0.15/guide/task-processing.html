@@ -195,27 +195,27 @@ concepts can help you better troubleshoot and harden your Orbit applications.</p
 <h2 id="Tasks"><a href="#Tasks" class="headerlink" title="Tasks"></a>Tasks</h2><p>Every action performed by sources, from updates to queries, is considered a
 “task” to be performed asynchronously.</p>
 <p>The <code>Task</code> interface is simply:</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">interface</span> Task &#123;</div><div class="line">  <span class="keyword">type</span>: <span class="built_in">string</span>;</div><div class="line">  id?: <span class="built_in">string</span>;</div><div class="line">  data?: <span class="built_in">any</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> Task &#123;</span><br><span class="line">  <span class="keyword">type</span>: <span class="built_in">string</span>;</span><br><span class="line">  id?: <span class="built_in">string</span>;</span><br><span class="line">  data?: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>A task’s <code>type</code>, such as <code>&quot;query&quot;</code> or <code>&quot;update&quot;</code>, signals how that task should
 be performed. An <code>id</code> is assigned to uniquely identify the task. And <code>data</code>
 should contain the type-specific data needed to perform the task, such as an
 object that conforms with the <code>Query</code> or <code>Transform</code> interfaces.</p>
 <h2 id="Performers"><a href="#Performers" class="headerlink" title="Performers"></a>Performers</h2><p>Tasks are performed asynchronously by a <code>Performer</code>:</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">interface</span> Performer &#123;</div><div class="line">  perform(task: Task): <span class="built_in">Promise</span>&lt;<span class="built_in">any</span>&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> Performer &#123;</span><br><span class="line">  perform(task: Task): <span class="built_in">Promise</span>&lt;<span class="built_in">any</span>&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In <code>@orbit/data</code>, every <code>Source</code> implements the <code>Performer</code> interface.</p>
 <h2 id="Task-queues"><a href="#Task-queues" class="headerlink" title="Task queues"></a>Task queues</h2><p>Tasks can be added to queues, which act as FIFO stacks that perform each task
 serially and asynchronously.</p>
 <p>Task queues are associated with a single <code>performer</code>, such as a <code>Source</code>, that
 will perform each task. A <code>performer</code> must be assigned when instantiating a
 <code>TaskQueue</code>:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> queue = <span class="keyword">new</span> TaskQueue(source); <span class="comment">// `source` implements `Performer`</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> queue = <span class="keyword">new</span> TaskQueue(source); <span class="comment">// `source` implements `Performer`</span></span><br></pre></td></tr></table></figure>
 <p>By default, task queues automatically process any tasks that are added to them
 and will continue until either all tasks have been performed or a problem has
 been encountered. For finer control over processing, it’s possible to
 instantiate a queue that will only process tasks explicitly:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> queue = <span class="keyword">new</span> TaskQueue(source, &#123; <span class="attr">autoProcess</span>: <span class="literal">false</span> &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> queue = <span class="keyword">new</span> TaskQueue(source, &#123; <span class="attr">autoProcess</span>: <span class="literal">false</span> &#125;);</span><br></pre></td></tr></table></figure>
 <p>Tasks are normally added to the end of a queue via the <code>push</code> method:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">queue.push(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'query'</span>,</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">expression</span>: &#123; <span class="attr">op</span>: <span class="string">'findRecords'</span>, <span class="attr">type</span>: <span class="string">'planet'</span> &#125; &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">queue.push(&#123;</span><br><span class="line">  type: <span class="string">'query'</span>,</span><br><span class="line">  data: &#123; <span class="attr">expression</span>: &#123; <span class="attr">op</span>: <span class="string">'findRecords'</span>, <span class="attr">type</span>: <span class="string">'planet'</span> &#125; &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="Task-processing"><a href="#Task-processing" class="headerlink" title="Task processing"></a>Task processing</h3><p>Depending upon whether a queue is set to <code>autoProcess</code>, task processing will
 start either immediately or after the <code>process</code> method has been called.</p>
 <p>Queues emit the following events when processing tasks:</p>
