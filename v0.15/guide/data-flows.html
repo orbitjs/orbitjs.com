@@ -225,11 +225,12 @@ listener for one source that triggers actions on another.</p>
 <p>Let’s take a look at what events can trigger other actions:</p>
 <ul>
 <li><p>Update events (<code>beforeUpdate</code>, <code>update</code>, <code>beforePush</code>, <code>push</code>) can trigger
-<code>push</code></p>
+<code>push</code>.</p>
 </li>
-<li><p>Query events (<code>beforeQuery</code>, <code>query</code>, <code>beforePull</code>, <code>pull</code>) can trigger <code>pull</code></p>
+<li><p>Query events (<code>beforeQuery</code>, <code>query</code>, <code>beforePull</code>, <code>pull</code>) can trigger
+<code>pull</code>.</p>
 </li>
-<li><p>Change events (<code>transform</code>, <code>beforeSync</code>, <code>sync</code>) - can trigger <code>sync</code></p>
+<li><p>Change events (<code>transform</code>, <code>beforeSync</code>, <code>sync</code>) can trigger <code>sync</code>.</p>
 </li>
 </ul>
 <h3 id="Blocking-vs-non-blocking"><a href="#Blocking-vs-non-blocking" class="headerlink" title="Blocking vs. non-blocking"></a>Blocking vs. non-blocking</h3><p>We can coordinate sources through simple event listeners, such as:</p>
@@ -245,7 +246,7 @@ up to the <code>remote</code> source. An error in <code>remote.push</code> will 
 to error as well.</p>
 <h3 id="Coordination-guidelines"><a href="#Coordination-guidelines" class="headerlink" title="Coordination guidelines"></a>Coordination guidelines</h3><p>Here are some guidelines for working with data flows:</p>
 <ul>
-<li><p>Consider the full arc of each request - how it will flow up to be fulfilled,
+<li><p>Consider the full arc of each request—how it will flow up to be fulfilled,
 and how results and/or errors will be synchronized on the way back down.</p>
 </li>
 <li><p>Avoid spawning requests from the synchronization flow. A change event

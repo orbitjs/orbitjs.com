@@ -192,8 +192,8 @@
 synchronization between data sources.</p>
 <p>Orbit is written in <a href="https://www.typescriptlang.org" target="_blank" rel="noopener">Typescript</a> and distributed
 on <a href="https://www.npmjs.com/org/orbit" target="_blank" rel="noopener">npm</a> as packages containing a variety of
-module formats and ES language levels. Most Orbit packages are isomorphic -
-they can run in modern browsers as well as in the <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>
+module formats and ES language levels. Most Orbit packages are isomorphic—they
+can run in modern browsers as well as in the <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>
 runtime.</p>
 <h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>Orbit was primarily designed to support the data needs of ambitious client-side
 web applications, including:</p>
@@ -267,13 +267,13 @@ other fields, such as attributes and relationships with other records.</p>
 characteristics for records of a given type.</p>
 <h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>Every source of data, from an in-memory store to an IndexedDB database to a REST
 server, is represented as a <code>Source</code>. Sources vary widely in their capabilities:
-some may support interfaces that for updating and/or querying records, while
-other sources may simply broadcast changes. Schemas provide sources with an
+some may support interfaces for updating and/or querying records, while other
+sources may simply broadcast changes. Schemas provide sources with an
 understanding of the data they manage.</p>
 <h3 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h3><p>A <code>Transform</code> is used to represent a set of record mutations, or “operations”.
 Each <code>Operation</code> represents a single change to a record or relationship (e.g.
 adding a record, updating a field, deleting a relationship, etc.). Transforms
-must be applied atomically - all operations succeed or fail together.</p>
+must be applied atomically—all operations succeed or fail together.</p>
 <h3 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h3><p>The contents of sources can be interrogated using a <code>Query</code>. Orbit comes with a
 standard set of query expressions for finding records and related records. These
 expressions can be paired with refinements (e.g. filters, sort order, etc.). A
@@ -303,7 +303,7 @@ cost can be contained. New capabilities can often be added through declarative
 upfront “wiring” rather than imperative handlers spread throughout your
 codebase.</p>
 <p>Although Orbit does not pretend to absorb all the complexity of writing
-ambitious data-driven applications, it’s hoped that Orbit’s composeable and
+ambitious data-driven applications, it’s hoped that Orbit’s composable and
 declarative approach makes it not only attainable but actually enjoyable :)</p>
 
   

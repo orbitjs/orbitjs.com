@@ -189,7 +189,7 @@
     <h1>Updating data</h1>
   
   <p>Data in a source can be updated by applying a transform, which consists of one
-or more operations. Transforms must be applied atomically - all operations
+or more operations. Transforms must be applied atomically—all operations
 succeed or fail together.</p>
 <h2 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h2><p>Operations each represent a single change to a record or relationship (e.g.
 adding a record, updating a field, deleting a relationship, etc.).</p>
@@ -227,7 +227,7 @@ instructions for the source named <code>remote</code>:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.update(<span class="function"><span class="params">t</span> =&gt;</span> t.replaceRecord(&#123;</span><br><span class="line">  type: <span class="string">'planet'</span>,</span><br><span class="line">  id: <span class="string">'earth'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'Earth'</span>,</span><br><span class="line">    classification: <span class="string">'terrestrial'</span>,</span><br><span class="line">    atmosphere: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;), &#123;</span><br><span class="line">  label: <span class="string">'Update planet Earth'</span>,</span><br><span class="line">  sources: &#123;</span><br><span class="line">    remote: &#123;</span><br><span class="line">      timeout: <span class="number">100000</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>A <code>label</code> can be useful for providing an understanding of actions that have been
 queued for processing.</p>
-<p>The <code>sources: ( ${sourceName}: sourceSpecificOptions }</code> pattern is used to pass
+<p>The <code>sources: { ${sourceName}: sourceSpecificOptions }</code> pattern is used to pass
 options that only a particular source will understand when processing a
 transform. In this instance, we’re telling our remote source to use a custom
 timeout when performing this particular update.</p>

@@ -230,9 +230,9 @@ server:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: <span class="string">'planet'</span>,</span><br><span class="line">  id: <span class="string">'34677136-c0b7-4015-b9e5-57f6fdd16bd2'</span>,</span><br><span class="line">  keys: &#123;</span><br><span class="line">    remoteId: <span class="string">'123456'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The <code>remoteId</code> key of <code>123456</code> can be mapped to the locally generated <code>id</code> using
 a <code>KeyMap</code>, which can be shared by any sources that need access to the mapping.
-When communicating with the server, <code>remoteId</code> might be serialized as <code>id</code> -
-such a translation should occur within the source that communicates directly
-with the remote server (e.g. Orbit’s standard <code>JSONAPISource</code>).</p>
+When communicating with the server, <code>remoteId</code> might be serialized as <code>id</code>—such
+a translation should occur within the source that communicates directly with the
+remote server (e.g. Orbit’s standard <code>JSONAPISource</code>).</p>
 <h3 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h3><p>Any properties that define a record’s data, with the exception of relationships
 to other records, should be defined as “attributes”.</p>
 <p>All attributes should be contained in an <code>attributes</code> object at the root of a
@@ -241,7 +241,7 @@ record.</p>
 the root of a record.</p>
 <p>Relationship linkage is specified in a <code>data</code> object for each relationship.</p>
 <p>For to-one relationships, linkage should be expressed as a record identity
-object in the form <code>{ type, id }</code>. The absense of a relationship can be
+object in the form <code>{ type, id }</code>. The absence of a relationship can be
 expressed as <code>null</code>.</p>
 <p>For to-many relationships, linkage should be expressed as an array of record
 identities.</p>
