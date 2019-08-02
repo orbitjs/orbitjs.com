@@ -132,7 +132,7 @@
         <pre>
 <span class="comment">// Query example: filtering, sorting, & paginating</span>
 
-<span class="object">store</span>.<span class="function">query</span>(<span class="object">q</span> => <span class="object">q</span>.<span class="function">findRecords</span>(<span class="string">'planet'</span>)
+<span class="object">source</span>.<span class="function">query</span>(<span class="object">q</span> => <span class="object">q</span>.<span class="function">findRecords</span>(<span class="string">'planet'</span>)
                   .<span class="function">filter</span>({ <span class="object">attribute</span>: <span class="string">'classification'</span>, <span class="object">value</span>: <span class="string">'terrestrial'</span> })
                   .<span class="function">sort</span>(<span class="string">'name'</span>)
                   .<span class="function">page</span>({ <span class="object">offset</span>: <span class="number">0</span>, <span class="object">limit</span>: <span class="number">10</span> }));
@@ -155,7 +155,7 @@
           <h4>Coordinate Multi-Source Data Flows</h4>
           <p>Your application may need to interact with data from a variety of
             sources: a REST server, a WebSocket stream, an
-            IndexedDB backup, an in-memory store, etc.</p>
+            IndexedDB backup, an in-memory source, etc.</p>
           <p>Orbit can coordinate data flows across any number of sources
             through a standard set of interfaces using normalized data structures.</p>
           <a href="/v0.16/guide/" class="learn-more">
