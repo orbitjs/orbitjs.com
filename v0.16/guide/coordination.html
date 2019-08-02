@@ -107,9 +107,9 @@
             Guide
             <select class="version-select">
                 
-                <option value="0.15" selected>v0.15</option>
+                <option value="0.15">v0.15</option>
                 
-                <option value="0.16">v0.16</option>
+                <option value="0.16" selected>v0.16</option>
                 
             </select>
         </h2>
@@ -123,62 +123,62 @@
             
                 
                 <li>
-                    <a href="/v0.15/guide/index.html" class="sidebar-link">Introduction</a>
+                    <a href="/v0.16/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/packages.html" class="sidebar-link">Packages</a>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link">Getting started</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                    <a href="/v0.16/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                    <a href="/v0.16/guide/data-sources.html" class="sidebar-link">Data sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                    <a href="/v0.16/guide/updating-data.html" class="sidebar-link">Updating data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                    <a href="/v0.16/guide/querying-data.html" class="sidebar-link">Querying data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                    <a href="/v0.16/guide/task-processing.html" class="sidebar-link">Task processing</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                    <a href="/v0.16/guide/data-flows.html" class="sidebar-link">Data flows</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/coordination.html" class="sidebar-link current">Coordination strategies</a>
+                    <a href="/v0.16/guide/coordination.html" class="sidebar-link current">Coordination strategies</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link">Data stores</a>
+                    <a href="/v0.16/guide/memory-sources.html" class="sidebar-link">Memory sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/license.html" class="sidebar-link">License</a>
+                    <a href="/v0.16/guide/license.html" class="sidebar-link">License</a>
                 </li>
             
         </ul>
@@ -186,15 +186,6 @@
 </div>
  
 <div class="content guide with-sidebar coordination-guide">
-  
-  <section class="outdated-docs">
-    <a href="/v0.16/guide/coordination.html">
-      View v0.16
-    </a>
-    <label>
-      <strong>Old guides!</strong> - You're viewing the guides for v0.15.
-    </label>
-  </section>
    
   <h1>Coordination strategies</h1>
    <p>Orbit provides another layer of abstraction on top of direct event observation
@@ -220,10 +211,10 @@ to see debug info and sometimes only errors.</p>
 <h2 id="Creating-a-coordinator"><a href="#Creating-a-coordinator" class="headerlink" title="Creating a coordinator"></a>Creating a coordinator</h2><p>A coordinator is typically shared across an application and manages all of the
 coordination strategies between sources.</p>
 <p>A coordinator can be created with sources and strategies:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Coordinator <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator(&#123;</span><br><span class="line">  sources: [store, backup],</span><br><span class="line">  strategies: [backupStoreSync]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Coordinator <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator(&#123;</span><br><span class="line">  sources: [memory, backup],</span><br><span class="line">  strategies: [backupMemorySync]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Or sources and strategies can be added / removed any time the coordinator is
 inactive:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Coordinator <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator();</span><br><span class="line"></span><br><span class="line">coordinator.addSource(store);</span><br><span class="line">coordinator.addSource(backup);</span><br><span class="line">coordinator.addStrategy(backupStoreSync);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Coordinator <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator();</span><br><span class="line"></span><br><span class="line">coordinator.addSource(memory);</span><br><span class="line">coordinator.addSource(backup);</span><br><span class="line">coordinator.addStrategy(backupMemorySync);</span><br></pre></td></tr></table></figure>
 <h2 id="Activating-a-coordinator"><a href="#Activating-a-coordinator" class="headerlink" title="Activating a coordinator"></a>Activating a coordinator</h2><p>A coordinator won’t actually do anything until it’s been “activated”, which is
 an async process that activates all of the coordinator’s strategies:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.activate()</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Coordinator is active'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
@@ -251,12 +242,12 @@ request strategy should be defined with:</p>
 observed event until the action on the target has been processed</li>
 </ul>
 <p>Here are some example strategies that query / update a remote server
-pessimistically whenever a store is queried / updated:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RequestStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Query the remote server whenever the store is queried</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'store'</span>,</span><br><span class="line">  on: <span class="string">'beforeQuery'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'pull'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update the remote server whenever the store is updated</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'store'</span>,</span><br><span class="line">  on: <span class="string">'beforeUpdate'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'push'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+pessimistically whenever a memory source is queried / updated:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RequestStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Query the remote server whenever the memory source is queried</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'memory'</span>,</span><br><span class="line">  on: <span class="string">'beforeQuery'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'pull'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update the remote server whenever the memory source is updated</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'memory'</span>,</span><br><span class="line">  on: <span class="string">'beforeUpdate'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'push'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
 <p>It’s possible to apply a filter function to a strategy so that it only applies
 to certain data. For instance, the following filter limits which queries should
 be handled by a remote server:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RequestStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Only forward requests for planets on to the remote server</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'store'</span>,</span><br><span class="line">  on: <span class="string">'beforeQuery'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'pull'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  filter(query) &#123;</span><br><span class="line">    <span class="keyword">return</span> query.expression.op === <span class="string">'findRecords'</span> &amp;&amp;</span><br><span class="line">           query.expression.type === <span class="string">'planet'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RequestStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Only forward requests for planets on to the remote server</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'memory'</span>,</span><br><span class="line">  on: <span class="string">'beforeQuery'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'pull'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  filter(query) &#123;</span><br><span class="line">    <span class="keyword">return</span> query.expression.op === <span class="string">'findRecords'</span> &amp;&amp;</span><br><span class="line">           query.expression.type === <span class="string">'planet'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
 <h3 id="Sync-strategies"><a href="#Sync-strategies" class="headerlink" title="Sync strategies"></a>Sync strategies</h3><p>Sync strategies participate in the <a href="./data-flows.html">sync flow</a>. Every
 sync strategy should be defined with:</p>
 <ul>
@@ -268,8 +259,8 @@ observed event until the action on the target has been processed</li>
 <p>Sync strategies only observe the <code>transform</code> event and apply the <code>sync</code> method
 on the <code>target</code>.</p>
 <p>The following strategy synchronizes any changes to the <code>remote</code> source with a
-<code>store</code>:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sync all changes received from the remote server to the store</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">  source: <span class="string">'remote'</span>,</span><br><span class="line">  target: <span class="string">'store'</span>,</span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<code>memory</code> source:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sync all changes received from the remote server to the memory source</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">  source: <span class="string">'remote'</span>,</span><br><span class="line">  target: <span class="string">'memory'</span>,</span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
 <p>As described above for request strategies, sync strategies can also accept a
 <code>filter</code> function to limit the applicability of a strategy. This can be useful
 to, say, only backup certain types of data to browser storage.</p>
@@ -284,7 +275,7 @@ specified as follows:</p>
 <code>syncable</code> (note the lower case).</p>
 <p>Furthermore, you may wish to only observe certain sources, which can be
 specified by name:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy(&#123;</span><br><span class="line">  sources: [<span class="string">'remote'</span>, <span class="string">'store'</span>]</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(<span class="keyword">new</span> EventLoggingStrategy(&#123;</span><br><span class="line">  sources: [<span class="string">'remote'</span>, <span class="string">'memory'</span>]</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
 <p>The event logging strategy will respect the log level that is specified when
 the coordinator is activated.</p>
 <h3 id="Log-truncation-strategies"><a href="#Log-truncation-strategies" class="headerlink" title="Log truncation strategies"></a>Log truncation strategies</h3><p>Sources have another kind of log as well: a transform log, which tracks
@@ -296,19 +287,19 @@ all.</p>
 <p>To add a log truncation strategy that applies to all sources:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; LogTruncationStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> LogTruncationStrategy());</span><br></pre></td></tr></table></figure>
 <p>To limit the strategy to apply to only specific sources:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(<span class="keyword">new</span> LogTruncationStrategy(&#123;</span><br><span class="line">  sources: [<span class="string">'backup'</span>, <span class="string">'store'</span>]</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(<span class="keyword">new</span> LogTruncationStrategy(&#123;</span><br><span class="line">  sources: [<span class="string">'backup'</span>, <span class="string">'memory'</span>]</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
  
   <div class="guide-links">
     
-    <span>← <a href="/v0.15/guide/data-flows.html">Data flows</a></span>
+    <span>← <a href="/v0.16/guide/data-flows.html">Data flows</a></span>
      
-    <span style="float:right"><a href="/v0.15/guide/data-stores.html">Data stores</a> →</span>
+    <span style="float:right"><a href="/v0.16/guide/memory-sources.html">Memory sources</a> →</span>
     
   </div>
   
   <div class="footer">
     Want to correct or improve this documentation?
-    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.15/guide/coordination.md" target="_blank">
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.16/guide/coordination.md" target="_blank">
       Edit this page on Github!
     </a>
   </div>

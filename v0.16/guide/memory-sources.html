@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head><meta name="generator" content="Hexo 3.9.0">
-        <title>Data stores - Orbit.js</title>
+        <title>Memory sources - Orbit.js</title>
         <meta charset="utf-8">
         <meta name="description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Data stores - Orbit.js">
+        <meta property="og:title" content="Memory sources - Orbit.js">
         <meta property="og:description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
         <meta property="og:image" content="http://orbitjs.com/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Data stores - Orbit.js">
+        <meta name="twitter:title" content="Memory sources - Orbit.js">
         <meta name="twitter:description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
         <meta name="twitter:image" content="http://orbitjs.com/images/logo.png">
 
@@ -107,9 +107,9 @@
             Guide
             <select class="version-select">
                 
-                <option value="0.15" selected>v0.15</option>
+                <option value="0.15">v0.15</option>
                 
-                <option value="0.16">v0.16</option>
+                <option value="0.16" selected>v0.16</option>
                 
             </select>
         </h2>
@@ -123,91 +123,82 @@
             
                 
                 <li>
-                    <a href="/v0.15/guide/index.html" class="sidebar-link">Introduction</a>
+                    <a href="/v0.16/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/packages.html" class="sidebar-link">Packages</a>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link">Getting started</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                    <a href="/v0.16/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                    <a href="/v0.16/guide/data-sources.html" class="sidebar-link">Data sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                    <a href="/v0.16/guide/updating-data.html" class="sidebar-link">Updating data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                    <a href="/v0.16/guide/querying-data.html" class="sidebar-link">Querying data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                    <a href="/v0.16/guide/task-processing.html" class="sidebar-link">Task processing</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                    <a href="/v0.16/guide/data-flows.html" class="sidebar-link">Data flows</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
+                    <a href="/v0.16/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link current">Data stores</a>
+                    <a href="/v0.16/guide/memory-sources.html" class="sidebar-link current">Memory sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/license.html" class="sidebar-link">License</a>
+                    <a href="/v0.16/guide/license.html" class="sidebar-link">License</a>
                 </li>
             
         </ul>
     </div>
 </div>
  
-<div class="content guide with-sidebar data-stores-guide">
-  
-  <section class="outdated-docs">
-    <a href="/v0.16/guide/data-stores.html">
-      View v0.16
-    </a>
-    <label>
-      <strong>Old guides!</strong> - You're viewing the guides for v0.15.
-    </label>
-  </section>
+<div class="content guide with-sidebar memory-sources-guide">
    
-  <h1>Data stores</h1>
-   <p>Data stores, which come from the <code>@orbit/store</code> package, have been discussed at
-length throughout this guide already. Stores implement the <code>Updatable</code>,
+  <h1>Memory sources</h1>
+   <p>Memory sources, which come from the <code>@orbit/memory</code> package, have been discussed at
+length throughout this guide already. Memory sources implement the <code>Updatable</code>,
 <code>Queryable</code>, and <code>Syncable</code> interfaces, and are the primary interface through
 which developers will interact with an Orbit application.</p>
 <p>Instead of re-explaining <a href="./querying-data.html">querying</a> and
-<a href="./updating-data.html">updating</a> stores, this section explores some unique
-capabilities of stores and their inner workings.</p>
-<h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><p>Every store keeps its data in memory in a <code>Cache</code>, which is accessible via the
-<code>store.cache</code> member.</p>
+<a href="./updating-data.html">updating</a> memory sources, this section explores some unique
+capabilities of memory sources and their inner workings.</p>
+<h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><p>Every memory source keeps its data in memory in a <code>Cache</code>, which is accessible via the
+<code>memory.cache</code> member.</p>
 <h3 id="Immutable-data"><a href="#Immutable-data" class="headerlink" title="Immutable data"></a>Immutable data</h3><p>Caches use immutable data maps from <code>@orbit/immutable</code> to store their actual
-data. This makes it incredibly efficient to clone caches, and thus stores,
+data. This makes it incredibly efficient to clone caches, and thus memory sources,
 which has benefits we’ll discuss shortly.</p>
 <p>The use of immutable data structures does not extend into the records
 themselves, which are stored as simple POJOs. Therefore, it’s not necessary to
@@ -217,12 +208,12 @@ on mutation.</p>
 <h3 id="Operation-processors"><a href="#Operation-processors" class="headerlink" title="Operation processors"></a>Operation processors</h3><p>Every change to a cache is observed by several “operation processors”, whose job
 it is to ensure that the cache maintains its integrity and continues to conform
 to its associated schema.</p>
-<p>A single transform applied to a store may result in many changes being made by
+<p>A single transform applied to a memory source may result in many changes being made by
 operation processors. For instance, when a record is removed, it must be
 removed from all of its associated relationships. When a relationship with an
 inverse is removed, that inverse relationship must also be removed.</p>
 <h3 id="Patches"><a href="#Patches" class="headerlink" title="Patches"></a>Patches</h3><p>Typically you should not be applying changes directly to a cache. It’s far
-preferable to apply changes to the associated store through its <code>update</code> event.</p>
+preferable to apply changes to the associated memory source through its <code>update</code> event.</p>
 <p>However, caches can be modified via a <code>patch</code> method, that takes an <code>Operation</code>
 or array of <code>Operation</code>s.</p>
 <p>The <code>PatchResult</code> that’s returned has the following signature:</p>
@@ -231,51 +222,51 @@ or array of <code>Operation</code>s.</p>
 the <code>Operation</code> that was applied as well as any data returned.</p>
 <p>Its important to recognize that <code>patch</code> events will be emitted for <em>EVERY</em>
 change, including those made by operation processors. Therefore, if you need
-a high fidelity log of changes to a store, observe its cache’s <code>patch</code> events.</p>
+a high fidelity log of changes to a memory source, observe its cache’s <code>patch</code> events.</p>
 <h3 id="Querying-cache-data"><a href="#Querying-cache-data" class="headerlink" title="Querying cache data"></a>Querying cache data</h3><p>As has been <a href="./querying-data.html">discussed</a>, the contents of a cache can be
 queried directly and synchronously, using the same query expressions that can be
 applied to other sources.</p>
-<p>While <code>store.query</code> is asynchronous and thus returns results wrapped in a
-promise, <code>store.cache.query</code> is synchronous and returns results directly. For
+<p>While <code>memory.query</code> is asynchronous and thus returns results wrapped in a
+promise, <code>memory.cache.query</code> is synchronous and returns results directly. For
 example:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Results will be returned synchronously by querying the cache</span></span><br><span class="line"><span class="keyword">let</span> planets = store.cache.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Results will be returned synchronously by querying the cache</span></span><br><span class="line"><span class="keyword">let</span> planets = memory.cache.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>By querying the cache instead of the store, you’re not allowing other
+<p>By querying the cache instead of the memory source, you’re not allowing other
 sources to participate in the fulfillment of the query. If you want to
 coordinate queries across multiple sources, it’s critical to make requests
-directly on the store.</p>
+directly on the memory source.</p>
 </blockquote>
-<h2 id="Forking-stores"><a href="#Forking-stores" class="headerlink" title="Forking stores"></a>Forking stores</h2><p>Because caches store their data in immutable structures, cloning them is
-incredibly “cheap”. It’s possible to “fork” a store quickly, modify its data in
+<h2 id="Forking-memory-sources"><a href="#Forking-memory-sources" class="headerlink" title="Forking memory sources"></a>Forking memory sources</h2><p>Because caches store their data in immutable structures, cloning them is
+incredibly “cheap”. It’s possible to “fork” a memory source quickly, modify its data in
 isolation from its parent, and optionally “merge” those changes back.</p>
-<p>Let’s look at an example of store forking and merging:</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// start by adding two planets and a moon to the store</span></span><br><span class="line"><span class="keyword">await</span> store.update(<span class="function"><span class="params">t</span> =&gt;</span> [</span><br><span class="line">  t.addRecord(earth),</span><br><span class="line">  t.addRecord(venus),</span><br><span class="line">  t.addRecord(theMoon)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> planets = <span class="keyword">await</span> store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">"planet"</span>).sort(<span class="string">"name"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"original planets"</span>, planets);</span><br><span class="line"></span><br><span class="line"><span class="comment">// fork the store</span></span><br><span class="line"><span class="keyword">let</span> forkedStore = store.fork();</span><br><span class="line"></span><br><span class="line"><span class="comment">// add a planet and moons to the fork</span></span><br><span class="line"><span class="keyword">await</span> forkedStore.update(<span class="function"><span class="params">t</span> =&gt;</span> [</span><br><span class="line">  t.addRecord(jupiter),</span><br><span class="line">  t.addRecord(io),</span><br><span class="line">  t.addRecord(europa)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// query the planets in the forked store</span></span><br><span class="line">planets = <span class="keyword">await</span> forkedStore.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">"planet"</span>).sort(<span class="string">"name"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"planets in fork"</span>, planets);</span><br><span class="line"></span><br><span class="line"><span class="comment">// merge the forked store back into the original store</span></span><br><span class="line"><span class="keyword">await</span> store.merge(forkedStore);</span><br><span class="line"></span><br><span class="line"><span class="comment">// query the planets in the original store</span></span><br><span class="line">planets = <span class="keyword">await</span> store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">"planet"</span>).sort(<span class="string">"name"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"merged planets"</span>, planets);</span><br></pre></td></tr></table></figure>
-<p>It’s important to note a few things about store forking and merging:</p>
+<p>Let’s look at an example of memory source forking and merging:</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// start by adding two planets and a moon to the memory source</span></span><br><span class="line"><span class="keyword">await</span> memory.update(<span class="function"><span class="params">t</span> =&gt;</span> [</span><br><span class="line">  t.addRecord(earth),</span><br><span class="line">  t.addRecord(venus),</span><br><span class="line">  t.addRecord(theMoon)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> planets = <span class="keyword">await</span> memory.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">"planet"</span>).sort(<span class="string">"name"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"original planets"</span>, planets);</span><br><span class="line"></span><br><span class="line"><span class="comment">// fork the memory source</span></span><br><span class="line"><span class="keyword">let</span> forkedMemorySource = memory.fork();</span><br><span class="line"></span><br><span class="line"><span class="comment">// add a planet and moons to the fork</span></span><br><span class="line"><span class="keyword">await</span> forkedMemorySource.update(<span class="function"><span class="params">t</span> =&gt;</span> [</span><br><span class="line">  t.addRecord(jupiter),</span><br><span class="line">  t.addRecord(io),</span><br><span class="line">  t.addRecord(europa)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// query the planets in the forked memory source</span></span><br><span class="line">planets = <span class="keyword">await</span> forkedMemorySource.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">"planet"</span>).sort(<span class="string">"name"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"planets in fork"</span>, planets);</span><br><span class="line"></span><br><span class="line"><span class="comment">// merge the forked memory source back into the original memory source</span></span><br><span class="line"><span class="keyword">await</span> memory.merge(forkedMemorySource);</span><br><span class="line"></span><br><span class="line"><span class="comment">// query the planets in the original memory source</span></span><br><span class="line">planets = <span class="keyword">await</span> memory.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">"planet"</span>).sort(<span class="string">"name"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"merged planets"</span>, planets);</span><br></pre></td></tr></table></figure>
+<p>It’s important to note a few things about memory source forking and merging:</p>
 <ul>
-<li><p>Once a store has been forked, the original and forked stores’ data can
+<li><p>Once a memory source has been forked, the original and forked memory source’s data can
 diverge independently.</p>
 </li>
-<li><p>A store fork can simply be abandoned without cost.</p>
+<li><p>A memory source fork can simply be abandoned without cost.</p>
 </li>
 <li><p>Merging a fork will gather the transforms applied since the fork point,
 coalesce the operations in those transforms into a single new transform,
-and then update the original store.</p>
+and then update the original memory source.</p>
 </li>
 </ul>
 <hr>
 
-<p>Want to experiment with store forking and merging?</p>
+<p>Want to experiment with memory source forking and merging?</p>
 <p>See <a href="https://codesandbox.io/s/40lo886nn7?previewwindow=console" target="_blank" rel="noopener">this example in CodeSandbox</a>.</p>
  
   <div class="guide-links">
     
-    <span>← <a href="/v0.15/guide/coordination.html">Coordination strategies</a></span>
+    <span>← <a href="/v0.16/guide/coordination.html">Coordination strategies</a></span>
      
   </div>
   
   <div class="footer">
     Want to correct or improve this documentation?
-    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.15/guide/data-stores.md" target="_blank">
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.16/guide/memory-sources.md" target="_blank">
       Edit this page on Github!
     </a>
   </div>

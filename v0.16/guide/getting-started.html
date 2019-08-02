@@ -107,9 +107,9 @@
             Guide
             <select class="version-select">
                 
-                <option value="0.15" selected>v0.15</option>
+                <option value="0.15">v0.15</option>
                 
-                <option value="0.16">v0.16</option>
+                <option value="0.16" selected>v0.16</option>
                 
             </select>
         </h2>
@@ -123,62 +123,62 @@
             
                 
                 <li>
-                    <a href="/v0.15/guide/index.html" class="sidebar-link">Introduction</a>
+                    <a href="/v0.16/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/packages.html" class="sidebar-link">Packages</a>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/getting-started.html" class="sidebar-link current">Getting started</a>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link current">Getting started</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                    <a href="/v0.16/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                    <a href="/v0.16/guide/data-sources.html" class="sidebar-link">Data sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                    <a href="/v0.16/guide/updating-data.html" class="sidebar-link">Updating data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                    <a href="/v0.16/guide/querying-data.html" class="sidebar-link">Querying data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                    <a href="/v0.16/guide/task-processing.html" class="sidebar-link">Task processing</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                    <a href="/v0.16/guide/data-flows.html" class="sidebar-link">Data flows</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
+                    <a href="/v0.16/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link">Data stores</a>
+                    <a href="/v0.16/guide/memory-sources.html" class="sidebar-link">Memory sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/license.html" class="sidebar-link">License</a>
+                    <a href="/v0.16/guide/license.html" class="sidebar-link">License</a>
                 </li>
             
         </ul>
@@ -186,15 +186,6 @@
 </div>
  
 <div class="content guide with-sidebar getting-started-guide">
-  
-  <section class="outdated-docs">
-    <a href="/v0.16/guide/getting-started.html">
-      View v0.16
-    </a>
-    <label>
-      <strong>Old guides!</strong> - You're viewing the guides for v0.15.
-    </label>
-  </section>
    
   <h1>Getting started</h1>
    <p>This brief tutorial walks through using Orbit to manage data in a client-side
@@ -211,10 +202,10 @@ reflected in the other.</p>
 <h2 id="Defining-a-source"><a href="#Defining-a-source" class="headerlink" title="Defining a source"></a>Defining a source</h2><p>Sources provide interfaces to access data. To ensure that they have the same
 understanding of data, every source in an application should share the same
 schema.</p>
-<p>Let’s create an in-memory store as our first data source:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'@orbit/store'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Store(&#123; schema &#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="Loading-and-querying-data"><a href="#Loading-and-querying-data" class="headerlink" title="Loading and querying data"></a>Loading and querying data</h2><p>We can now load some data into our store and then query its contents:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> earth = &#123;</span><br><span class="line">  type: <span class="string">'planet'</span>,</span><br><span class="line">  id: <span class="string">'earth'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'Earth'</span>,</span><br><span class="line">    classification: <span class="string">'terrestrial'</span>,</span><br><span class="line">    atmosphere: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> venus = &#123;</span><br><span class="line">  type: <span class="string">'planet'</span>,</span><br><span class="line">  id: <span class="string">'venus'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'Venus'</span>,</span><br><span class="line">    classification: <span class="string">'terrestrial'</span>,</span><br><span class="line">    atmosphere: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theMoon = &#123;</span><br><span class="line">  type: <span class="string">'moon'</span>,</span><br><span class="line">  id: <span class="string">'theMoon'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'The Moon'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  relationships: &#123;</span><br><span class="line">    planet: &#123; <span class="attr">data</span>: &#123; <span class="attr">type</span>: <span class="string">'planet'</span>, <span class="attr">id</span>: <span class="string">'earth'</span> &#125; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">store.update(<span class="function"><span class="params">t</span> =&gt;</span> [</span><br><span class="line">  t.addRecord(venus),</span><br><span class="line">  t.addRecord(earth),</span><br><span class="line">  t.addRecord(theMoon)</span><br><span class="line">])</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>)))</span><br><span class="line">  .then(<span class="function"><span class="params">planets</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(planets);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>Let’s create an in-memory source as our first data source:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> MemorySource <span class="keyword">from</span> <span class="string">'@orbit/memory'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> memory = <span class="keyword">new</span> MemorySource(&#123; schema &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Loading-and-querying-data"><a href="#Loading-and-querying-data" class="headerlink" title="Loading and querying data"></a>Loading and querying data</h2><p>We can now load some data into our memory source and then query its contents:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> earth = &#123;</span><br><span class="line">  type: <span class="string">'planet'</span>,</span><br><span class="line">  id: <span class="string">'earth'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'Earth'</span>,</span><br><span class="line">    classification: <span class="string">'terrestrial'</span>,</span><br><span class="line">    atmosphere: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> venus = &#123;</span><br><span class="line">  type: <span class="string">'planet'</span>,</span><br><span class="line">  id: <span class="string">'venus'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'Venus'</span>,</span><br><span class="line">    classification: <span class="string">'terrestrial'</span>,</span><br><span class="line">    atmosphere: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theMoon = &#123;</span><br><span class="line">  type: <span class="string">'moon'</span>,</span><br><span class="line">  id: <span class="string">'theMoon'</span>,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    name: <span class="string">'The Moon'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  relationships: &#123;</span><br><span class="line">    planet: &#123; <span class="attr">data</span>: &#123; <span class="attr">type</span>: <span class="string">'planet'</span>, <span class="attr">id</span>: <span class="string">'earth'</span> &#125; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">memory.update(<span class="function"><span class="params">t</span> =&gt;</span> [</span><br><span class="line">  t.addRecord(venus),</span><br><span class="line">  t.addRecord(earth),</span><br><span class="line">  t.addRecord(theMoon)</span><br><span class="line">])</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> memory.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>)))</span><br><span class="line">  .then(<span class="function"><span class="params">planets</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(planets);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <p>The following output should be logged:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    type: <span class="string">"planet"</span>,</span><br><span class="line">    id: <span class="string">"earth"</span>,</span><br><span class="line">    attributes: &#123;</span><br><span class="line">      name: <span class="string">"Earth"</span>,</span><br><span class="line">      classification: <span class="string">"terrestrial"</span>,</span><br><span class="line">      atmosphere: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    relationships: &#123;</span><br><span class="line">      moons: &#123;</span><br><span class="line">        data: [</span><br><span class="line">          &#123; <span class="attr">type</span>: <span class="string">'moon'</span>, <span class="attr">id</span>: <span class="string">'theMoon'</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    type: <span class="string">"planet"</span>,</span><br><span class="line">    id: <span class="string">"venus"</span>,</span><br><span class="line">    attributes: &#123;</span><br><span class="line">      name: <span class="string">"Venus"</span>,</span><br><span class="line">      classification: <span class="string">"terrestrial"</span>,</span><br><span class="line">      atmosphere: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>There’s a lot going on here, so let’s break it down.</p>
@@ -223,15 +214,15 @@ corresponding model definition in the schema. These representations conform with
 the <a href="http://jsonapi.org/" target="_blank" rel="noopener">JSONAPI</a> specification. Every record has an identity
 established by a <code>type</code> and <code>id</code> pair. Relationship linkage is specified in a
 <code>data</code> object via identities.</p>
-<p>In order to add records to the store, we call <code>store.update()</code> and pass an array
+<p>In order to add records to the memory source, we call <code>memory.update()</code> and pass an array
 of operations. Passing a function to <code>update</code> provides us with a transform
 builder (<code>t</code>), which we use to create an array of <code>addRecord</code> operations.</p>
 <p>Note that we added the relationship between the moon and the planet on just the
 moon record. However, when we query the planet, we can see that the inverse
 relationship has also been added. This is because every operation that’s applied
-to the store’s cache passes through a schema consistency check.</p>
-<p>Let’s look at how the store is queried:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</span><br></pre></td></tr></table></figure>
+to the memory source’s cache passes through a schema consistency check.</p>
+<p>Let’s look at how the memory source is queried:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</span><br></pre></td></tr></table></figure>
 <p>Because we pass a function to <code>query</code>, Orbit provides us with a query builder
 (<code>q</code>) which we can use to compose a query expression. We’re creating a simple
 <code>findRecords</code> query that’s sorted by <code>name</code>. Internally, query expressions are
@@ -240,47 +231,47 @@ that allows for nearly limitless expressivity (the only limit being that all
 sources involved in processing a query need to understand the expressions
 involved).</p>
 <p>Here’s an example of a more complex query that filters, sorts, and paginates:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>)</span><br><span class="line">                  .filter(&#123; <span class="attr">attribute</span>: <span class="string">'classification'</span>, <span class="attr">value</span>: <span class="string">'terrestrial'</span> &#125;)</span><br><span class="line">                  .sort(&#123; <span class="attr">attribute</span>: <span class="string">'name'</span>, <span class="attr">order</span>: <span class="string">'descending'</span> &#125;)</span><br><span class="line">                  .page(&#123; <span class="attr">offset</span>: <span class="number">0</span>, <span class="attr">limit</span>: <span class="number">10</span> &#125;))</span><br></pre></td></tr></table></figure>
-<h3 id="Asynchronous-vs-synchronous-queries"><a href="#Asynchronous-vs-synchronous-queries" class="headerlink" title="Asynchronous vs. synchronous queries"></a>Asynchronous vs. synchronous queries</h3><p>Note that <code>store.query</code> is asynchronous and thus returns results wrapped in a
-promise. This may seem strange at first because the store’s data is “in memory”.
-In fact, if you want to just “peek” into the contents of the store’s memory,
-you can issue the same queries synchronously against the store’s <code>Cache</code>.
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>)</span><br><span class="line">                  .filter(&#123; <span class="attr">attribute</span>: <span class="string">'classification'</span>, <span class="attr">value</span>: <span class="string">'terrestrial'</span> &#125;)</span><br><span class="line">                  .sort(&#123; <span class="attr">attribute</span>: <span class="string">'name'</span>, <span class="attr">order</span>: <span class="string">'descending'</span> &#125;)</span><br><span class="line">                  .page(&#123; <span class="attr">offset</span>: <span class="number">0</span>, <span class="attr">limit</span>: <span class="number">10</span> &#125;))</span><br></pre></td></tr></table></figure>
+<h3 id="Asynchronous-vs-synchronous-queries"><a href="#Asynchronous-vs-synchronous-queries" class="headerlink" title="Asynchronous vs. synchronous queries"></a>Asynchronous vs. synchronous queries</h3><p>Note that <code>memory.query</code> is asynchronous and thus returns results wrapped in a
+promise. This may seem strange at first because the memory source’s data is “in memory”.
+In fact, if you want to just “peek” into the contents of the memory source,
+you can issue the same queries synchronously against the memory source’s <code>Cache</code>.
 For example:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Results will be returned synchronously by querying the cache</span></span><br><span class="line"><span class="keyword">let</span> planets = store.cache.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</span><br></pre></td></tr></table></figure>
-<p>By querying the cache instead of the store, you’re not allowing other sources to
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Results will be returned synchronously by querying the cache</span></span><br><span class="line"><span class="keyword">let</span> planets = memory.cache.query(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords(<span class="string">'planet'</span>).sort(<span class="string">'name'</span>));</span><br></pre></td></tr></table></figure>
+<p>By querying the cache instead of the memory source, you’re not allowing other sources to
 participate in the fulfillment of the query. Continue reading to understand how
 requests to sources can be “coordinated”.</p>
 <hr>
 
 <p>Want to experiment with some of the concepts presented so far?</p>
 <p>See <a href="https://codesandbox.io/s/0vn2w7nzn?previewwindow=console" target="_blank" rel="noopener">Part 1 of this example in CodeSandbox</a>.</p>
-<h2 id="Defining-a-backup-source"><a href="#Defining-a-backup-source" class="headerlink" title="Defining a backup source"></a>Defining a backup source</h2><p>Our in-memory data store is quite isolated at the moment. If a scientist is
+<h2 id="Defining-a-backup-source"><a href="#Defining-a-backup-source" class="headerlink" title="Defining a backup source"></a>Defining a backup source</h2><p>Our in-memory data source is quite isolated at the moment. If a scientist is
 using our application to track their discoveries, a browser refresh might lose a
 whole planet or moon! 😱</p>
 <p>Let’s create a browser storage source to keep data around locally:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> IndexedDBSource <span class="keyword">from</span> <span class="string">'@orbit/indexeddb'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> backup = <span class="keyword">new</span> IndexedDBSource(&#123;</span><br><span class="line">  schema,</span><br><span class="line">  name: <span class="string">'backup'</span>,</span><br><span class="line">  namespace: <span class="string">'solarsystem'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h2 id="Sync’ing-changes-between-sources"><a href="#Sync’ing-changes-between-sources" class="headerlink" title="Sync’ing changes between sources"></a>Sync’ing changes between sources</h2><p>Every time a source is transformed, it emits a <code>transform</code> event. It’s simple
 to observe these events directly:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>It’s possible to pipe changes that occur in one source into another via the
 <code>sync</code> method:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</span><br><span class="line">  backup.sync(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</span><br><span class="line">  backup.sync(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Like all mutation and query methods on sources, the <code>sync</code> call returns a
 promise. If we want to guarantee that transforms can’t be applied to our
-store without also being backed up, we should return the promise in the event
+memory source without also being backed up, we should return the promise in the event
 handler:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> backup.sync(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.on(<span class="string">'transform'</span>, (transform) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> backup.sync(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Or more simply:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">store.on(<span class="string">'transform'</span>, (transform) =&gt; backup.sync(transform));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.on(<span class="string">'transform'</span>, (transform) =&gt; backup.sync(transform));</span><br></pre></td></tr></table></figure>
 <p>With this single line of code we’ve guaranteed that every change to the
-in-memory store will be sync’d with the backup IndexedDB source. Furthermore,
+in-memory source will be sync’d with the backup IndexedDB source. Furthermore,
 we’ve configured this synchronization to be “blocking”, so that changes to the
-store can’t be made at all unless they are also backed up.</p>
+memory source can’t be made at all unless they are also backed up.</p>
 <h2 id="Introducing-a-coordinator"><a href="#Introducing-a-coordinator" class="headerlink" title="Introducing a coordinator"></a>Introducing a coordinator</h2><p>Orbit provides another layer of abstraction on top of direct event
 observation and handling: a <code>Coordinator</code>. A coordinator manages a set of
 sources to which it applies a set of coordination strategies.</p>
 <p>A coordinator could be configured to handle the above scenario as follows:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Coordinator, &#123; SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator(&#123;</span><br><span class="line">  sources: [store, backup]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> backupStoreSync = <span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">  source: <span class="string">'store'</span>,</span><br><span class="line">  target: <span class="string">'backup'</span>,</span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">coordinator.addStrategy(backupStoreSync);</span><br><span class="line"></span><br><span class="line">coordinator.activate(); <span class="comment">// returns a promise that resolves when all strategies</span></span><br><span class="line">                        <span class="comment">// have been activated</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Coordinator, &#123; SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> coordinator = <span class="keyword">new</span> Coordinator(&#123;</span><br><span class="line">  sources: [memory, backup]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> backupMemorySync = <span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">  source: <span class="string">'memory'</span>,</span><br><span class="line">  target: <span class="string">'backup'</span>,</span><br><span class="line">  blocking: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">coordinator.addStrategy(backupMemorySync);</span><br><span class="line"></span><br><span class="line">coordinator.activate(); <span class="comment">// returns a promise that resolves when all strategies</span></span><br><span class="line">                        <span class="comment">// have been activated</span></span><br></pre></td></tr></table></figure>
 <p>Although this might seem like an unnecessary amount of complexity compared with
 the simple event handler, there are a number of benefits to using a coordinator:</p>
 <ul>
@@ -298,14 +289,14 @@ can be tedious. However, it’s important to do this to avoid leaking memory.</p
 to see debug info and sometimes only errors.</p>
 </li>
 </ul>
-<h2 id="Restoring-from-backup"><a href="#Restoring-from-backup" class="headerlink" title="Restoring from backup"></a>Restoring from backup</h2><p>Although we’re now backing up our store to browser storage, we have not yet
+<h2 id="Restoring-from-backup"><a href="#Restoring-from-backup" class="headerlink" title="Restoring from backup"></a>Restoring from backup</h2><p>Although we’re now backing up our memory source to browser storage, we have not yet
 set up a process to restore that backed up data.</p>
 <p>If we want our app to restore all of its data from browser storage when it
 first boots, we could perform the following:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">backup.pull(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords())</span><br><span class="line">  .then(<span class="function"><span class="params">transform</span> =&gt;</span> store.sync(transform))</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> coordinator.activate());</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">backup.pull(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords())</span><br><span class="line">  .then(<span class="function"><span class="params">transform</span> =&gt;</span> memory.sync(transform))</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> coordinator.activate());</span><br></pre></td></tr></table></figure>
 <p>This code first pulls all the records from backup and then syncs them
-with the main store <em>before</em> activating the coordinator. In this way, the
-coordination strategy that backs up the store won’t be enabled until after
+with the main memory source <em>before</em> activating the coordinator. In this way, the
+coordination strategy that backs up the memory source won’t be enabled until after
 the restore is complete.</p>
 <p>We now have an application which has data fully contained in the browser. Any
 data that’s entered can be accessed while offline and will even persist across
@@ -324,18 +315,18 @@ useful when it’s shared with a server.</p>
 <p>Next let’s add the source to the coordinator:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.addSource(remote);</span><br></pre></td></tr></table></figure>
 <p>And then we can add strategies to ensure that queries and updates made against
-the store are processed by the remote server:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RequestStrategy, SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Query the remote server whenever the store is queried</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'store'</span>,</span><br><span class="line">  on: <span class="string">'beforeQuery'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'pull'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">false</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update the remote server whenever the store is updated</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'store'</span>,</span><br><span class="line">  on: <span class="string">'beforeUpdate'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'push'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">false</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sync all changes received from the remote server to the store</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">  source: <span class="string">'remote'</span>,</span><br><span class="line">  target: <span class="string">'store'</span>,</span><br><span class="line">  blocking: <span class="literal">false</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
-<p>These strategies are all non-blocking, which means that the store will be
+the memory source are processed by the remote server:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RequestStrategy, SyncStrategy &#125; <span class="keyword">from</span> <span class="string">'@orbit/coordinator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Query the remote server whenever the memory source is queried</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'memory'</span>,</span><br><span class="line">  on: <span class="string">'beforeQuery'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'pull'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">false</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update the remote server whenever the memory source is updated</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">  source: <span class="string">'memory'</span>,</span><br><span class="line">  on: <span class="string">'beforeUpdate'</span>,</span><br><span class="line"></span><br><span class="line">  target: <span class="string">'remote'</span>,</span><br><span class="line">  action: <span class="string">'push'</span>,</span><br><span class="line"></span><br><span class="line">  blocking: <span class="literal">false</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sync all changes received from the remote server to the memory source</span></span><br><span class="line">coordinator.addStrategy(<span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">  source: <span class="string">'remote'</span>,</span><br><span class="line">  target: <span class="string">'memory'</span>,</span><br><span class="line">  blocking: <span class="literal">false</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>These strategies are all non-blocking, which means that the memory source will be
 updated / queried optimistically without waiting for responses from the server.
 Once the server responses are received, they will then be sync’d back with the
-store.</p>
+memory source.</p>
 <p>This set of coordination strategies is certainly not yet production ready. We
 will need exception handling in our strategies to tell Orbit how to handle
 network errors (e.g. retry after X secs) as well as other types of exceptions.</p>
 <p>Optimistic server requests paired with an in-browser backup can work well for
 some kinds of applications. For other applications, it’s more appropriate to use
-blocking strategies that tie the success of store requests to a successful
+blocking strategies that tie the success of memory source requests to a successful
 round trip to the server. Still other applications might choose to mix
 strategies, so that only certain updates are blocking (e.g. a store purchase).</p>
 <p>Orbit allows for filtering, exception handling, and more in strategies to
@@ -352,7 +343,7 @@ among our sources:</p>
 back to using a LocalStorage-based bucket if necessary.</p>
 <p>This <code>bucket</code> can be passed as a setting to any and all of our sources.
 For instance:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> backup = <span class="keyword">new</span> IndexedDBSource(&#123;</span><br><span class="line">  bucket,</span><br><span class="line">  schema,</span><br><span class="line">  name: <span class="string">'backup'</span>,</span><br><span class="line">  namespace: <span class="string">'solarsystem'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Store(&#123; bucket, schema &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> backup = <span class="keyword">new</span> IndexedDBSource(&#123;</span><br><span class="line">  bucket,</span><br><span class="line">  schema,</span><br><span class="line">  name: <span class="string">'backup'</span>,</span><br><span class="line">  namespace: <span class="string">'solarsystem'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> memory = <span class="keyword">new</span> MemorySource(&#123; bucket, schema &#125;);</span><br></pre></td></tr></table></figure>
 <p>Each source will use the bucket to initialize its queues, logs, and other state.
 And as their state changes, sources will use buckets to persist those changes.</p>
 <p>Of course, buckets can also be used for ad-hoc state persistence of any kind
@@ -365,15 +356,15 @@ and how to make the most of it.</p>
  
   <div class="guide-links">
     
-    <span>← <a href="/v0.15/guide/packages.html">Packages</a></span>
+    <span>← <a href="/v0.16/guide/packages.html">Packages</a></span>
      
-    <span style="float:right"><a href="/v0.15/guide/modeling-data.html">Modeling data</a> →</span>
+    <span style="float:right"><a href="/v0.16/guide/modeling-data.html">Modeling data</a> →</span>
     
   </div>
   
   <div class="footer">
     Want to correct or improve this documentation?
-    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.15/guide/getting-started.md" target="_blank">
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.16/guide/getting-started.md" target="_blank">
       Edit this page on Github!
     </a>
   </div>

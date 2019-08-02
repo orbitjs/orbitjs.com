@@ -785,6 +785,30 @@ ul.demo li {
 .content p.tip em {
   color: #555;
 }
+.content section.outdated-docs {
+  background-color: #f00;
+  padding: 0.3em 0.6em;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+}
+.content section.outdated-docs label,
+.content section.outdated-docs label strong {
+  color: #eee;
+}
+.content section.outdated-docs label,
+.content section.outdated-docs a {
+  padding: 0.3em 0.5em;
+  display: block;
+}
+.content section.outdated-docs a {
+  float: right;
+  color: #fff;
+  background: #c00;
+  margin-left: 1em;
+}
+.content section.outdated-docs a:hover {
+  background: #d00;
+}
 .guide-links {
   margin-top: 2em;
   height: 1em;

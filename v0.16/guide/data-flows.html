@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head><meta name="generator" content="Hexo 3.9.0">
-        <title>Packages - Orbit.js</title>
+        <title>Data flows - Orbit.js</title>
         <meta charset="utf-8">
         <meta name="description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Packages - Orbit.js">
+        <meta property="og:title" content="Data flows - Orbit.js">
         <meta property="og:description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
         <meta property="og:image" content="http://orbitjs.com/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Packages - Orbit.js">
+        <meta name="twitter:title" content="Data flows - Orbit.js">
         <meta name="twitter:description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
         <meta name="twitter:image" content="http://orbitjs.com/images/logo.png">
 
@@ -107,9 +107,9 @@
             Guide
             <select class="version-select">
                 
-                <option value="0.15" selected>v0.15</option>
+                <option value="0.15">v0.15</option>
                 
-                <option value="0.16">v0.16</option>
+                <option value="0.16" selected>v0.16</option>
                 
             </select>
         </h2>
@@ -123,177 +123,155 @@
             
                 
                 <li>
-                    <a href="/v0.15/guide/index.html" class="sidebar-link">Introduction</a>
+                    <a href="/v0.16/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/packages.html" class="sidebar-link current">Packages</a>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link">Getting started</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                    <a href="/v0.16/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                    <a href="/v0.16/guide/data-sources.html" class="sidebar-link">Data sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                    <a href="/v0.16/guide/updating-data.html" class="sidebar-link">Updating data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                    <a href="/v0.16/guide/querying-data.html" class="sidebar-link">Querying data</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                    <a href="/v0.16/guide/task-processing.html" class="sidebar-link">Task processing</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                    <a href="/v0.16/guide/data-flows.html" class="sidebar-link current">Data flows</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
+                    <a href="/v0.16/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/data-stores.html" class="sidebar-link">Data stores</a>
+                    <a href="/v0.16/guide/memory-sources.html" class="sidebar-link">Memory sources</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.15/guide/license.html" class="sidebar-link">License</a>
+                    <a href="/v0.16/guide/license.html" class="sidebar-link">License</a>
                 </li>
             
         </ul>
     </div>
 </div>
  
-<div class="content guide with-sidebar packages-guide">
-  
-  <section class="outdated-docs">
-    <a href="/v0.16/guide/packages.html">
-      View v0.16
-    </a>
-    <label>
-      <strong>Old guides!</strong> - You're viewing the guides for v0.15.
-    </label>
-  </section>
+<div class="content guide with-sidebar data-flows-guide">
    
-  <h1>Packages</h1>
-   <p>Orbit is distributed on npm through the
-<a href="https://www.npmjs.com/org/orbit" target="_blank" rel="noopener">@orbit</a> organization in several packages.</p>
-<h2 id="Core-libraries"><a href="#Core-libraries" class="headerlink" title="Core libraries"></a>Core libraries</h2><p>Orbit consists of the following core libraries:</p>
+  <h1>Data flows</h1>
+   <p>Orbit enables the coordination of many independent sources of data, each of
+which may internally handle queries and updates differently. It’s easy to
+imagine tying oneself in knots with such potential complexity. However, by
+following Orbit’s conventions and a few guidelines, you can compose data to
+flow predictably and reliably through your application.</p>
+<h2 id="“Request-up-sync-down”"><a href="#“Request-up-sync-down”" class="headerlink" title="“Request up, sync down”"></a>“Request up, sync down”</h2><p>Orbit divides the movement of data into two different “flows”:</p>
 <ul>
-<li><p><a href="https://www.npmjs.com/package/@orbit/core" target="_blank" rel="noopener">@orbit/core</a> - A core
-set of primitives for performing, tracking, and responding to asynchronous
-tasks, including:</p>
-<ul>
-<li><p>An event system that allows listeners to engage with the fulfillment of
-events by returning promises.</p>
+<li><p><strong>Request flow</strong> - Requests to query or update data originate from an
+application and flow upstream to a source that can fulfill the request.</p>
 </li>
-<li><p>An asynchronous task processing queue.</p>
-</li>
-<li><p>A log that tracks a history of changes and allows for revision and
-interrogation.</p>
-</li>
-<li><p>A bucket interface for persisting state. Used by logs and queues.</p>
+<li><p><strong>Sync flow</strong> - Mutations then flow back downstream and are synchronized
+with all the sources that are concerned.</p>
 </li>
 </ul>
-</li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/data" target="_blank" rel="noopener">@orbit/data</a> - Applies
-the core Orbit primitives to data sources. Includes the following elements:</p>
+<p>Every source interface has events and methods that correspond with one of these
+flows:</p>
 <ul>
-<li><p>A schema for defining models, including attributes and relationships.</p>
+<li><p>The <code>Updatable</code>, <code>Queryable</code>, <code>Pushable</code>, and <code>Pullable</code> interfaces all
+participate in the request flow.</p>
 </li>
-<li><p>Operations used to manipulate records (e.g. <code>addRecord</code>, <code>removeRecord</code>,
-<code>addToHasMany</code>, etc.).</p>
-</li>
-<li><p>Transforms, which are composed of any number of operations, and must be
-performed transactionally.</p>
-</li>
-<li><p>A query language that allows query expressions to be composed in a flexible
-AST form.</p>
-</li>
-<li><p>A base <code>Source</code> class that can be used to abstract any source of data.
-Sources can be decorated as <code>pullable</code>, <code>pushable</code>, <code>queryable</code>, <code>syncable</code>,
-and/or <code>updatable</code> - each decorator provides a unique interface that allows
-for transforms and queries to be applied as appropriate.</p>
+<li><p>The <code>Syncable</code> interface participates in the sync flow.</p>
 </li>
 </ul>
-</li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/coordinator" target="_blank" rel="noopener">@orbit/coordinator</a> -
-A coordinator and set of coordination strategies for managing data flow and
-keeping Orbit Data sources in sync.</p>
-</li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/utils" target="_blank" rel="noopener">@orbit/utils</a> - A
-common set of utility functions used by Orbit libs.</p>
-</li>
-</ul>
-<h2 id="Standard-data-sources"><a href="#Standard-data-sources" class="headerlink" title="Standard data sources"></a>Standard data sources</h2><p>Orbit provides the following sources for accessing and persisting data:</p>
+<blockquote>
+<p>“Request up, sync down” is a variant of the “data down, actions up” mnemonic
+popularized in the <a href="https://emberjs.com/" target="_blank" rel="noopener">Ember.js</a> community. In fact, most
+frontend frameworks adopt a similar pattern for handling actions and returning
+data. Orbit fits well with these patterns: an action triggered by a user can
+spawn an Orbit “request”, which can lead to responses that “sync” data back
+down, typically ending in an update to a view. In this way, “request up, sync
+down” can be seen as a continuation of the “data down, actions up” pattern.</p>
+</blockquote>
+<h2 id="Coordinating-sources"><a href="#Coordinating-sources" class="headerlink" title="Coordinating sources"></a>Coordinating sources</h2><p>Request and sync flows can be coordinated across sources by configuring an event
+listener for one source that triggers actions on another.</p>
+<p>Let’s take a look at what events can trigger other actions:</p>
 <ul>
-<li><p><a href="https://www.npmjs.com/package/@orbit/store" target="_blank" rel="noopener">@orbit/store</a> - An
-in-memory data store that supports complex querying and updating. Because
-stores maintain data in immutable data structures, they can be efficiently
-forked. Forked stores can diverge from the master store, and then the changes
-can be merged later.</p>
+<li><p>Update events (<code>beforeUpdate</code>, <code>update</code>, <code>beforePush</code>, <code>push</code>) can trigger
+<code>push</code>.</p>
 </li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/jsonapi" target="_blank" rel="noopener">@orbit/jsonapi</a> -
-Provides full CRUD support, including complex querying, for a RESTful API that
-conforms to the <a href="http://jsonapi.org/" target="_blank" rel="noopener">JSONAPI</a> specification.</p>
+<li><p>Query events (<code>beforeQuery</code>, <code>query</code>, <code>beforePull</code>, <code>pull</code>) can trigger
+<code>pull</code>.</p>
 </li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/local-storage" target="_blank" rel="noopener">@orbit/local-storage</a> -
-Persists records to local storage.</p>
-</li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/indexeddb" target="_blank" rel="noopener">@orbit/indexeddb</a> -
-Persists records to IndexedDB.</p>
+<li><p>Change events (<code>transform</code>, <code>beforeSync</code>, <code>sync</code>) can trigger <code>sync</code>.</p>
 </li>
 </ul>
-<p>These standard sources can provide guidance for building your own custom sources
-as well.</p>
-<h2 id="Standard-persistence-buckets"><a href="#Standard-persistence-buckets" class="headerlink" title="Standard persistence buckets"></a>Standard persistence buckets</h2><p>Buckets are used to persist application state, such as queued requests and
-change logs. Standard buckets include:</p>
+<h3 id="Blocking-vs-non-blocking"><a href="#Blocking-vs-non-blocking" class="headerlink" title="Blocking vs. non-blocking"></a>Blocking vs. non-blocking</h3><p>We can coordinate sources through simple event listeners, such as:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.on(<span class="string">'beforeUpdate'</span>, transform =&gt; &#123;</span><br><span class="line">  remote.push(transform);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>The above listener is “non-blocking” because it doesn’t return anything to
+the emitter. The call to <code>remote.push()</code> is async and may take a while to
+complete, so it will proceed in parallel with the <code>memory</code> source being updated.</p>
+<p>As an alternative, we can use a “blocking” strategy in our event listener by
+simply returning a promise:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">memory.on(<span class="string">'beforeUpdate'</span>, transform =&gt; remote.push(transform));</span><br></pre></td></tr></table></figure>
+<p>This will prevent the <code>memory</code> source from updating before the transform has been pushed
+up to the <code>remote</code> source. An error in <code>remote.push</code> will cause <code>memory.update</code>
+to error as well.</p>
+<h3 id="Coordination-guidelines"><a href="#Coordination-guidelines" class="headerlink" title="Coordination guidelines"></a>Coordination guidelines</h3><p>Here are some guidelines for working with data flows:</p>
 <ul>
-<li><p><a href="https://www.npmjs.com/package/@orbit/local-storage-bucket" target="_blank" rel="noopener">@orbit/local-storage-bucket</a> -
-Persists state to local storage.</p>
+<li><p>Consider the full arc of each request—how it will flow up to be fulfilled,
+and how results and/or errors will be synchronized on the way back down.</p>
 </li>
-<li><p><a href="https://www.npmjs.com/package/@orbit/indexeddb-bucket" target="_blank" rel="noopener">@orbit/indexeddb-bucket</a> -
-Persists state to IndexedDB.</p>
+<li><p>Avoid spawning requests from the synchronization flow. A change event
+(<code>beforeSync</code>, <code>sync</code>, or <code>transform</code>) should only ever trigger a <code>sync</code>
+action.</p>
+</li>
+<li><p>For pessimistic requests in which you must guarantee success before
+proceeding, use blocking connections for all the request and
+sync flows that may be involved.</p>
 </li>
 </ul>
-<h2 id="Additional-libraries"><a href="#Additional-libraries" class="headerlink" title="Additional libraries"></a>Additional libraries</h2><p>Additional libraries related to Orbit include:</p>
-<ul>
-<li><a href="https://www.npmjs.com/package/ember-orbit" target="_blank" rel="noopener">ember-orbit</a> - An Ember.js data
-layer heavily inspired by Ember Data.</li>
-</ul>
+<p>Last but not least, it’s recommended that you use a <code>Coordinator</code> instead of
+manually configuring event listeners. Read on to understand why …</p>
  
   <div class="guide-links">
     
-    <span>← <a href="/v0.15/guide/index.html">Introduction</a></span>
+    <span>← <a href="/v0.16/guide/task-processing.html">Task processing</a></span>
      
-    <span style="float:right"><a href="/v0.15/guide/getting-started.html">Getting started</a> →</span>
+    <span style="float:right"><a href="/v0.16/guide/coordination.html">Coordination strategies</a> →</span>
     
   </div>
   
   <div class="footer">
     Want to correct or improve this documentation?
-    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.15/guide/packages.md" target="_blank">
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.16/guide/data-flows.md" target="_blank">
       Edit this page on Github!
     </a>
   </div>
