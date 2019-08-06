@@ -195,6 +195,10 @@ on <a href="https://www.npmjs.com/org/orbit" target="_blank" rel="noopener">npm<
 module formats and ES language levels. Most Orbit packages are isomorphic—they
 can run in modern browsers as well as in the <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>
 runtime.</p>
+<blockquote>
+<p>Looking a quick code walkthrough? Check out the <a href="./getting-started.html">Getting
+Started Guide</a>.</p>
+</blockquote>
 <h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>Orbit was primarily designed to support the data needs of ambitious client-side
 web applications, including:</p>
 <ul>
@@ -223,37 +227,44 @@ and fallback plans.</p>
 </ul>
 <h2 id="Basic-constraints"><a href="#Basic-constraints" class="headerlink" title="Basic constraints"></a>Basic constraints</h2><p>In order to meet these ambitious goals, Orbit embraces a set of basic
 constraints related to data sources and interactions between them.</p>
-<h3 id="Disparate-sources"><a href="#Disparate-sources" class="headerlink" title="Disparate sources"></a>Disparate sources</h3><p><img src="/images/concepts/disparate-sources.png" class="medium-pic right-pic"></p>
+<h3 id="Disparate-sources"><a href="#Disparate-sources" class="headerlink" title="Disparate sources"></a>Disparate sources</h3><img src="/images/concepts/disparate-sources.png" class="medium-pic right-pic">
+
 <p>Any number of data sources of varying types and faculties may be required to
 build any given web application.</p>
 <div class="clearfix"></div>
 
-<h3 id="Disparate-data"><a href="#Disparate-data" class="headerlink" title="Disparate data"></a>Disparate data</h3><p><img src="/images/concepts/disparate-data.png" class="medium-pic right-pic"></p>
+<h3 id="Disparate-data"><a href="#Disparate-data" class="headerlink" title="Disparate data"></a>Disparate data</h3><img src="/images/concepts/disparate-data.png" class="medium-pic right-pic">
+
 <p>Sources of data vary widely in how they internally represent and access that
 data.</p>
 <div class="clearfix"></div>
 
-<h3 id="Compatible-interfaces"><a href="#Compatible-interfaces" class="headerlink" title="Compatible interfaces"></a>Compatible interfaces</h3><p><img src="/images/concepts/common-interfaces.png" class="medium-pic right-pic"></p>
+<h3 id="Compatible-interfaces"><a href="#Compatible-interfaces" class="headerlink" title="Compatible interfaces"></a>Compatible interfaces</h3><img src="/images/concepts/common-interfaces.png" class="medium-pic right-pic">
+
 <p>Communication between sources must happen using a compatible set of interfaces.</p>
 <div class="clearfix"></div>
 
-<h3 id="Normalized-data"><a href="#Normalized-data" class="headerlink" title="Normalized data"></a>Normalized data</h3><p><img src="/images/concepts/normalized-data.png" class="medium-pic right-pic"></p>
+<h3 id="Normalized-data"><a href="#Normalized-data" class="headerlink" title="Normalized data"></a>Normalized data</h3><img src="/images/concepts/normalized-data.png" class="medium-pic right-pic">
+
 <p>Data that flows between sources must be normalized to a shared schema.</p>
 <div class="clearfix"></div>
 
-<h3 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h3><p><img src="/images/concepts/evented-connections.png" class="medium-pic right-pic"></p>
+<h3 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h3><img src="/images/concepts/evented-connections.png" class="medium-pic right-pic">
+
 <p>Sources need a notification system through which changes can be
 observed. Changes in one source must be able to trigger changes in other
 sources.</p>
 <div class="clearfix"></div>
 
-<h3 id="Flow-control"><a href="#Flow-control" class="headerlink" title="Flow control"></a>Flow control</h3><p><img src="/images/concepts/flow-control.png" class="medium-pic right-pic"></p>
+<h3 id="Flow-control"><a href="#Flow-control" class="headerlink" title="Flow control"></a>Flow control</h3><img src="/images/concepts/flow-control.png" class="medium-pic right-pic">
+
 <p>Data flow across sources must be configurable. Flows can be <em>optimistic</em>
 (successful regardless of their impact) or <em>pessimistic</em> (blocked until
 dependent changes have resolved).</p>
 <div class="clearfix"></div>
 
-<h3 id="Change-tracking"><a href="#Change-tracking" class="headerlink" title="Change tracking"></a>Change tracking</h3><p><img src="/images/concepts/change-tracking.png" class="medium-pic right-pic"></p>
+<h3 id="Change-tracking"><a href="#Change-tracking" class="headerlink" title="Change tracking"></a>Change tracking</h3><img src="/images/concepts/change-tracking.png" class="medium-pic right-pic">
+
 <p>Mutations, and not just the effects of mutations, must be trackable to allow
 changes to be logged, diff’d, sync’d, and even reverted.</p>
 <div class="clearfix"></div>
