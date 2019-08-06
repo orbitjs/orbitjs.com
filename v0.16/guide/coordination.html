@@ -301,6 +301,39 @@ all.</p>
 <p>To limit the strategy to apply to only specific sources:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(</span><br><span class="line">  <span class="keyword">new</span> LogTruncationStrategy(&#123;</span><br><span class="line">    sources: [<span class="string">"backup"</span>, <span class="string">"memory"</span>]</span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
+<h2 id="Using-hints"><a href="#Using-hints" class="headerlink" title="Using hints"></a>Using hints</h2><p>Orbit v0.16 introduced the concept of “hints”, which allow request listeners to
+influence the results that a source returns from that request.</p>
+<h3 id="Why-use-hints"><a href="#Why-use-hints" class="headerlink" title="Why use hints?"></a>Why use hints?</h3><p>The main reason to use hints is to allow sources to take into account outside
+information when processing a request. For instance, let’s say that a user
+queries a memory source and wants records returned in the same order they’re
+returned from the server. If the server is using a complex sorting algorithm, it
+may be impossible to recreate that same logic (and full dataset) on the client
+in the <code>MemorySource</code>.</p>
+<h3 id="How-can-you-use-hints"><a href="#How-can-you-use-hints" class="headerlink" title="How can you use hints?"></a>How can you use hints?</h3><p>Hints are only available to methods that are part of the request flow, such as
+<code>query</code> and <code>update</code>. Hints are returned by listeners to <code>before[X]</code> events to
+aid in the fulfillment of <code>[X]</code> requests. They can only be applied in a blocking
+fashion - otherwise the request may be fulfilled prior to the hint being
+returned.</p>
+<p>Let’s work through an example using hints to influence the results of a
+<code>MemorySource</code> query based upon the records returned from the same query applied
+to a <code>JSONAPISource</code>.</p>
+<p>You’ll start by creating a new <code>RequestStrategy</code> that ensures that when the
+<code>memory</code> (<code>MemorySource</code>) is queried, the <code>remote</code> (<code>JSONAPISource</code>) source will
+be too:</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(</span><br><span class="line">  <span class="keyword">new</span> RequestStrategy(&#123;</span><br><span class="line">    source: <span class="string">"memory"</span>,</span><br><span class="line">    target: <span class="string">"remote"</span>,</span><br><span class="line">    on: <span class="string">"beforeQuery"</span>,</span><br><span class="line">    action: <span class="string">"query"</span>,</span><br><span class="line">    blocking: <span class="literal">true</span>,</span><br><span class="line">    passHints: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>Several things to note here:</p>
+<ul>
+<li><code>blocking: true</code> is strictly required for hints to function.</li>
+<li>The results of <code>action</code> will be sent as hints, so the method needs to return records as results. <code>query</code> will work, but <code>pull</code> will not.</li>
+<li><code>passHints: true</code> tells the strategy to actually pass the results of <code>remote.query</code> as hints.</li>
+</ul>
+<p>You’ll also want to create a blocking <code>SyncStrategy</code> that syncs any transforms applied to the <code>remote</code> source back to the <code>memory</code> source:</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">coordinator.addStrategy(</span><br><span class="line">  <span class="keyword">new</span> SyncStrategy(&#123;</span><br><span class="line">    source: <span class="string">"remote"</span>,</span><br><span class="line">    target: <span class="string">"memory"</span>,</span><br><span class="line">    blocking: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>The strategy will ensure that data will be populated in the <code>memory</code> source entirely before it attempts to fulfill the <code>query</code> result.</p>
+<p>Now, when <code>memory.query(q =&gt; q.findRecords(&#39;planet&#39;))</code> is issued, the records returned should still come from the <code>memory</code> source, but their identities and order should match the records returned from <code>remote.query(q =&gt; q.findRecords(&#39;planet&#39;))</code>.</p>
+<h3 id="Caveats-to-using-hints"><a href="#Caveats-to-using-hints" class="headerlink" title="Caveats to using hints"></a>Caveats to using hints</h3><p>Hints have only been fully tested with the <code>query</code> and <code>update</code> events and the standard sources.</p>
  
   <div class="guide-links">
     
