@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+        <title>What's new in v0.16 - Orbit.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="What's new in v0.16 - Orbit.js">
+        <meta property="og:description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
+        <meta property="og:image" content="http://orbitjs.com/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="What's new in v0.16 - Orbit.js">
+        <meta name="twitter:description" content="A framework for orchestrating access, transformation, and synchronization between data sources.">
+        <meta name="twitter:image" content="http://orbitjs.com/images/logo.png">
+
+        <!-- ****** faviconit.com favicons ****** -->
+      	<link rel="shortcut icon" href="/favicon.ico">
+      	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+      	<link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+      	<link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+      	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+      	<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+      	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+      	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+      	<link rel="apple-touch-icon" href="/favicon-57.png">
+      	<link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+      	<link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
+      	<link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
+      	<link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
+      	<link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
+      	<link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
+      	<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
+      	<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+      	<meta name="msapplication-TileColor" content="#FFFFFF">
+      	<meta name="msapplication-TileImage" content="/favicon-144.png">
+      	<meta name="msapplication-config" content="/browserconfig.xml">
+      	<!-- ****** faviconit.com favicons ****** -->
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script>window.PAGE_TYPE = "guide"</script>
+
+        <!-- ga -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-1632329-6', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/orbitjs.png" alt="Orbit.js">
+  </a>
+  <ul id="nav">
+    <li><a href="/v0.16/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                     <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/v0.16/guide/" class="nav-link current">Guide</a></li>
+<li><a href="/sponsor/" class="nav-link">Sponsor</a></li>
+<li><a href="https://github.com/orbitjs/orbit" class="nav-link">GitHub</a></li>
+<li class="nav-dropdown-container">
+  <a class="nav-link">Community</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li class="nav-gitter"><a href="https://gitter.im/orbitjs/orbit.js" class="nav-link" target="_blank">Chat</a></li>
+    <li class="nav-twitter"><a href="https://twitter.com/orbitjs" class="nav-link" target="_blank">Twitter</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+        <h2>
+            Guide
+            <select class="version-select">
+                
+                <option value="0.15">v0.15</option>
+                
+                <option value="0.16" selected>v0.16</option>
+                
+            </select>
+        </h2>
+        <div id="donate" style="margin-bottom: 20px">
+            <img src="/images/paypal.png">
+            <a href="/sponsor">Sponsor Orbit.js</a>
+        </div>
+        <ul class="menu-root">
+            
+            
+            
+                
+                <li>
+                    <a href="/v0.16/guide/index.html" class="sidebar-link">Introduction</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/whats-new.html" class="sidebar-link current">What's new in v0.16</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/modeling-data.html" class="sidebar-link">Modeling data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/data-sources.html" class="sidebar-link">Data sources</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/updating-data.html" class="sidebar-link">Updating data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/querying-data.html" class="sidebar-link">Querying data</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/task-processing.html" class="sidebar-link">Task processing</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/data-flows.html" class="sidebar-link">Data flows</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/coordination.html" class="sidebar-link">Coordination strategies</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/memory-sources.html" class="sidebar-link">Memory sources</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/license.html" class="sidebar-link">License</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+ 
+<div class="content guide with-sidebar whats-new-guide">
+   
+  <h1>What's new in v0.16</h1>
+   <p>This is a distillation of what’s new in Orbit v0.16, intended as a reference for developers who need to upgrade their apps and libraries from v0.15.</p>
+<h2 id="Changelog-and-release-notes"><a href="#Changelog-and-release-notes" class="headerlink" title="Changelog and release notes"></a>Changelog and release notes</h2><p>The v0.16 beta cycle represents the first releases with a formal <a href="https://github.com/orbitjs/orbit/blob/master/CHANGELOG.md" target="_blank" rel="noopener">changelog</a> and <a href="https://github.com/orbitjs/orbit/releases" target="_blank" rel="noopener">release notes</a>. We’re committed to continuing this process going forward.</p>
+<h2 id="New-and-renamed-packages"><a href="#New-and-renamed-packages" class="headerlink" title="New (and renamed) packages"></a>New (and renamed) packages</h2><p>New packages have been introduced since v0.15:</p>
+<ul>
+<li><p><code>@orbit/memory</code> - The <code>@orbit/store</code> package has been deprecated in favor of a new <code>@orbit/memory</code> package (which contains all the same functionality). This clears the way for future Orbit packages that contain higher level Model and Store primitives.</p>
+</li>
+<li><p><code>@orbit/record-cache</code> - Extracts the <code>Cache</code> class from <code>@orbit/memory</code> as well as its associated processors to provide an abstract base for creating sources that access and maintain a complete set of records. Sync and async versions of caching logic are supported. This package is now used not only by <code>@orbit/memory</code>, but also by <code>@orbit/indexeddb</code> and <code>@orbit/local-storage</code>.</p>
+</li>
+<li><p><code>@orbit/serializers</code> - A set of interfaces and serializer classes that can be used by sources to serialize / deserialize primitive data types. Serializers are now used within the JSONAPISerializer to handle types such as <code>boolean</code>, <code>string</code>, <code>date</code>, <code>datetime</code>, and <code>number</code>. Serializers for custom types can also be registered (see <a href="https://github.com/orbitjs/orbit/pull/591" target="_blank" rel="noopener">https://github.com/orbitjs/orbit/pull/591</a> for a complete description).</p>
+</li>
+<li><p><code>@orbit/identity-map</code> - A new identity map for managing model instances. Intended for building Model and Store primitives.</p>
+</li>
+</ul>
+<h2 id="Request-hints"><a href="#Request-hints" class="headerlink" title="Request hints"></a>Request hints</h2><p>Orbit v0.16 introduces the concept of “hints”, which allow request listeners to
+influence the results that a source returns from that request.</p>
+<p>The main reason to use hints is to allow sources to take into account outside
+information when processing a request. For instance, let’s say that a user
+queries a memory source and wants records returned in the same order they’re
+returned from the server. If the server is using a complex sorting algorithm, it
+may be impossible to recreate that same logic (and full dataset) on the client
+in the <code>MemorySource</code>.</p>
+<p>Read more about using hints in the guide to <a href="./coordination.html#Using-hints">coordination strategies</a>.</p>
+<h2 id="Memory-sources-can-now-be-“rebased”"><a href="#Memory-sources-can-now-be-“rebased”" class="headerlink" title="Memory sources can now be “rebased”"></a>Memory sources can now be “rebased”</h2><p>A new <code>rebase</code> method has been added to <code>@orbit/memory</code>. The <code>rebase</code> method works similarly to a git rebase. After a memory source has been forked, there will be two sources: a base and a fork. Both may be updated with transforms. When <code>fork.rebase()</code> is called, any commits on the fork will be undone, the commits to the base store since the fork point will be replayed on the fork, and then the commits on the fork will be replayed on top.</p>
+<h2 id="Polymorphic-relationship-support"><a href="#Polymorphic-relationship-support" class="headerlink" title="Polymorphic relationship support"></a>Polymorphic relationship support</h2><p>Relationships in your schemas can now specify multiple possible models as an array in the <code>model</code> field. For example:</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">  &#123;</span><br><span class="line">    models: &#123;</span><br><span class="line">      star: &#123;</span><br><span class="line">        relationships: &#123;</span><br><span class="line">          celestialObjects: &#123; <span class="keyword">type</span>: <span class="string">'hasMany'</span>, model: [<span class="string">'planet'</span>, <span class="string">'moon'</span>], inverse: <span class="string">'star'</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this way, a star can have both planets and moons as <code>celestialObjects</code>. Orbit is now one step closer to full JSON:API compliance! ⭐️</p>
+<h2 id="JSON-API-source-customizations"><a href="#JSON-API-source-customizations" class="headerlink" title="JSON:API source customizations"></a>JSON:API source customizations</h2><p>The <code>@orbit/jsonapi</code> source now does its request processing in a new customizable <code>JSONAPIRequestProcessor</code> and <code>JSONAPIURLBuilder</code> classes.</p>
+<h2 id="Preliminary-Support-JSON-API-operations"><a href="#Preliminary-Support-JSON-API-operations" class="headerlink" title="Preliminary: Support JSON:API operations"></a>Preliminary: Support JSON:API operations</h2><p>This release introduces preliminary and partial support for <a href="https://github.com/json-api/json-api/pull/1254" target="_blank" rel="noopener">JSON:API Operations</a> in <code>@orbit/jsonapi</code>, which are expected to be introduced to the JSON:API spec soon. Serialization and deserialization support for operations has been added to the <code>JSONAPISerializer</code> class. Further support will be added to the <code>JSONAPISource</code> for processing requests that include operations.</p>
+<h2 id="Breaking-New-expectations-for-sources"><a href="#Breaking-New-expectations-for-sources" class="headerlink" title="Breaking: New expectations for sources!"></a>Breaking: New expectations for sources!</h2><p>While testing the hinting feature and its interactions with different source interfaces, Paul Chavard (@tchak) uncovered some scenarios in which hints could fail to return expected results (see <a href="https://github.com/orbitjs/orbit/pull/612" target="_blank" rel="noopener">#612</a>). This led to a quest to understand those problems and fix them across source interfaces. Unfortunately, in order to guarantee predictable and consistent behavior, we needed to move some responsibilities to source implementations that were previously handled in Orbit’s private implementations of those interfaces.</p>
+<p>Thus, if you’re writing sources, please ensure that you do the following in any of your internal implementation methods that work with transforms (e.g. <code>_update</code>, <code>_sync</code>, etc.):</p>
+<ul>
+<li><p>Check the <code>transformLog</code> for the requested transform to see if work actually needs to be done before doing it.</p>
+</li>
+<li><p>Invoke <code>transformed</code> for any transforms that are applied.</p>
+</li>
+</ul>
+<p>By moving these responsibilities to source implementations, we allow more flexibility in implementations. For instance, <code>_update</code> can ignore re-applying transforms that may have been sync’d via <code>beforeUpdate</code> listeners, while still returning results that are specified via the <code>hints</code> argument.</p>
+<p>In order to update the <code>@orbit/memory</code> source to both support hints and respond to the above requirements, the following changes were needed:</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">  <span class="comment">/////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line">  <span class="comment">// Syncable interface implementation</span></span><br><span class="line">  <span class="comment">/////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> _sync(transform: Transform): <span class="built_in">Promise</span>&lt;<span class="built_in">void</span>&gt; &#123;</span><br><span class="line">-    <span class="keyword">this</span>._applyTransform(transform);</span><br><span class="line">+    <span class="keyword">if</span> (!<span class="keyword">this</span>.transformLog.contains(transform.id)) &#123;</span><br><span class="line">+      <span class="keyword">this</span>._applyTransform(transform); <span class="comment">// &lt;- internal implementation that applies the transform to the source's cache</span></span><br><span class="line">+      <span class="keyword">await</span> <span class="keyword">this</span>.transformed([transform]);</span><br><span class="line">+    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line">  <span class="comment">// Updatable interface implementation</span></span><br><span class="line">  <span class="comment">/////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> _update(transform: Transform, hints?: <span class="built_in">any</span>): <span class="built_in">Promise</span>&lt;<span class="built_in">any</span>&gt; &#123;</span><br><span class="line">-    <span class="keyword">return</span> <span class="keyword">this</span>._applyTransform(transform);</span><br><span class="line">+    <span class="keyword">let</span> results: PatchResultData[];</span><br><span class="line">+</span><br><span class="line">+    <span class="keyword">if</span> (!<span class="keyword">this</span>.transformLog.contains(transform.id)) &#123;</span><br><span class="line">+      results = <span class="keyword">this</span>._applyTransform(transform); <span class="comment">// &lt;- internal implementation that applies the transform to the source's cache</span></span><br><span class="line">+      <span class="keyword">await</span> <span class="keyword">this</span>.transformed([transform]);</span><br><span class="line">+    &#125;</span><br><span class="line">+</span><br><span class="line">+    <span class="keyword">if</span> (hints &amp;&amp; hints.data) &#123;</span><br><span class="line">+      <span class="keyword">if</span> (transform.operations.length &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">Array</span>.isArray(hints.data)) &#123;</span><br><span class="line">+        <span class="keyword">return</span> hints.data.map(<span class="function">(<span class="params">idOrIds: RecordIdentity | RecordIdentity[]</span>) =&gt;</span></span><br><span class="line">+          <span class="keyword">this</span>._retrieveFromCache(idOrIds)</span><br><span class="line">+        );</span><br><span class="line">+      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">+        <span class="keyword">return</span> <span class="keyword">this</span>._retrieveFromCache(hints.data);</span><br><span class="line">+      &#125;</span><br><span class="line">+    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (results) &#123;</span><br><span class="line">+      <span class="keyword">if</span> (transform.operations.length === <span class="number">1</span> &amp;&amp; <span class="built_in">Array</span>.isArray(results)) &#123;</span><br><span class="line">+        <span class="keyword">return</span> results[<span class="number">0</span>];</span><br><span class="line">+      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">+        <span class="keyword">return</span> results;</span><br><span class="line">+      &#125;</span><br><span class="line">+    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line">  <span class="comment">// Queryable interface implementation</span></span><br><span class="line">  <span class="comment">/////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> _query(query: Query, hints?: <span class="built_in">any</span>): <span class="built_in">Promise</span>&lt;<span class="built_in">any</span>&gt; &#123;</span><br><span class="line">-    <span class="keyword">return</span> <span class="keyword">this</span>._cache.query(query);</span><br><span class="line">+    <span class="keyword">if</span> (hints &amp;&amp; hints.data) &#123;</span><br><span class="line">+      <span class="keyword">return</span> <span class="keyword">this</span>._retrieveFromCache(hints.data);</span><br><span class="line">+    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">+      <span class="keyword">return</span> <span class="keyword">this</span>._cache.query(query);</span><br><span class="line">+    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Please review your custom sources to make any necessary changes. If your methods don’t support hints, the diffs should rather small, like in the <code>_sync</code> method above. If you want to support <code>hints</code>, you’ll need to provide alternate code paths for when hints are provided and not, like in the <code>_update</code> and <code>_query</code> methods above.</p>
+<p>We’re planning to include a guide to writing your own sources with the v0.16 release to clarify all these responsibilities.</p>
+<h2 id="Other-changes"><a href="#Other-changes" class="headerlink" title="Other changes"></a>Other changes</h2><ul>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/667" target="_blank" rel="noopener">#667</a> The <code>@orbit/jsonapi</code> source now supports the <code>Updatable</code> interface, which can be more user-friendly to directly interact with than the <code>Pullable</code> interface.</p>
+</li>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/669" target="_blank" rel="noopener">#669</a> <code>filter</code> | <code>sort</code> | <code>page</code> support has been added to <code>findRelatedRecords</code> queries and all the standard implementations.</p>
+</li>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/671" target="_blank" rel="noopener">#671</a> Explicit source <code>activate</code> and <code>deactivate</code> methods have been added to provide hooks to ensure that sources have performed any setup and teardown steps prior to processing. These hooks are automatically called as part of coordinator activation / deactivation, and sources themselves will auto-activate by default (note that this is an async process that can be watched via the new <code>activated</code> property).</p>
+</li>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/673" target="_blank" rel="noopener">#673</a> Whenever tasks are cancelled and removed from a queue (such as a source’s <code>requestQueue</code> or <code>syncQueue</code>), the promise associated with that task will now always be rejected (if it hasn’t already settled). You can control the rejection error or use the default error.</p>
+</li>
+</ul>
+<h2 id="Other-deprecations-breaking-changes"><a href="#Other-deprecations-breaking-changes" class="headerlink" title="Other deprecations / breaking changes"></a>Other deprecations / breaking changes</h2><ul>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/574" target="_blank" rel="noopener">#574</a> Deprecate <code>replaceRecord</code> op in favor of <code>updateRecord</code>.</p>
+</li>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/573" target="_blank" rel="noopener">#573</a> Expose <code>assert</code> + <code>deprecate</code> only on OrbitGlobal.</p>
+</li>
+<li><p><a href="https://github.com/orbitjs/orbit/pull/567" target="_blank" rel="noopener">#567</a> Define <code>Listener</code> interface and remove support for explicit binding object in listeners.</p>
+</li>
+</ul>
+<h2 id="Committers"><a href="#Committers" class="headerlink" title="Committers"></a>Committers</h2><p>Many thanks to the committers who made v0.16 possible:</p>
+<ul>
+<li>Alexey (<a href="https://github.com/Raiondesu" target="_blank" rel="noopener">@Raiondesu</a>)</li>
+<li>Andrey Mikhaylov (<a href="https://github.com/lolmaus" target="_blank" rel="noopener">@lolmaus</a>)</li>
+<li>Bernhard Halbartschlager (<a href="https://github.com/Bernhard---H" target="_blank" rel="noopener">@Bernhard—H</a>)</li>
+<li>Dan Gebhardt (<a href="https://github.com/dgeb" target="_blank" rel="noopener">@dgeb</a>)</li>
+<li>Gerald Gayowsky (<a href="https://github.com/ggayowsky" target="_blank" rel="noopener">@ggayowsky</a>)</li>
+<li>Luke Melia (<a href="https://github.com/lukemelia" target="_blank" rel="noopener">@lukemelia</a>)</li>
+<li>Miguel Camba (<a href="https://github.com/cibernox" target="_blank" rel="noopener">@cibernox</a>)</li>
+<li>Paul Chavard (<a href="https://github.com/tchak" target="_blank" rel="noopener">@tchak</a>)</li>
+<li>Paweł Bator (<a href="https://github.com/jembezmamy" target="_blank" rel="noopener">@jembezmamy</a>)</li>
+<li>Pieter-Jan Vandenbussche (<a href="https://github.com/PieterJanVdb" target="_blank" rel="noopener">@PieterJanVdb</a>)</li>
+<li>Simon Ihmig (<a href="https://github.com/simonihmig" target="_blank" rel="noopener">@simonihmig</a>)</li>
+</ul>
+ 
+  <div class="guide-links">
+     
+  </div>
+  
+  <div class="footer">
+    Want to correct or improve this documentation?
+    <a href="https://github.com/orbitjs/orbitjs-site/blob/master/src/v0.16/guide/whats-new.md" target="_blank">
+      Edit this page on Github!
+    </a>
+  </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/common.js"></script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

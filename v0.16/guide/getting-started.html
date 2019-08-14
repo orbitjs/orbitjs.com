@@ -128,12 +128,17 @@
             
                 
                 <li>
-                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link current">Getting started</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link current">Getting started</a>
+                    <a href="/v0.16/guide/whats-new.html" class="sidebar-link">What's new in v0.16</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
                 </li>
             
                 
@@ -193,7 +198,7 @@ application. Sticking with the “orbit” theme, this application will track so
 objects orbiting in our own solar system.</p>
 <h2 id="Defining-a-schema"><a href="#Defining-a-schema" class="headerlink" title="Defining a schema"></a>Defining a schema</h2><p>Schemas are used to define the models and relationships for an application.</p>
 <p>Let’s start by defining a schema for our solar system’s data:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">"@orbit/data"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> schemaDefinition = &#123;</span><br><span class="line">  models: &#123;</span><br><span class="line">    planet: &#123;</span><br><span class="line">      attributes: &#123;</span><br><span class="line">        name: &#123; <span class="attr">type</span>: <span class="string">"string"</span> &#125;,</span><br><span class="line">        classification: &#123; <span class="attr">type</span>: <span class="string">"string"</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      relationships: &#123;</span><br><span class="line">        moons: &#123; <span class="attr">type</span>: <span class="string">"hasMany"</span>, <span class="attr">model</span>: <span class="string">"moon"</span>, <span class="attr">inverse</span>: <span class="string">"planet"</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    moon: &#123;</span><br><span class="line">      attributes: &#123;</span><br><span class="line">        name: &#123; <span class="attr">type</span>: <span class="string">"string"</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      relationships: &#123;</span><br><span class="line">        planet: &#123; <span class="attr">type</span>: <span class="string">"hasOne"</span>, <span class="attr">model</span>: <span class="string">"planet"</span>, <span class="attr">inverse</span>: <span class="string">"moons"</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(schemaDefinition);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">"@orbit/data"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">  models: &#123;</span><br><span class="line">    planet: &#123;</span><br><span class="line">      attributes: &#123;</span><br><span class="line">        name: &#123; <span class="attr">type</span>: <span class="string">"string"</span> &#125;,</span><br><span class="line">        classification: &#123; <span class="attr">type</span>: <span class="string">"string"</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      relationships: &#123;</span><br><span class="line">        moons: &#123; <span class="attr">type</span>: <span class="string">"hasMany"</span>, <span class="attr">model</span>: <span class="string">"moon"</span>, <span class="attr">inverse</span>: <span class="string">"planet"</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    moon: &#123;</span><br><span class="line">      attributes: &#123;</span><br><span class="line">        name: &#123; <span class="attr">type</span>: <span class="string">"string"</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      relationships: &#123;</span><br><span class="line">        planet: &#123; <span class="attr">type</span>: <span class="string">"hasOne"</span>, <span class="attr">model</span>: <span class="string">"planet"</span>, <span class="attr">inverse</span>: <span class="string">"moons"</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>This schema defines two models, <code>planet</code> and <code>moon</code>, as well as the attributes
 and relationships that are possible for each. A moon can have one planet, while
@@ -374,11 +379,7 @@ continue reading the guides to gain a deeper understanding of how Orbit works
 and how to make the most of it.</p>
  
   <div class="guide-links">
-    
-    <span>← <a href="/v0.16/guide/packages.html">Packages</a></span>
      
-    <span style="float:right"><a href="/v0.16/guide/modeling-data.html">Modeling data</a> →</span>
-    
   </div>
   
   <div class="footer">

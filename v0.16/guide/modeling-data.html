@@ -128,12 +128,17 @@
             
                 
                 <li>
-                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
+                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link">Getting started</a>
                 </li>
             
                 
                 <li>
-                    <a href="/v0.16/guide/getting-started.html" class="sidebar-link">Getting started</a>
+                    <a href="/v0.16/guide/whats-new.html" class="sidebar-link">What's new in v0.16</a>
+                </li>
+            
+                
+                <li>
+                    <a href="/v0.16/guide/packages.html" class="sidebar-link">Packages</a>
                 </li>
             
                 
@@ -272,6 +277,19 @@ results in a corresponding change on the inverse model.</p>
 inverses:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Schema &#125; <span class="keyword">from</span> <span class="string">"@orbit/data"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">  models: &#123;</span><br><span class="line">    planet: &#123;</span><br><span class="line">      relationships: &#123;</span><br><span class="line">        moons: &#123; <span class="attr">type</span>: <span class="string">"hasMany"</span>, <span class="attr">model</span>: <span class="string">"moon"</span>, <span class="attr">inverse</span>: <span class="string">"planet"</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    moon: &#123;</span><br><span class="line">      relationships: &#123;</span><br><span class="line">        planet: &#123; <span class="attr">type</span>: <span class="string">"hasOne"</span>, <span class="attr">model</span>: <span class="string">"planet"</span>, <span class="attr">inverse</span>: <span class="string">"moons"</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h3 id="Model-name-inflections"><a href="#Model-name-inflections" class="headerlink" title="Model name inflections"></a>Model name inflections</h3><p>By default, Orbit uses very simple inflections, or pluralization/singularization
+of model names - e.g. <code>user &lt;-&gt; users</code>. Depending on your API, you may need to
+handle this yourself. A common error from same is where <code>countries</code> gets converted
+to <code>countrie</code>, as the <code>s</code> is programatically removed from it when it’s singularized.</p>
+<p>You can override the Orbit inflectors via the Schema factory, e.g.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Schema(&#123;</span><br><span class="line">  models,</span><br><span class="line">  pluralize,</span><br><span class="line">  singularize</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>There are several inflection packages available on NPM, or you can keep it super
+simple for a small application and do something like the following, where a simple
+map containing your model names and their inflections can be kept up to date with
+your models.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> inflect = &#123;</span><br><span class="line">  country: <span class="string">'countries'</span>,</span><br><span class="line">  countries: <span class="string">'country'</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Schema(&#123;</span><br><span class="line">  models,</span><br><span class="line">  pluralize: <span class="function"><span class="params">word</span> =&gt;</span> inflect[word],</span><br><span class="line">  singularize: <span class="function"><span class="params">word</span> =&gt;</span> inflect[word]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h3 id="Model-keys"><a href="#Model-keys" class="headerlink" title="Model keys"></a>Model keys</h3><p>When working with remote servers that do not support client-generated IDs, it’s
 necessary to correlate locally generated IDs with remotely generated IDs, or
 “keys”. Like <code>id</code>, keys uniquely identify a record of a particular model type.</p>
@@ -304,11 +322,7 @@ local ID scheme. Here’s a naive example:</p>
 
  
   <div class="guide-links">
-    
-    <span>← <a href="/v0.16/guide/getting-started.html">Getting started</a></span>
      
-    <span style="float:right"><a href="/v0.16/guide/data-sources.html">Data sources</a> →</span>
-    
   </div>
   
   <div class="footer">
