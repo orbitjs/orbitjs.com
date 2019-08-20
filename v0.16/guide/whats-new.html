@@ -206,6 +206,15 @@
 <li><p><code>@orbit/identity-map</code> - A new identity map for managing model instances. Intended for building Model and Store primitives.</p>
 </li>
 </ul>
+<h2 id="Build-targets"><a href="#Build-targets" class="headerlink" title="Build targets"></a>Build targets</h2><p>Orbit continues to ship with a matrix of distributions that combine different
+module types (ESM, CJS, and even AMD) with language levels (ES5 and ES2017).</p>
+<p>Because the codebase now extensively uses <code>async</code> / <code>await</code> as well as
+<code>for ... of</code>, the ES5 builds now must be paired with the <code>regenerator-runtime</code>
+package to ensure that the <code>regeneratorRuntime</code> global is defined.</p>
+<p>The default builds targeted by each package’s <code>main</code> and <code>module</code> are now
+ES-latest. These builds are as small and performant as possible, and of course
+can be further processed with Babel if necessary.</p>
+<p><em>Important: There were still some build issues in v0.16.0, which have been resolved in v0.16.1. Please upgrade!</em></p>
 <h2 id="Request-hints"><a href="#Request-hints" class="headerlink" title="Request hints"></a>Request hints</h2><p>Orbit v0.16 introduces the concept of “hints”, which allow request listeners to
 influence the results that a source returns from that request.</p>
 <p>The main reason to use hints is to allow sources to take into account outside
