@@ -311,7 +311,7 @@ to see debug info and sometimes only errors.</p>
 yet set up a process to restore that backed up data.</p>
 <p>If we want our app to restore all of its data from browser storage when it
 first boots, we could perform the following:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> transform = <span class="keyword">await</span> backup.pull(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords());</span><br><span class="line"><span class="keyword">await</span> memory.sync(<span class="string">'transform'</span>);</span><br><span class="line"><span class="keyword">await</span> coordinator.activate());</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> transform = <span class="keyword">await</span> backup.pull(<span class="function"><span class="params">q</span> =&gt;</span> q.findRecords());</span><br><span class="line"><span class="keyword">await</span> memory.sync(transform);</span><br><span class="line"><span class="keyword">await</span> coordinator.activate();</span><br></pre></td></tr></table></figure>
 
 <p>This code first pulls all the records from backup and then syncs them with the
 main memory source <em>before</em> activating the coordinator. In this way, the
