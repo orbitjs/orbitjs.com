@@ -260,9 +260,16 @@ the sources in an application.</p>
 
 <p>Models should be keyed by their singular name, and should be defined as an
 object that contains <code>attributes</code>, <code>relationships</code>, and/or <code>keys</code>.</p>
-<h3 id="Model-attributes"><a href="#Model-attributes" class="headerlink" title="Model attributes"></a>Model attributes</h3><p>Attributes may be defined by their <code>type</code>, such as <code>&quot;string&quot;</code> or <code>&quot;date&quot;</code>,
-which can be used to define their purpose and contents. An attribute’s type may
-also be used to determine how it should be serialized.</p>
+<h3 id="Model-attributes"><a href="#Model-attributes" class="headerlink" title="Model attributes"></a>Model attributes</h3><p>Attributes may be defined by their <code>type</code>, which determines what type of data
+they can contain. An attribute’s type may also be used to determine how it
+should be serialized. Valid attribute types are:</p>
+<ul>
+<li><code>boolean</code></li>
+<li><code>date</code></li>
+<li><code>date-time</code></li>
+<li><code>number</code></li>
+<li><code>string</code></li>
+</ul>
 <h3 id="Model-relationships"><a href="#Model-relationships" class="headerlink" title="Model relationships"></a>Model relationships</h3><p>Two types of relationships between models are allowed:</p>
 <ul>
 <li><code>hasOne</code> - for to-one relationships</li>
