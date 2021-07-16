@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Orbit.js Blog</title>
+        <link>https://orbitjs.com/blog</link>
+        <description>Orbit.js Blog</description>
+        <lastBuildDate>Mon, 12 Jul 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Welcome to the new Orbitjs.com]]></title>
+            <link>https://orbitjs.com/blog/welcome</link>
+            <guid>welcome</guid>
+            <pubDate>Mon, 12 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[I'm excited to announce a new site for Orbit! 🎉]]></description>
+        </item>
+    </channel>
+</rss>
