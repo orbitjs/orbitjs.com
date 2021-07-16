@@ -4,15 +4,16 @@
         <title>Orbit.js Blog</title>
         <link>https://orbitjs.com/blog</link>
         <description>Orbit.js Blog</description>
-        <lastBuildDate>Mon, 12 Jul 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 16 Jul 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>Copyright © 2014-2021 Cerebris Corporation</copyright>
         <item>
             <title><![CDATA[Welcome to the new Orbitjs.com]]></title>
-            <link>https://orbitjs.com/blog/welcome</link>
-            <guid>welcome</guid>
-            <pubDate>Mon, 12 Jul 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[I'm excited to announce a new site for Orbit! 🎉]]></description>
+            <link>https://orbitjs.com/blog/2021/07/16/welcome-to-the-new-orbitjs</link>
+            <guid>Welcome to the new Orbitjs.com</guid>
+            <pubDate>Fri, 16 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[I'm excited to announce a complete refresh of Orbitjs.com! 🎉]]></description>
         </item>
     </channel>
 </rss>
