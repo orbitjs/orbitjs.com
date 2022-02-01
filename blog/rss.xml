@@ -101,8 +101,9 @@ evolve with the web, adopting new ES language and web platform features as
 they are released. Custom utilities have been gradually deprecated and phased
 out of the codebase (e.g. <code>isArray</code> -&gt; <code>Array.isArray</code>), new language features
 such as nullish coalescing and optional chaining have been adopted, and
-platform features such as <code>crypto.randomUUID</code> have been adopted (with a
-fallback implementation if unavailable).</p></li></ul><p>These highlights are covered in more depth, including code samples, in the
+platform features such as
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID"><code>crypto.randomUUID</code></a>
+have been adopted (with a fallback implementation if unavailable).</p></li></ul><p>These highlights are covered in more depth, including code samples, in the
 <a href="/docs/whats-new">&quot;What&#x27;s new&quot;</a> section of the main guides.</p><p>Thanks for your patience with this release. We expect that v0.18 will not take
 nearly as long as v0.17 did. In fact, we plan to use this next release primarily
 to remove deprecated interfaces in preparation for a lean and focused v1.0
